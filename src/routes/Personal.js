@@ -1,9 +1,11 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function Personal() {
-  return (
-    <div>Personal</div>
-  )
+    return (
+        
+    )
 }
 
 export default Personal
