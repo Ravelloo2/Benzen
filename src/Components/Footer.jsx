@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <div>Här i footern får vi komma på något roligt och relevant att ha</div>
   )
 }
 

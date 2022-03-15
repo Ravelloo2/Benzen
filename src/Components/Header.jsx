@@ -1,16 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Navbar from './Navbar';
 
 function Header() {
   return (
-    <div>Header
-            Beder Danskman
-      <nav className='navBar'> 
-        <Link to="/ansoka" >Ansöka</Link> | 
-        <Link to="/kurser" >Kurser</Link> |
-        <Link to="/personal" >Personal</Link> |
-        <Link to="/utbildningar" >Utbildningar</Link> 
-      </nav>
+    <div className="header">
+    <p>Här vill vi kanske också ha en logga?</p>
+    <h2>Benzen Education</h2>
+    <Navbar/>
     </div>
   )
 }
