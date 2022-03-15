@@ -1,11 +1,6 @@
 import React from 'react'
 
 function Personal() {
-<<<<<<< HEAD
-  return (
-    <div>Personal</div>
-  )
-=======
     return (
         <div>
             <form>
@@ -23,7 +18,6 @@ function Personal() {
             </form>
         </div>
     )
->>>>>>> fuck-main
 }
 
 export default Personal

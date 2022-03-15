@@ -54,12 +54,7 @@ function Ansoka() {
       </Button>
     </Col>
   </Row>
-  <Row>
-    <Col s="auto">
-      <FormLabel htmlFor='inlineFormInputGroup'>Förnamn</FormLabel>
-    </Col>
-  </Row>
-</Form>
+  </Form>
     </div>
 
   </div>
