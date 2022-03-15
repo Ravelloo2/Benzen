@@ -1,63 +1,27 @@
 import React from 'react'
-import { Button, FormLabel } from 'react-bootstrap'
-import { Form } from 'react-bootstrap'
-import { Row } from 'react-bootstrap'
-import { Col } from 'react-bootstrap'
-import { InputGroup } from 'react-bootstrap'
-import { FormControl } from 'react-bootstrap'
+import '../css/Ansoka.css'
 
 function Ansoka() {
   return (
-  <div>
+        <div>
+            <form>
+                <label className='fName'>Förnamn:</label><br/>
+                <input type="text" className='fName'></input><br/>
 
-    <div className='Ansoka-form'>
-      <Form>
-  <Row className="align-items-center">
-    <Col xs="auto">
-      <Form.Label htmlFor="inlineFormInput" >
-        Name
-      </Form.Label>
-      <Form.Control
-        className="mb-2"
-        id="inlineFormInput"
-        placeholder="Jane Doe"
-      />
-    </Col>
-    <Col xs="auto">
-      <Form.Label htmlFor="inlineFormInputGroup" >
-        Username
-      </Form.Label>
-      <InputGroup className="mb-2">
-        <InputGroup.Text>@</InputGroup.Text>
-        <FormControl id="inlineFormInputGroup" placeholder="Username" />
-      </InputGroup>
-    </Col>
-    <Col xs="auto">
-      <FormLabel htmlFor='inlineFormInputGroup'> 
-        Email
-      </FormLabel>
-      <InputGroup className='mb-2'>
-        <InputGroup.Text>Email</InputGroup.Text>
-      </InputGroup>
-    </Col>
-    <Col xs="auto">
-      <Form.Check
-        type="checkbox"
-        id="autoSizingCheck"
-        className="mb-2"
-        label="Remember me"
-      />
-    </Col>
-    <Col xs="auto">
-      <Button type="submit" className="mb-2">
-        Submit
-      </Button>
-    </Col>
-  </Row>
-  </Form>
-    </div>
+                <label className='lName'>Efternamn:</label><br/>
+                <input type="text" className='lfName'></input><br/>
 
-  </div>
+                <label className='mail'>Mail:</label><br/>
+                <input type="email" className='mail'></input><br/>
+                
+                <label className='utb'>Utbildning:</label><br/>
+                <select name='utbildningar' id='utbildningar'>
+                  <option className='options'>Mama</option>
+                  <option>Web</option>
+                  <option>kock</option>
+                </select>
+            </form>
+        </div>
   )
 }
 
