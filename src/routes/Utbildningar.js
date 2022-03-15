@@ -1,6 +1,9 @@
-const express = require('express')
-const router = express.Router()
+import React from 'react'
 
+function Utbildningar() {
+  return (
+    <div>Utbildningar</div>
+  )
+}
 
-
-router.get('/')
+export default Utbildningar
