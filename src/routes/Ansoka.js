@@ -1,11 +1,9 @@
 import React from 'react'
 
 function ansoka() {
-  return (  
+  return (
     <div>
-      <p>
-        Ansäka
-      </p>
+      
     </div>
   )
 }

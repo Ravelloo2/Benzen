@@ -5,7 +5,6 @@ function App() {
   return (
     <div className="App">
       Beder Danskman
-      <br></br>
       <nav className='navBar'> 
         <Link to="/ansoka" >Ansöka</Link> | 
         <Link to="/kurser" >Kurser</Link> |

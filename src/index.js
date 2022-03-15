@@ -9,10 +9,10 @@ ReactDOM.render(
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<App/>}/>
-      <Route path='/Utbildningar' element={<App/>} />
-      <Route path='/Kurser' element={<App/>} />
-      <Route path='/Personal' element={<App/>} />
-      <Route path='/Ansoka' element={<App/>} />
+      <Route path='/utbildningar' element={<App/>} />
+      <Route path='/kurser' element={<App/>} />
+      <Route path='/personal' element={<App/>} />
+      <Route path='/ansoka' element={<App/>} />
     </Routes>
     </BrowserRouter>
   </React.StrictMode>,
