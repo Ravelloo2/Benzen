@@ -11,13 +11,14 @@ import Personal from './routes/Personal';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<App/>}/>
-      <Route path='/utbildningar' element={<Utbildningar/>} />
-      <Route path='/kurser' element={<Kurser/>} />
-      <Route path='/personal' element={<Personal/>} />
-      <Route path='/ansoka' element={<Ansoka/>} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<App/>}>
+          <Route path='/utbildningar' element={<Utbildningar />} />
+          <Route path='/kurser' element={<Kurser />} />
+          <Route path='/personal' element={<Personal />} />
+          <Route path='/ansoka' element={<Ansoka />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
