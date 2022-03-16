@@ -1,72 +1,54 @@
 const Course = require("./courses.model");
 
-class CourseService {
+module.exports = class CourseService {
 
-    async create(data) {
-        try {
-            const course = new Course({
-                name: body.name,
-                teacherId: body.teacherId,
-                length: body.length,
-                description: body.description
-            })
-            await course.save();
-            return {success: true, body: course}
-        } catch (error) {
-            return {success: false, error: error}
-        }
-    }
+  static async createCourse(body) {
+    if (body.name && body.length && body.description) {
+      const data = body;
 
-    async findAll() {
-        try {
-            const course = await Course.findAll();
-            return {success: true, body: course}
-        } catch (error) {
-            return {success: false, error: error}
-        }
+      const course = new Course({
+        name: data.name,
+        length: data.length,
+        description: data.description,
+      });
+      await course.save();
+      return course;
+    } else {
+      return { error: "Fields can not be left blank." };
     }
+  }
 
-    async findOne(id) {
-        try {
-            const query = {_id: id}
-            const course = await Course.findOne(query);
-            return {success: true, body: course}
-        } catch (error) {
-            return {success: false, error: error}
-        }
-    }
+  static showCourses() {
+      return Course.find();
+  }
 
-    async update(id, body) {
-        try {
-            const query = {_id: id}
-            const course = await Course.findOne(query);
-            if(body.name){
-                course.name = body.name;
-            }
-            if(body.teacherId) {
-                course.teacherId = body.teacherId;
-            }
-            if(body.length) {
-                course.length = body.length;
-            }
-            if(body.description) {
-                course.description = body.description;
-            }
-            await course.save();
-            return {success: true, body: course}
-        } catch (error) {
-            return {success: false, error: error}
-        }
-    }
+  static showCourse(id){
+    return Course.findOne({_id: id});
+  }
 
-    async deleteOne(id) {
-        try {
-            const query = {_id: id}
-            await Course.deleteOne(query)
-            return {success: true}
-        } catch (error) {
-            return {success: false, error: error}
+  static async updateCourse(id, body){
+    const course = await Course.findOne({_id: id})
+    if(course) {
+        if (body.name){
+            course.name = body.name
+        } 
+        if (body.length) {
+            course.length = body.length
         }
+        if (body.description){
+            course.description = body.description
+        }
+        await course.save();
     }
-}
-module.exports = CourseService;
+    return course;
+  } 
+
+  static async deleteCourse(id) {
+    try {
+        await Course.findByIdAndDelete(id)
+        return {status: 204}
+    } catch (error) {
+        return {error: "course could not be found"}
+    }
+  }
+};
