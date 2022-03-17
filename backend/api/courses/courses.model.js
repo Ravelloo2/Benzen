@@ -1,10 +1,8 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const courseModel = new Schema({
+const courseModel = {
 name: String,
-teacherID: mongoose.ObjectId,
 length: Number,
-description: String
-});
-
-module.exports = mongoose.model("Course", schema);
+description: String,
+};
+module.exports = mongoose.model("Course", courseModel);
