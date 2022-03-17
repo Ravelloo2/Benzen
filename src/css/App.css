@@ -6,3 +6,8 @@
   border-bottom: 1px solid black;
   padding: 1rem;
 }
+
+.landingpage{
+  height: 100vh;
+  background-color:#fafafa;
+}

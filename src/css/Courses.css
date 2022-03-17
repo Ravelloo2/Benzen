@@ -1,0 +1,71 @@
+h2{
+    margin: 1em;
+}
+.courses {
+    margin: 2em auto;
+    width: 70%;
+    min-height: 60vh;
+    background-color: #88c8f3c0;
+    padding: 2%;
+}
+.course-header{
+    display:flex;
+    justify-content: space-between;
+}
+.linkPara{
+    border-radius: 5px;
+}
+.linkPara:hover{
+    font-style: oblique;
+}
+.availableCourses{
+    width: 80%;
+}
+
+table {
+    margin-bottom:2em;
+   }
+th {
+    border-bottom: 1px solid #333;
+  }
+th, td {
+    text-align: left;
+    padding:.6em;
+}
+tr{
+    border-bottom: 1px dashed #333;
+}
+.course-table {
+    width: 90%;
+    margin: 0 auto;
+}
+.coruse-name{
+    width: 30%;
+}
+.course-desc {
+    font-size: .7em;
+    width: 60%;
+}
+
+/* Relaterat till AddCourse */
+
+.add-course-form{
+    width:80%;
+    margin: 2em;
+    display: grid;
+  
+}
+.add-course-btn{
+    margin-top: 1em;
+    border-radius: 5px;
+    width:fit-content;
+}
+.courseLabel{
+    font-weight:bold;
+}
+
+#kurs {
+    padding:.4%;
+    border-radius: 5px;
+    width: 30%;
+}
