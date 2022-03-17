@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <nav className='navBar'> 
     <Link to="/utbildningar" >Utbildningar</Link> | 
-    <Link to="/kurser" >Kurser</Link> |
+    <Link to="/Courses" >Kurser</Link> |
     <Link to="/personal" >Personal</Link> |
     <Link to="/ansoka" >Ansöka</Link> 
   </nav>
