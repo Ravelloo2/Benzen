@@ -2,7 +2,12 @@ import React from 'react'
 
 function Kurser() {
   return (
-    <div>Kurser</div>
+    <div>
+    <h2>Våra kurser</h2>
+    <main>
+
+    </main>
+    </div>
   )
 }
 
