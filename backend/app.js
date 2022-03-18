@@ -13,7 +13,7 @@ const endpoints = require('./api/courses/course.controller')
 
 
 mongoose
-.connect('mongodb://localhost:27017/BenzenDB', {useNewUrlParser: true})
+.connect('mongodb+srv://mongomeron:mongomeron@cluster0.untda.mongodb.net/Cluster0', {useNewUrlParser: true})
   .then(()=> {
     console.log('Database connected');
   })

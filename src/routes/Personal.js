@@ -5,7 +5,7 @@ function Personal() {
         <div>
             <form>
                 <label className='fName'>Förnamn:</label><br/>
-                <input id='lName' type="text" className='fName'></input><br/>
+                <input id='fName' type="text" className='fName'></input><br/>
 
                 <label className='lName'>Efternamn:</label><br/>
                 <input id='lName' type="text" className='lfName'></input><br/>
