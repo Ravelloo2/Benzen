@@ -35,6 +35,7 @@ mongoose
 
  app.use('/courses', courseEndpoints);
  app.use('/education',require('./api/education/education.controller'));
+ app.use('/personal',require('./api/personal/personal.controller'));
   app.listen(3001, () => {
     console.log("server started on port 3001");
   });
