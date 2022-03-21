@@ -7,3 +7,5 @@ const applyModel = {
     Utbildningar: String,
 
 }
+
+module.exports = mongoose.model("ansoka", applyModel)
