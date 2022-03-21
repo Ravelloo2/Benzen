@@ -24,7 +24,7 @@ mongoose
 
   
   
-  app.use('/utbildningar',require('./api/utbildningar.js'));
+  app.use('/education',require('./api/education/education.controller'));
   
   /*app.use((req, res, next) => {
     res.sendFile(path.join(__dirname, "..", "build", "index.html"));
