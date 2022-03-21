@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
 
 const mongoose = require('mongoose');
-const endpoints = require('./api/courses/course.controller') 
+const courseEndpoints = require('./api/courses/course.controller') 
 app.use(cors());
 
 
@@ -32,7 +32,7 @@ mongoose
     res.sendFile(path.join(__dirname, "..", "build", "index.html"));
   });
   */
- app.use('/courses', endpoints);
+ app.use('/courses', courseEndpoints);
 
   app.listen(3001, () => {
     console.log("server started on port 3001");
