@@ -5,6 +5,7 @@ const app = express();
 var cors = require('cors');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "..", "build")));
 
 const mongoose = require('mongoose');
 const courseEndpoints = require('./api/courses/course.controller') 
@@ -33,7 +34,6 @@ mongoose
   */
  app.use('/courses', courseEndpoints);
  
- app.use(express.static(path.join(__dirname, "..", "build")));
 
  app.get('*', (req, res) => {
    res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
