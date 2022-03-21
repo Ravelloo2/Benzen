@@ -26,14 +26,15 @@ mongoose
   app.use(express.urlencoded({extended:false}));
   
   
-  app.use('/education',require('./api/education/education.controller'));
+  
   
   /*app.use((req, res, next) => {
     res.sendFile(path.join(__dirname, "..", "build", "index.html"));
   });
   */
- app.use('/courses', courseEndpoints);
 
+ app.use('/courses', courseEndpoints);
+ app.use('/education',require('./api/education/education.controller'));
   app.listen(3001, () => {
     console.log("server started on port 3001");
   });
