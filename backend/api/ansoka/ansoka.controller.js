@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Apply = require('./ansoka.model')
 const AnsokaService = require('./ansoka.service')
-const EducationService = require('..education/education.service')
+const EducationService = require('../education/education.service')
 
 router.post('/createApplication', async (req, res) => {
     const application = await AnsokaService.createApplication(req.body);
@@ -31,3 +31,5 @@ router.get('/showEducations:id', async (req, res) => {
         res.status(404).send({ error: 'no course with that id found' })
     }
 })
+
+module.exports = router;

@@ -27,6 +27,8 @@ mongoose
   
   
   app.use('/education',require('./api/education/education.controller'));
+
+  app.use('/ansoka', require('./api/ansoka/ansoka.controller'));
   
   /*app.use((req, res, next) => {
     res.sendFile(path.join(__dirname, "..", "build", "index.html"));
