@@ -20,6 +20,8 @@ function Ansoka() {
                   <option>Web</option>
                   <option>kock</option>
                 </select>
+
+                <button type='submit'>Ansök Nu</button>
             </form>
         </div>
   )
