@@ -4,7 +4,6 @@ const express = require("express");
 const app = express();
 var cors = require('cors');
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
 
 const mongoose = require('mongoose');
@@ -33,6 +32,12 @@ mongoose
   });
   */
  app.use('/courses', courseEndpoints);
+ 
+ app.use(express.static(path.join(__dirname, "..", "build")));
+
+ app.get('*', (req, res) => {
+   res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
+ });
 
   app.listen(3001, () => {
     console.log("server started on port 3001");
