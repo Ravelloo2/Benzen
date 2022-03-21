@@ -30,6 +30,7 @@ mongoose
 
   app.use('/ansoka', require('./api/ansoka/ansoka.controller'));
   
+  
   /*app.use((req, res, next) => {
     res.sendFile(path.join(__dirname, "..", "build", "index.html"));
   });
@@ -41,6 +42,8 @@ mongoose
    res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
  });
 
+ app.use('/courses', courseEndpoints);
+ app.use('/education',require('./api/education/education.controller'));
   app.listen(3001, () => {
     console.log("server started on port 3001");
   });
