@@ -8,12 +8,13 @@ app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
 
 const mongoose = require('mongoose');
-const courseEndpoints = require('./api/courses/course.controller') 
+const courseEndpoints = require('./api/courses/course.controller')
+const personalEndpoints = require('./api/personal/personal.controller')
 app.use(cors());
 
 
 mongoose
-.connect('mongodb+srv://mongomeron:mongomeron@cluster0.untda.mongodb.net/Cluster0', {useNewUrlParser: true})
+.connect('mongodb://localhost:27017/BenzenDB', {useNewUrlParser: true})
   .then(()=> {
     console.log('Database connected');
   })
@@ -22,21 +23,18 @@ mongoose
     process.exit();
   });
 
-  app.use(express.json());
-  app.use(express.urlencoded({extended:false}));
-  
-  
-  app.use('/utbildningar',require('./api/utbildningar.js'));
-  
-  /*app.use((req, res, next) => {
-    res.sendFile(path.join(__dirname, "..", "build", "index.html"));
-  });
-  */
- app.use('/courses', courseEndpoints);
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
+app.use('/utbildningar', require('./api/utbildningar.js'));
 
-  app.listen(3001, () => {
-    console.log("server started on port 3001");
-  });
-  
+app.use('/courses', courseEndpoints);
+
+app.use('/personal', require('./api/personal.js'))
+app.use('/personal', personalEndpoints);
+
+
+app.listen(3001, () => {
+  console.log("server started on port 3001");
+});

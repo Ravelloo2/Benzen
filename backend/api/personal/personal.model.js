@@ -10,18 +10,6 @@ const PersonalSchema = new Schema({
     lName: {
         type: String,
         required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    bKonto: {
-        type: String,
-        required: true
-    },
-    createdOn: {
-        type: Date,
-        default: Date.now
     }
 });
 
