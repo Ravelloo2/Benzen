@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 async function main() {
     let testAccount = await nodemailer.createTestAccount();
     let transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
+        host: 'localhost',
         port: 587,
         secure: false,
         auth: {
@@ -13,7 +13,7 @@ async function main() {
     });
 
     let info = await transporter.sendMail ({
-        from: '"Fred Foo ghost" <foo@example.com>',
+        from: '"Fred Foo" <foo@example.com>',
         to: 'bar@example.com, baz@example.com',
         subject: 'Hello!',
         text: 'Hello World?',

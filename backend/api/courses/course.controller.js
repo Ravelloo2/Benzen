@@ -3,7 +3,7 @@ const router = express.Router();
 const Course = require('./courses.model');
 const CourseService = require('./courses.service');
 
-router.post('/createCourse', async (req, res) => {
+router.post('/', async (req, res) => {
         const course = await CourseService.createCourse(req.body);
         if(!course.error) {
             res.status(200).send(course);
@@ -31,7 +31,7 @@ router.get('/showCourse/:id', async (req, res) => {
     }
 });
 
-router.patch('/updateCourse/:id', async (req,res) => {
+router.patch('/:id', async (req,res) => {
     
     const course = await CourseService.updateCourse(req.params.id, req.body);
     if(course){
@@ -41,7 +41,7 @@ router.patch('/updateCourse/:id', async (req,res) => {
     }
 });
 
-router.delete('/deleteCourse/:id', async (req,res)=> {
+router.delete('/:id', async (req,res)=> {
     const course = await CourseService.deleteCourse(req.params.id);
     if(!course.error){
         res.status(204).send();
