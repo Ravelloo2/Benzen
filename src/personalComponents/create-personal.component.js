@@ -53,18 +53,18 @@ export default class CreatePersonal extends Component {
         return (
             <form onSubmit={this.onSubmit}>
                 <label className='fName'>Förnamn:</label><br />
-                <input type="text" defaultValue={this.state.fName} onChange={this.onChangefName} className='fName'></input><br />
+                <input type="text" value={this.state.fName} onChange={this.onChangefName} className='fName'></input><br />
 
                 <label className='lName'>Efternamn:</label><br />
-                <input type="text" defaultValue={this.state.lName} onChange={this.onChangelName} className='lfName'/><br />
+                <input type="text" value={this.state.lName} onChange={this.onChangelName} className='lfName'/><br />
 
                 <label className='email'>Mail:</label><br />
-                <input type="text" defaultValue={this.state.email} onChange={this.onChangeemail} className='email'/><br />
+                <input type="text" value={this.state.email} onChange={this.onChangeemail} className='email'/><br />
 
                 <label className='bKonto'>Bankkonto:</label><br />
-                <input type="number" defaultValue={this.state.bKonto} onChange={this.onChangebKonto} className='bKonto'/><br />
+                <input type="number" value={this.state.bKonto} onChange={this.onChangebKonto} className='bKonto'/><br />
 
-                <input type='submit' defaultValue="Create Personal" id='submitBtn' />
+                <input type='submit' value="Create Personal" id='submitBtn' />
             </form>
         )
     }
