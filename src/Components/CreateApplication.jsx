@@ -1,47 +1,21 @@
 import { useState } from "react";
+import axios from 'axios'
 
-function App(props) {
-  const [mailerState, setMailerState] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+function CreateApplication() {
+    axios.defaults.baseURL = 'http://localhost:3000'
 
-  function handleStateChange(e) {
-    setMailerState((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  }
+    const [Fname, setFname] = useState("");
+    const [Lname, setLname] = useState("");
+    const [Mail, setMail] = useState("");
+    const [Utbildning, setUtbildning] = useState("");
 
-  const submitEmail = async (e) => {
-    e.preventDefault();
-    console.log({ mailerState });
-    await fetch("http://localhost:3001/send", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ mailerState }),
-    })
-      .then((res) => res.json())
-      .then(async (res) => {
-        const resData = await res;
-        console.log(resData);
-        if (resData.status === "success") {
-          alert("Message Sent");
-        } else if (resData.status === "fail") {
-          alert("Message failed to send");
-        }
-      })
-      .then(() => {
-        setMailerState({
-          email: "",
-          name: "",
-          message: "",
-        });
-      });
-  };
+    const CreateApplication = async () => {
+        await axios.post('/ansoka', {
+            
+            
+        })
+    }
+
 
   return (
     <div className="App">
@@ -62,12 +36,18 @@ function App(props) {
             width: "50%",
           }}
         >
-          <legend>React NodeMailer Contact Form</legend>
+          <legend>ANSÖK NU!</legend>
           <input
-            placeholder="Name"
+            placeholder="Förnamn"
             onChange={handleStateChange}
             name="name"
-            value={mailerState.name}
+            value={mailerState.Fname}
+          />
+          <input
+            placeholder="Efternamn"
+            onChange={handleStateChange}
+            name="name"
+            value={mailerState.Lname}
           />
           <input
             placeholder="Email"
@@ -88,3 +68,5 @@ function App(props) {
     </div>
   );
 }
+
+export default CreateApplication
