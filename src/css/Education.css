@@ -26,5 +26,5 @@
 .separation-line {
     height: 2px;
     width: 100%;
-    color: black;
+    background-color: black;
 }
