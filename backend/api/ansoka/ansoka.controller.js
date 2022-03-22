@@ -9,7 +9,7 @@ router.post('/createApplication', async (req, res) => {
     if (!application.error) {
         res.status(200).send(application);
     } else {
-        res.status(401).send({ error: 'bad input' })
+        res.status(400).send({ error: 'bad input' })
     }
 })
 

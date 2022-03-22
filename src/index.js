@@ -18,7 +18,6 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <Header/>
-    
       <Routes>
           <Route path="/" element={<App/>}/>
           <Route path="/Home" element={<Home/>}/>
@@ -28,9 +27,7 @@ ReactDOM.render(
           <Route path='/personal' element={<Personal />} />
           <Route path='/ansoka' element={<Ansoka />} />
           <Route path="*" element={<NotFound/>} />
-       
       </Routes>
-  
     </BrowserRouter>
     <Footer/>
   </React.StrictMode>,
