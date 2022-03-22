@@ -1,30 +1,90 @@
-import React from 'react'
-import '../css/Ansoka.css'
+import { useState } from "react";
 
-function Ansoka() {
+function App(props) {
+  const [mailerState, setMailerState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  function handleStateChange(e) {
+    setMailerState((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
+  const submitEmail = async (e) => {
+    e.preventDefault();
+    console.log({ mailerState });
+    await fetch("http://localhost:3001/send", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ mailerState }),
+    })
+      .then((res) => res.json())
+      .then(async (res) => {
+        const resData = await res;
+        console.log(resData);
+        if (resData.status === "success") {
+          alert("Message Sent");
+        } else if (resData.status === "fail") {
+          alert("Message failed to send");
+        }
+      })
+      .then(() => {
+        setMailerState({
+          email: "",
+          name: "",
+          message: "",
+        });
+      });
+  };
+
   return (
-        <div>
-            <form>
-                <label className='fName'>Förnamn:</label><br/>
-                <input type="text" className='fName'></input><br/>
-
-                <label className='lName'>Efternamn:</label><br/>
-                <input type="text" className='lfName'></input><br/>
-
-                <label className='mail'>Mail:</label><br/>
-                <input type="email" className='mail'></input><br/>
-                
-                <label className='utb'>Utbildning:</label><br/>
-                <select name='utbildningar' id='utbildningar'>
-                  <option className='options'>Mama</option>
-                  <option>Web</option>
-                  <option>kock</option>
-                </select>
-
-                <button type='submit'>Ansök Nu</button>
-            </form>
-        </div>
-  )
+    <div className="App">
+      <form
+        style={{
+          display: "flex",
+          height: "100vh",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        onSubmit={submitEmail}
+      >
+        <fieldset
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            width: "50%",
+          }}
+        >
+          <legend>React NodeMailer Contact Form</legend>
+          <input
+            placeholder="Name"
+            onChange={handleStateChange}
+            name="name"
+            value={mailerState.name}
+          />
+          <input
+            placeholder="Email"
+            onChange={handleStateChange}
+            name="email"
+            value={mailerState.email}
+          />
+          <textarea
+            style={{ minHeight: "200px" }}
+            placeholder="Message"
+            onChange={handleStateChange}
+            name="message"
+            value={mailerState.message}
+          />
+          <button>Send Message</button>
+        </fieldset>
+      </form>
+    </div>
+  );
 }
-
-export default Ansoka

@@ -1,29 +1,26 @@
+require('dotenv').config();
+
 const nodemailer = require('nodemailer');
 
-async function main() {
-    let testAccount = await nodemailer.createTestAccount();
-    let transporter = nodemailer.createTransport({
-        host: 'localhost',
-        port: 587,
-        secure: false,
-        auth: {
-            user: testAccount.user,
-            pass: testAccount.pass
-        }
-    });
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASS,
+    }
+})
 
-    let info = await transporter.sendMail ({
-        from: '"Fred Foo" <foo@example.com>',
-        to: 'bar@example.com, baz@example.com',
-        subject: 'Hello!',
-        text: 'Hello World?',
-        html: '<b>Hello World?</b>'
-    });
-
-    console.log("Message sent: %s", info.messageId);
-
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-
+let emailOptions = {
+    from: 'eliaz.a.ravello02@gmail.com',
+    to: 'g12eliazra@gmail.com',
+    subject: 'Testing and Testing',
+    text: 'NICE'
 }
 
-main().catch(console.error)
+transporter.sendMail(emailOptions, function(err, data) {
+    if (err) {
+        console.log('Error Ocurrs')
+    } else {
+        console.log('Email sent!')
+    }
+});
