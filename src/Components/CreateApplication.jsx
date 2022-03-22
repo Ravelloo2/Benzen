@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function App(props) {
+function CreateApplication(props) {
   const [mailerState, setMailerState] = useState({
     name: "",
     email: "",
@@ -88,3 +88,5 @@ function App(props) {
     </div>
   );
 }
+
+export default CreateApplication;

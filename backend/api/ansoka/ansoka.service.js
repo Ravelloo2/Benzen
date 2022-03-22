@@ -1,6 +1,6 @@
 const Apply = require('./ansoka.model')
 
-module.exports = class ansokService {
+module.exports = class ansokaService {
     static async createApplication(body) {
         if(body.Fname && body.Lname && body.Mail && body.Utbildningar) {
             const data = body
