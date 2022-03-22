@@ -1,4 +1,5 @@
 const CourseController = require('../courses/courses.service');
+const PersonlController = require('../courses/courses.service');
 const Education = require("./education.model");
 
 
@@ -11,13 +12,13 @@ module.exports = class EducationService {
       console.log(coursesResponse)
       return coursesResponse
     }
-    static async getEducationTeacher() {
-      let educationTeacher = await fetch("http://localhost:3001/personal/")
-      const educationTeacherResponse = await educationTeacher.json()
-      let theEducationTeacher = educationTeacherResponse.body.educationTeacher
-      console.log(theEducationTeacher)
-      return theEducationTeacher
-    }
+    // static async getEducationTeacher() {
+    //   let educationTeacher = await PersonalController.
+    //   const educationTeacherResponse = await educationTeacher.json()
+    //   let theEducationTeacher = educationTeacherResponse.body.educationTeacher
+    //   console.log(theEducationTeacher)
+    //   return theEducationTeacher
+    // }
     static showEducations() {
       return Education.find();
   }
