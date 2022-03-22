@@ -1,29 +1,24 @@
-const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer')
 
-async function main() {
-    let testAccount = await nodemailer.createTestAccount();
-    let transporter = nodemailer.createTransport({
-        host: 'localhost',
-        port: 587,
-        secure: false,
-        auth: {
-            user: testAccount.user,
-            pass: testAccount.pass
-        }
-    });
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth : {
+        user: 'eliaz.a.ravello02@gmail.com',
+        pass: 'RealMadrid2002043678'
+    }
+})
 
-    let info = await transporter.sendMail ({
-        from: '"Fred Foo" <foo@example.com>',
-        to: 'bar@example.com, baz@example.com',
-        subject: 'Hello!',
-        text: 'Hello World?',
-        html: '<b>Hello World?</b>'
-    });
+const mailOptions = {
+    from: 'vindication@enron.com',
+    to: 'friendsofenron@gmail.com',
+    subject: 'Invoices due',
+    text: 'We need your money dude'
+};
 
-    console.log("Message sent: %s", info.messageId);
-
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-
-}
-
-main().catch(console.error)
+transporter.sendMail(mailOptions, function(error, info) {
+    if (error) {
+        console.log(error)
+    } else {
+        console.log('Email sent:' + info.response)
+    }
+})
