@@ -3,8 +3,6 @@ const router = express.Router();
 const Education = require('./education.model');
 const EducationService = require('./education.service');
 
-
-
 router.post('/Utbildning1', async (req,res) => {
     const Utbildning1 = new Education({
         name: 'Utbildning1',
