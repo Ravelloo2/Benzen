@@ -51,7 +51,7 @@ export default class CreatePersonal extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit}>
+            <div>
                 <label className='fName'>Förnamn:</label><br />
                 <input type="text" value={this.state.fName} onChange={this.onChangefName} className='fName'></input><br />
 
@@ -64,8 +64,8 @@ export default class CreatePersonal extends Component {
                 <label className='bKonto'>Bankkonto:</label><br />
                 <input type="number" value={this.state.bKonto} onChange={this.onChangebKonto} className='bKonto'/><br />
 
-                <input type='submit' value="Create Personal" id='submitBtn' />
-            </form>
+                <input onClick={() => this.onSubmit} value="Create Personal" id='submitBtn' />
+             </div>
         )
     }
 
