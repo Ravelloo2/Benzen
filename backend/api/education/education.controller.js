@@ -52,7 +52,7 @@ router.get('/AllEducation', async (req, res) => {
 });
 router.get('/AllEducation/:id', async (req, res) => {
     const showOneEducation = await EducationService.showEducations(req.params.id);
-    if(showOneEducation){
+    if(showOneEducation){ 
         res.status(200).send(showOneEducation);
     } else {
         res.status(404).send({error: 'no education with that id found.'})
