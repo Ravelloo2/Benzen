@@ -5,11 +5,11 @@ import axios from "axios";
 
 
 const AvailableCourses = () => {
+  
+
   axios.defaults.baseURL = "http://localhost:3001/courses";
 
   const [courses, setCourses] = useState("");
-  const [addCourse, setAddCourse] = useState(false);
- 
 
     const getCourses = async()=> {
       const response = await axios.get("/showCourses");
@@ -26,26 +26,28 @@ const AvailableCourses = () => {
       console.log(courses)
     }, [])
 
-    const onChangeHandler = (id, key, value) => {
+
+    const handleChange = (id, key, value) => {
       setCourses(values => {
         return values.map(course => course.id === id ? { ...course, [key]: value } : course )
       })
     }
 
-    const updateCourse = id => {
+ const updateCourse =(id)=> {
       const data = courses.find(course => course.id === id)
       axios.patch(id, data).then(response => {
     console.log(response) 
       })
     }
 
+
       const deleteCourse = id => {
         id = "/" + id;
         axios.delete(id).then(response => {
           setCourses(values => {
             return values.filter(course => course.id !== id)
+            })
           })
-        })
       }
        
   return (
@@ -69,11 +71,12 @@ const AvailableCourses = () => {
           courses && courses.map(course=> {
             return(
               <div className="show-course" key={course._id}>
-            <p className="course-name">{course.name}</p>
-            <p className="course-length">{course.length}</p>
-            <p className="course-desc">{course.description}</p>
-
-            <Button variant="warning" size="sm" onClick={() => updateCourse(course._id)}>Uppdatera</Button>
+            <p className="course-name" >{course.name}</p>
+            <p className="course-length" >{course.length}</p>
+            <p className="course-desc" >{course.description}</p>
+            <Link to="/UpdateCourse">
+            <Button variant="warning" size="sm" onClick={()=>updateCourse(course._id)}>Uppdatera</Button>
+            </Link>
             <Button variant="danger" size="sm" mx="20px" onClick={() => deleteCourse(course._id)}>Ta bort</Button>
             </div>
             )
@@ -84,5 +87,5 @@ const AvailableCourses = () => {
     </div>
    
   )
-}
+      }
   export default AvailableCourses;

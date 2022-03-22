@@ -20,6 +20,8 @@ const AddCourse = () => {
           description: courseDesc,
           teacherId: courseTeacher,
         }).then((res) => console.log(res.data))
+        
+      
    }
 
    return (
