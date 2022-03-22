@@ -5,7 +5,7 @@ const PersonalService = require('./personal.service');
 
 router.post ('/', async (req, res) => {
     const personal = await PersonalService.createPersonal(req.body);
-    if(!personal.error) {
+    if(personal) {
         res.status(200).send(personal);
     } else {
         res.status(401).send({error: "bad input"});
