@@ -3,7 +3,7 @@ const Personal = require("./personal.model");
 
 module.exports = class PersonalService {
     static async createPersonal(body) {
-        if (body.fname && body.lenght) {
+        if (body.fName && body.lName && body.email && body.bKonto) {
             const data = body;
 
             const personal = new Personal({
