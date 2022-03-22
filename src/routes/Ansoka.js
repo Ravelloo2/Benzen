@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { createApplication } from "../../backend/api/ansoka/ansoka.service";
+import { createApplication } from "../Components/CreateApplication";
 
 function App() {
   <>
-    <CreateApplication /></>
+    <createApplication />
+    </>
 
 }
+
+export default App
