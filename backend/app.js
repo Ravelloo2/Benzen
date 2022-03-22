@@ -26,7 +26,7 @@ mongoose
   app.use(express.urlencoded({extended:false}));
   
   
-  app.use('/education',require('./api/education/education.controller'));
+  /*app.use('/education',require('./api/education/education.controller'));
   
   /*app.use((req, res, next) => {
     res.sendFile(path.join(__dirname, "..", "build", "index.html"));
