@@ -12,6 +12,8 @@ const AddCourse = () => {
   const [courseLength, setCourseLength] = useState();
   const [courseDesc, setCourseDesc] = useState("");
   const [courseTeacher, setCourseTeacher] = useState("");
+  
+ 
 
   const createCourse = async ()=> {
         await axios.post("/courses", {
