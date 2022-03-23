@@ -1,48 +1,64 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
-const AddCourse2 = () => {
+function AddCourse2 (props) {
+  axios.defaults.baseURL = "http://localhost:3001";
+
+
+  const [submitMessage, setSubmitMessage] = useState(false);
+
   const [course, setCourse] = useState({
     name: "",
     length: "",
     description: "",
-    teacherId: "",
+    teacher:""
   });
-  const handleChange = (e) => {
-    const value = e.target.value;
-    setCourse({
-      ...course,
-      [e.target.value]: value,
+  function handleChange(event){
+    const {name, value} = event.target;
+    setCourse(prevCourse => {
+      return {
+        ...prevCourse,
+        [name]: value
+      };
     });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newCourse = {
+  }
+
+  /*
+function submitCourse(event) {
+    props.onAdd(course);
+    setCourse({
+      name: "",
+      length:"",
+      description:""
+    })
+    event.preventDefault();
+  }*/
+
+
+  
+  async function submitCourse(event) {
+    event.preventDefault();
+    await axios.post("/courses", {
       name: course.name,
       length: course.length,
       description: course.description,
-      teacherId: course.teacherId
-    };
+      teacherId: course.teacherId,
+    }).then((res) => console.log(res.data))
+    setCourse({
+      name: "",
+      length:"",
+      description:"",
+      teacher:""
+    })
+    setSubmitMessage(true);
+}
   
 
-  axios.post("/", newCourse).then((response)=> {
-      console.log(response.status);
-      console.log(response.data)
-  })
-  .catch((error) => {
-      if(error.repsonse) {
-          console.log(error.response);
-          console.log('server responded');
-      }else if (error.request) {
-          console.log('network error')
-      } else {
-          console.log(error);
-      }
-  });
 
 
   return (
- <div className="course-form">
+ <div className="courses">
   <div className="course-header">
         <h2>Lägg till ny kurs</h2>
         <button className="linkPara">
@@ -50,48 +66,55 @@ const AddCourse2 = () => {
         </button>
       </div>
       
-      <form onSubmit={handleSubmit}>
-        <label>Kursnamn:</label>
+      <form className="add-course-form" onSubmit={submitCourse}>
+        <label className="courseLabel">Kursnamn:</label>
         <input
-          id="kurs"
+        id="kurs"
+          name="name"
           type="text"
           className="courseName"
           value={course.name}
-          onChange={onChange}></input>
+          onChange={handleChange}></input>
           <br/>
 
-        <label>Längd:</label>
+        <label className="courseLabel">Längd:</label>
         <input
-          id="kurs"
+        id="kurs"
+          name="length"
           type="number"
           className="courseLength"
           value={course.length}
-          onChange={onChange}></input>
+          onChange={handleChange}></input>
           <br/>
 
-        <label>Beskrivning:</label>
-        <input
-          id="kurs"
+        <label className="courseLabel">Beskrivning:</label>
+        <textarea
+        id="kurs"
+         name="description"
           type="text"
           className="courseDescription"
+          rows={4}
           value={course.description}
-          onChange={onChange}></input>
+          onChange={handleChange}></textarea>
           <br/>
 
-        <label>Lärare:</label>
+        <label className="courseLabel">Lärare:</label>
         <input
-          id="kurs"
+        id="kurs"
+          name="teacherID"
           type="text"
           className="courseTeacher"
           value={course.teacherId}
-          onChange={onChange}></input>
-          <button className="add-course-btn" onClick={() => createCourse()}>
+          onChange={handleChange}></input>
+          <br/>
+          <button className="add-course-btn" onClick={submitCourse}>
           Lägg till
         </button>
+        <span className={submitMessage ? 'visible' : null}>Kursen har blivit tillagd</span> 
       </form>
       </div>
   )
 }
-}
+
 
 export default AddCourse2;

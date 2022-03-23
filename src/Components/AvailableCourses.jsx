@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button} from 'react-bootstrap';
+import { Card, Button, Container} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -28,8 +28,8 @@ const AvailableCourses = () => {
 
 
     const handleChange = (id, key, value) => {
-      setCourses(values => {
-        return values.map(course => course.id === id ? { ...course, [key]: value } : course )
+      setCourses(courses => {
+        return courses.map(course => course.id === id ? { ...course, [key]: value } : course )
       })
     }
 
@@ -47,6 +47,7 @@ const AvailableCourses = () => {
           setCourses(values => {
             return values.filter(course => course.id !== id)
             })
+            window.location.reload(false);
           })
       }
        
@@ -54,38 +55,42 @@ const AvailableCourses = () => {
     <div className="courses">
       <div className="course-header">
         <h2>Våra tillgängliga kurser</h2>
-        <Button className="linkPara" variant="outline-light" size="sm">
-          <Link to="/AddCourse">Lägg till ny kurs</Link>
+        <Button variant="outline-light" size="sm">
+          <Link to="/AddCourse2">Lägg till ny kurs</Link>
         </Button>
       </div>
       
     
-      <div className="course-table">
-          <label>Kursnamn:</label>
-          <label>Längd på kurs:</label>
-          <label>Beskrivning:</label>
-        </div>
-      
-      <div className="availableCourses">
+     
         {
           courses && courses.map(course=> {
             return(
-              <div className="show-course" key={course._id}>
-            <p className="course-name" >{course.name}</p>
-            <p className="course-length" >{course.length}</p>
-            <p className="course-desc" >{course.description}</p>
+              <div className="show-courses">
+              <Container >
+              <Card border="dark" className="my-1 p-3" >
+              <div key={course._id}>
+              
+            <Card.Title >{course.name}</Card.Title>
+            <Card.Subtitle>{course.length}</Card.Subtitle>
+            <Card.Text >{course.description}</Card.Text>
+</div><br/>
+            <div className="course-buttons">
             <Link to="/UpdateCourse">
-            <Button variant="warning" size="sm" onClick={()=>updateCourse(course._id)}>Uppdatera</Button>
+            <Button variant="outline-primary" size="sm" onClick={()=>updateCourse(course._id)}>Uppdatera</Button>
             </Link>
-            <Button variant="danger" size="sm" mx="20px" onClick={() => deleteCourse(course._id)}>Ta bort</Button>
+            <Button variant="outline-danger" size="sm" onClick={() => deleteCourse(course._id)}>Ta bort</Button>
+            </div>
+
+           
+            </Card>
+            </Container>
             </div>
             )
           })
         }
       </div>
 
-    </div>
-   
+ 
   )
       }
   export default AvailableCourses;

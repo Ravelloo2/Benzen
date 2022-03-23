@@ -26,7 +26,7 @@ router.get('/showCourse/:id', async (req, res) => {
     if(course){
         res.status(200).send(course);
     } else {
-        res.status(404).send({error: 'no course with that id found.'})
+        res.status(404).send({error: 'no course found with matching id.'})
     }
 });
 
@@ -36,7 +36,7 @@ router.patch('/:id', async (req,res) => {
     if(course){
         res.status(200).send(course);
     } else {
-        res.status(404).send({error: 'no course with that id found.'})
+        res.status(404).send({error: 'no course found with matching id.'})
     }
 });
 

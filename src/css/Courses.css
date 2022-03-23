@@ -12,23 +12,26 @@ h2{
     display:flex;
     justify-content: space-between;
 }
-.linkPara{
-    border-radius: 5px;
+
+
+.show-courses {
+    margin: 0 auto;
+    width: 50%;
+    padding: 2%;
 }
-.linkPara:hover{
-    font-style: oblique;
-}
-.availableCourses{
-    width: 90%;
+
+.course-buttons{
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.show-course {
+Button{
+    height:2.5em;
+    width:9em;
 
 }
-.course-table {
+.course-headings {
    display: flex;
    justify-content: space-around;
     border-bottom: 1px solid #333;
@@ -36,18 +39,6 @@ h2{
     padding:1%;
 
 }
-.course-name{
-    width: 40%;
-}
-.course-length{
-    grid-column-start: 3;
-    grid-column-end:5 ;
-}
-.course-desc {
-    font-size: .7em;
-    width: 50%;
-}
-
 /* Relaterat till AddCourse */
 
 .add-course-form{
@@ -63,6 +54,7 @@ h2{
 }
 .courseLabel{
     font-weight:bold;
+    margin-right: 20px;
 }
 
 #kurs {
@@ -70,3 +62,9 @@ h2{
     border-radius: 5px;
     width: 30%;
 }
+.add-course-form span{
+    display: none;
+  }
+  .add-course-form .visible {
+    display: inline-block;
+  }
