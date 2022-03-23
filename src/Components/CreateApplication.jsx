@@ -1,21 +1,22 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from 'axios'
 
 function CreateApplication() {
-    axios.defaults.baseURL = 'http://localhost:3000'
+    axios.defaults.baseURL = 'http://localhost:3000/'
 
-    const [Fname, setFname] = useState("");
-    const [Lname, setLname] = useState("");
-    const [Mail, setMail] = useState("");
-    const [Utbildning, setUtbildning] = useState("");
+    const [applyFname, setFname] = useState("");
+    const [applyLname, setLname] = useState("");
+    const [applyEmail, setMail] = useState("");
+    const [applyUtbildning, setUtbildning] = useState("");
 
     const CreateApplication = async () => {
         await axios.post('/ansoka', {
-            
-            
-        })
+            Fname: applyFname,
+            Lname: applyLname,      
+            Email: applyEmail,
+            Utbildning: applyUtbildning,
+        }).then((res) => console.log(res.data))
     }
-
 
   return (
     <div className="App">
@@ -26,7 +27,6 @@ function CreateApplication() {
           justifyContent: "center",
           alignItems: "center",
         }}
-        onSubmit={submitEmail}
       >
         <fieldset
           style={{
@@ -39,34 +39,34 @@ function CreateApplication() {
           <legend>ANSÖK NU!</legend>
           <input
             placeholder="Förnamn"
-            onChange={handleStateChange}
-            name="name"
-            value={mailerState.Fname}
+            onChange={(e) => setFname(e.target.value)}
+            className="name"
+            value={applyFname}
           />
           <input
             placeholder="Efternamn"
-            onChange={handleStateChange}
+            onChange={(e) => setLname(e.target.value)}
             name="name"
-            value={mailerState.Lname}
+            value={applyLname}
           />
           <input
             placeholder="Email"
-            onChange={handleStateChange}
+            onChange={(e) => setMail(e.target.value)}
             name="email"
-            value={mailerState.email}
+            value={applyEmail}
           />
-          <textarea
+          <input
             style={{ minHeight: "200px" }}
-            placeholder="Message"
-            onChange={handleStateChange}
+            placeholder="Välj utbildning"
+            onChange={(e) => setUtbildning(e.target.value)}
             name="message"
-            value={mailerState.message}
+            value={applyUtbildning}
           />
-          <button>Send Message</button>
+          <input type="button" value="Create Application" onClick={() => CreateApplication()} id="submitBtn"/>
         </fieldset>
       </form>
     </div>
   );
 }
 
-export default CreateApplication
+export default CreateApplication;
