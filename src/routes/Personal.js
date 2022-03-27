@@ -1,12 +1,16 @@
-import React from 'react';
-import AddPersonal from '../personalComponents/create-personal.component';
+import React, { useState, useEffect } from 'react';
+import AddPersonal from '../Components/personal/create-personal';
 
 function Personal() {
+
+
     return (
         <div>
-            <AddPersonal/>
+
+            <AddPersonal />
+
         </div>
     )
 }
 
-export default Personal
+export default Personal;
