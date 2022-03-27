@@ -3,6 +3,7 @@ const router = express.Router();
 const Education = require('./education.model');
 const EducationService = require('./education.service');
 
+
 router.post('/createEducation', async (req,res) => {
     const createEducation = new Education({
         name: '30 Hours',
@@ -16,19 +17,21 @@ router.post('/createEducation', async (req,res) => {
 
 router.get('/AllEducation', async (req, res) => {
     const showEducation = await EducationService.showEducations()
-    if(showEducation){
-        res.status(200).send(showEducation);
-    } else {
-        res.status(404).send({error: 'no education found'})
-    }
-});
+    showEducation ?  res.status(200).send(showEducation, {status:'successfully fetched files'})   :   res.status(404).send({error: 'Error with getting files'})});
+
 router.get('/AllEducation/:id', async (req, res) => {
     const showOneEducation = await EducationService.showEducations(req.params.id);
-    if(showOneEducation){ 
-        res.status(200).send(showOneEducation);
-    } else {
-        res.status(404).send({error: 'no education with that id found.'})
-    }
-});
+    showOneEducation ?  res.status(200).send(showOneEducation, {status:'successfully fetched file'})  :  res.status(404).send({error: 'Error with getting file'})});
+
+router.patch('/:id', async (req,res) => {});
+
+router.delete('/:id', async (req,res)=> {
+    const education = await EducationService.deleteOneEducation(req.params.id);
+    !education.error ? res.status(200).send({status: 'succesfully deleted file :) '}) :  res.status(404).send({ error: "Error with deleting file" });});
+
+router.delete('/', async (req,res) => {
+    const deleteAllEducation = await Education.deleteMany()
+    !deleteAllEducation.error ? res.status(200).send( {status: 'successfully deleted all :)'}) : res.status(404).send({error: ' Couldnt delete them all :('})});
+
 
 module.exports = router;
