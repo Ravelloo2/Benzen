@@ -32,7 +32,7 @@ mongoose
   
   
   
-  app.use('/courses', courseEndpoints);
+app.use('/courses', courseEndpoints);
 app.use('/education',require('./api/education/education.controller'));
 app.use('/personal',require('./api/personal/personal.controller'));
 app.use('/ansoka', require('./api/ansoka/ansoka.controller'))

@@ -1,5 +1,5 @@
 const CourseController = require('../courses/courses.service');
-const PersonlController = require('../courses/courses.service');
+// const PersonlController = require('../courses/courses.service');
 const Education = require("./education.model");
 
 
