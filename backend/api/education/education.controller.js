@@ -17,11 +17,11 @@ router.post('/createEducation', async (req,res) => {
 
 router.get('/AllEducation', async (req, res) => {
     const showEducation = await EducationService.showEducations()
-    showEducation ?  res.status(200).send(showEducation, {status:'successfully fetched files'})   :   res.status(404).send({error: 'Error with getting files'})});
+    showEducation ?  res.status(200).send(showEducation)   :   res.status(404).send({error: 'Error with getting files'})});
 
 router.get('/AllEducation/:id', async (req, res) => {
     const showOneEducation = await EducationService.showEducations(req.params.id);
-    showOneEducation ?  res.status(200).send(showOneEducation, {status:'successfully fetched file'})  :  res.status(404).send({error: 'Error with getting file'})});
+    showOneEducation ?  res.status(200).send(showOneEducation)  :  res.status(404).send({error: 'Error with getting file'})});
 
 router.patch('/:id', async (req,res) => {});
 
