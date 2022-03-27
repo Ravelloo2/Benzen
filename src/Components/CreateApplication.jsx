@@ -1,47 +1,22 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import axios from 'axios'
 
-function CreateApplication(props) {
-  const [mailerState, setMailerState] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+function CreateApplication() {
+    axios.defaults.baseURL = 'http://localhost:3000/'
 
-  function handleStateChange(e) {
-    setMailerState((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  }
+    const [applyFname, setFname] = useState("");
+    const [applyLname, setLname] = useState("");
+    const [applyEmail, setMail] = useState("");
+    const [applyUtbildning, setUtbildning] = useState("");
 
-  const submitEmail = async (e) => {
-    e.preventDefault();
-    console.log({ mailerState });
-    await fetch("http://localhost:3001/send", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ mailerState }),
-    })
-      .then((res) => res.json())
-      .then(async (res) => {
-        const resData = await res;
-        console.log(resData);
-        if (resData.status === "success") {
-          alert("Message Sent");
-        } else if (resData.status === "fail") {
-          alert("Message failed to send");
-        }
-      })
-      .then(() => {
-        setMailerState({
-          email: "",
-          name: "",
-          message: "",
-        });
-      });
-  };
+    const CreateApplication = async () => {
+        await axios.post('/ansoka', {
+            Fname: applyFname,
+            Lname: applyLname,      
+            Email: applyEmail,
+            Utbildning: applyUtbildning,
+        }).then((res) => console.log(res.data))
+    }
 
   return (
     <div className="App">
@@ -52,7 +27,6 @@ function CreateApplication(props) {
           justifyContent: "center",
           alignItems: "center",
         }}
-        onSubmit={submitEmail}
       >
         <fieldset
           style={{
@@ -62,27 +36,33 @@ function CreateApplication(props) {
             width: "50%",
           }}
         >
-          <legend>React NodeMailer Contact Form</legend>
+          <legend>ANSÖK NU!</legend>
           <input
-            placeholder="Name"
-            onChange={handleStateChange}
+            placeholder="Förnamn"
+            onChange={(e) => setFname(e.target.value)}
+            className="name"
+            value={applyFname}
+          />
+          <input
+            placeholder="Efternamn"
+            onChange={(e) => setLname(e.target.value)}
             name="name"
-            value={mailerState.name}
+            value={applyLname}
           />
           <input
             placeholder="Email"
-            onChange={handleStateChange}
+            onChange={(e) => setMail(e.target.value)}
             name="email"
-            value={mailerState.email}
+            value={applyEmail}
           />
-          <textarea
+          <input
             style={{ minHeight: "200px" }}
-            placeholder="Message"
-            onChange={handleStateChange}
+            placeholder="Välj utbildning"
+            onChange={(e) => setUtbildning(e.target.value)}
             name="message"
-            value={mailerState.message}
+            value={applyUtbildning}
           />
-          <button>Send Message</button>
+          <input type="button" value="Create Application" onClick={() => CreateApplication()} id="submitBtn"/>
         </fieldset>
       </form>
     </div>

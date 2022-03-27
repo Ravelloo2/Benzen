@@ -4,33 +4,33 @@
     padding: 1em;
     border-radius: 10px;
     background-color: lightgrey;
-    display: grid;
-    grid-template-columns: repeat(12,auto);
-}
-
-.showEducation-grid {
-    grid-template-columns: 1/5;
 }
 
 .Education-name {
+    text-align: center;
     font-size: 30px;
     color: purple;
+    text-decoration: underline;
 }
 
 .Education-Leader {
+    text-align: center;
     font-size: 23px;
 }
 
-.Education-courses {
+.Education-Courses {
     margin: 20px 0;
+    text-align: center;
 }
 .Education-description {
     font-size: 15px;
+    text-align: center;
 
 }
 
 .separation-line {
     height: 2px;
-    width: 100%;
+    width: 70%;
+    margin: 0 auto;
     background-color: black;
 }

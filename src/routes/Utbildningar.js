@@ -6,7 +6,7 @@ import ShowEducation from '../Components/ShowEducation';
 function Utbildningar() {
   
   axios.defaults.baseURL = "http://localhost:3001/education";
-
+            
   const [Educations, setEducations] = useState([])
 
   useEffect(async () => {
@@ -16,7 +16,7 @@ function Utbildningar() {
   
   useEffect(async () => {
     console.log(Educations)
-  }, [,Educations])
+  }, [Educations])
   
   return (
     <div>
@@ -24,12 +24,14 @@ function Utbildningar() {
       <div className="Education-grid">
       {Educations.map(x => {
         return (
+          <div style={{marginTop:'50px'}}>
         <ShowEducation
           name={x.name}
           educationLeader={x.educationLeader}
           courses={x.courses}
           description={x.description}
-        />)
+        />
+        </div>)
       } 
       )}
       

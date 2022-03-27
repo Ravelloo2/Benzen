@@ -1,5 +1,5 @@
 const CourseController = require('../courses/courses.service');
-const PersonlController = require('../courses/courses.service');
+// const PersonlController = require('../courses/courses.service');
 const Education = require("./education.model");
 
 
@@ -28,7 +28,34 @@ module.exports = class EducationService {
   
     static async Utbildning1Kurser() {
       let allCourses = await EducationService.getCourses()
-      let allCoursesValue = allCourses.json()
+      let allCoursesValue = await allCourses.json()
       return allCoursesValue
+    }
+    static async updateEducation(id, body){
+      const updatedEducation = await Education.findOne({_id: id})
+      if(updatedEducation) {
+          if (body.name != null){
+              updatedEducation.name = body.name
+          } 
+          if (body.educationLeader!= null){
+              updatedEducation.educationLeader = body.educationLeader
+          } 
+          if (body.courses!= null) {
+              updatedEducation.courses = body.courses
+          }
+          if (body.description!= null){
+              updatedEducation.description = body.description
+          }
+          await updatedEducation.save();
+      }
+      return updatedEducation;
+    } 
+    static async deleteOneEducation(id) {
+      try {
+          await Education.findByIdAndDelete(id)
+          return {status: 200,message:'success'}
+      } catch (error) {
+          return {error: "course could not be found"}
+      }
     }
     };  

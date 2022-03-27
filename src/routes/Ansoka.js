@@ -1,10 +1,12 @@
-import CreateApplication from '../Components/CreateApplication'
+import  CreateApplication  from '../Components/CreateApplication'
 
-function App() {
+function Ansoka() {
+  return (
   <>
     <CreateApplication />
   </>
+  )
 
 }
 
-export default App
+export default Ansoka

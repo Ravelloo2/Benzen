@@ -5,8 +5,7 @@ import CreateCourse from '../Components/NewCourseComponents/CreateCourse';
 import DisplayCourses from "../Components/NewCourseComponents/DisplayCourses";
 
 function Courses() {
-  
- 
+
   return(
   <>
 
