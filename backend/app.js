@@ -29,9 +29,6 @@ mongoose
   app.use(express.urlencoded({extended:false}));
   
 
-  
-  
-  
 app.use('/courses', courseEndpoints);
 app.use('/education',require('./api/education/education.controller'));
 app.use('/personal',require('./api/personal/personal.controller'));
@@ -42,9 +39,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
 });
 
- app.use('/education',require('./api/education/education.controller'));
- app.use('/personal',require('./api/personal/personal.controller'));
- app.use('ansoka', require('./api/ansoka/ansoka.controller'));
 
   app.listen(3001, () => {
     console.log("server started on port 3001");

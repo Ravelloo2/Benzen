@@ -1,70 +1,89 @@
-h2{
-    margin: 1em;
+h2 {
+  margin: 1em;
 }
-.courses {
-    margin: 2em auto;
-    width: 70%;
-    min-height: 60vh;
-    background-color: #88c8f3c0;
-    padding: 2%;
+.course-container {
+  margin: 2em auto;
+  width: 70%;
+  min-height: 60vh;
+  background-color: #1417afc0;
+  padding: 2%;
 }
-.course-header{
-    display:flex;
-    justify-content: space-between;
+.course-header {
+  display: flex;
+  justify-content: space-between;
 }
-
 
 .show-courses {
-    margin: 0 auto;
-    width: 50%;
-    padding: 2%;
+  margin: 0 auto;
+  width: 50%;
+  padding: 2%;
 }
 
-.course-buttons{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.course-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-Button{
-    height:2.5em;
-    width:9em;
-
+Button {
+  max-height:3rem;
+  min-width: fit-content;
 }
 .course-headings {
-   display: flex;
-   justify-content: space-around;
-    border-bottom: 1px solid #333;
-    margin-bottom:1em;
-    padding:1%;
-
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #333;
+  margin-bottom: 1em;
+  padding: 1%;
 }
 /* Relaterat till AddCourse */
 
-.add-course-form{
-    width:80%;
-    margin: 2em;
-    display: grid;
-  
+.add-course-form {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  justify-items: center;
 }
-.add-course-btn{
-    margin-top: 1em;
-    border-radius: 5px;
-    width:fit-content;
+.add-course-btn {
+  margin-top: 1em;
+  border-radius: 5px;
+  width: fit-content;
 }
-.courseLabel{
-    font-weight:bold;
-    margin-right: 20px;
+.courseLabel {
+  font-weight: bold;
 }
 
 #kurs {
-    padding:.4%;
-    border-radius: 5px;
-    width: 30%;
+  padding: 0.4%;
+  border-radius: 5px;
+  width: 40%;
 }
-.add-course-form span{
-    display: none;
-  }
-  .add-course-form .visible {
-    display: inline-block;
-  }
+.submit-message {
+  text-align: center;
+}
+/* Relaterat till Modal/ Update */
+.update-container {
+  margin: 0 auto;
+  width:80%;
+  justify-content: center;
+  background-color:#d0d0da38;
+
+}
+.update-form {
+  display:grid;
+  gap:0.5em;
+ max-width:50ch;
+ justify-content: center;
+}
+.update-form label {
+  color: #fafafa;
+}
+.update-form input, textarea, select {
+  border-radius: 5px;
+  padding: 1%;
+}
+.close{
+  width: 2em;
+  font-weight: bolder;
+  font-size: larger;
+}
