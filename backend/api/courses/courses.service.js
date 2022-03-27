@@ -1,7 +1,6 @@
 const Course = require("./courses.model");
 
 module.exports = class CourseService {
-
   static async createCourse(body) {
     if (body.name && body.length && body.description) {
       const data = body;
@@ -19,36 +18,40 @@ module.exports = class CourseService {
   }
 
   static showCourses() {
-      return Course.find();
+    return Course.find();
   }
 
-  static showCourse(id){
-    return Course.findOne({_id: id});
+  static showCourse(id) {
+    return Course.findOne({ _id: id });
   }
 
-  static async updateCourse(id, body){
-    const course = await Course.findOne({_id: id})
-    if(course) {
-        if (body.name){
-            course.name = body.name
-        } 
-        if (body.length) {
-            course.length = body.length
+  static async updateCourse(id, body) {
+    try {
+      const course = await Course.findOne({ _id: id });
+      if (course) {
+        if (body.name) {
+          course.name = body.name;
         }
-        if (body.description){
-            course.description = body.description
+        if (body.length) {
+          course.length = +body.length;
+        }
+        if (body.description) {
+          course.description = body.description;
         }
         await course.save();
+      }
+      return course;
+    } catch (error) {
+      console.log(error);
     }
-    return course;
-  } 
+  }
 
   static async deleteCourse(id) {
     try {
-        await Course.findByIdAndDelete(id)
-        return {status: 204}
+      await Course.findByIdAndDelete(id);
+      return { status: 204 };
     } catch (error) {
-        return {error: "course could not be found"}
+      return { error: "course could not be found" };
     }
   }
 };
