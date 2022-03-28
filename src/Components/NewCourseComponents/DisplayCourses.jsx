@@ -44,15 +44,17 @@ export function DisplayCourses() {
     setCourseInfo((data) => {
       return data.filter((course) => course._id !== e.target.name);
     });
+   
   };
 
   return (
     <section className="course-container">
     <div className="course-header">
         <h2>Våra tillgängliga kurser</h2>
+        <Button variant="light" size="sm">
       <Link to="/skapa-kurs" className="add-new-course">
-        <Button variant="outline-light" size="sm" className="add-btn">Lägg till ny kurs</Button>
-      </Link>
+        Lägg till ny kurs
+      </Link></Button>
       </div>
       <section className="course-info">
         
@@ -70,9 +72,9 @@ export function DisplayCourses() {
       {modal ? (
         <section className="update-container">
           
-            <p onClick={closeHandler} className="close">
-              &times;
-            </p>
+            <button onClick={closeHandler} className="close" aria-label="Close">
+             x
+            </button>
 
             <UpdateCourse
               _id={id}
