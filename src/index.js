@@ -7,7 +7,6 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Utbildningar from './routes/Utbildningar';
 import Kurser from './routes/Courses';
 import Personal from './routes/Personal';
-// import AddCourse2 from './CourseComponents/AddCourse2';
 import NotFound from './Components/NotFound';
 import Home from './Components/Home';
 import Header from './Components/Header';
@@ -29,7 +28,7 @@ ReactDOM.render(
           <Route path="*" element={<NotFound/>} />
       </Routes>
     </BrowserRouter>
-  
+ 
   </React.StrictMode>,
   document.getElementById('root')
 );
