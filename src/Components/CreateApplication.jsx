@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios'
 
-function CreateApplication() {
-    axios.defaults.baseURL = 'http://localhost:3000/'
+const AddValues = () => {
+
+    axios.defaults.baseURL = 'http://localhost:3001/'
 
     const [applyFname, setFname] = useState("");
     const [applyLname, setLname] = useState("");
@@ -14,7 +15,7 @@ function CreateApplication() {
             Fname: applyFname,
             Lname: applyLname,      
             Email: applyEmail,
-            Utbildning: applyUtbildning,
+            Utbildningar: applyUtbildning,
         }).then((res) => console.log(res.data))
     }
 
@@ -23,7 +24,7 @@ function CreateApplication() {
       <form
         style={{
           display: "flex",
-          height: "100vh",
+          height: "200px",
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -55,18 +56,23 @@ function CreateApplication() {
             name="email"
             value={applyEmail}
           />
-          <input
-            style={{ minHeight: "200px" }}
+          <select
             placeholder="Välj utbildning"
             onChange={(e) => setUtbildning(e.target.value)}
             name="message"
-            value={applyUtbildning}
-          />
-          <input type="button" value="Create Application" onClick={() => CreateApplication()} id="submitBtn"/>
+            value={applyUtbildning}>
+              <option value="utbildning" required>Välj Utbildning</option>
+              <option value="volvo" required>Volvo</option>
+              <option value="volvo">Saab</option>
+              <option value="volvo">Subaru</option>
+
+            </select>
+          
+          <input onClick={() => CreateApplication()} type="button" value="Skicka Ansökan" id="submitBtn"/>
         </fieldset>
       </form>
     </div>
   );
 }
 
-export default CreateApplication;
+export default AddValues;
