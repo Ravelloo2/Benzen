@@ -14,6 +14,8 @@ router.post ('/', async (req, res) => {
 
 router.get('/allPersonal', async (req, res) => {
     const showPersonal = await PersonalService.showPersonal()
+    console.log(PersonalService.showPersonal)
+    console.log(showPersonal)
     if(showPersonal){
         res.status(200).send(showPersonal);
     } else {
@@ -30,7 +32,7 @@ router.patch('/allPersonal/:id', async (req, res) => {
     }
 });
 
-router.patch('/:id', async (req, res) => {
+router.patch('updatePersonal/:id', async (req, res) => {
     const personal = await PersonalService.updatePersonal(req.params.id, req.body);
     if(personal){
         res.status(200).send(personal);
@@ -39,7 +41,7 @@ router.patch('/:id', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req,res) => {
+router.delete('deletePersonal/:id', async (req,res) => {
     const personal = await PersonalService.deletePersonal(req.params.id);
     if(!personal.error){
         res.status(204).send();

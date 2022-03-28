@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import AddPersonal from '../Components/personal/create-personal';
+import GetPersonal from '../Components/personal/get-personal';
 
 function Personal() {
 
@@ -7,7 +7,7 @@ function Personal() {
     return (
         <div>
 
-            <AddPersonal />
+            <GetPersonal />
 
         </div>
     )

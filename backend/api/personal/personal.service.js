@@ -21,19 +21,14 @@ module.exports = class PersonalService {
         }
     }
 
-    static showPersonal() {
+    static async showPersonal() {
         return Personal.find();
     }
 
-    static showPersonal(id) {
+    static showOnePersonal(id) {
         return Personal.findOne({ _id: id });
     }
 
-    static async vetIntePersonal() {
-        let allPersonal = await PersonalService.createPersonal()
-        let allPersonalValue = allPersonal.json()
-        return allPersonalValue
-    }
 
     static async updatePersonal(id, body) {
         const personal = await CourseService.findOne({ _id: id })
