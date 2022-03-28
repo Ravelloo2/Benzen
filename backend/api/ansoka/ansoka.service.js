@@ -2,19 +2,19 @@ const Apply = require('./ansoka.model')
 
 module.exports = class ansokaService {
     static async createApplication(body) {
-        if(body.Fname && body.Lname && body.Mail && body.Utbildningar) {
-            const data = body
-
-            const application = new Apply({
+        if (body.Fname && body.Lname && body.Email && body.Utbildningar) {
+            const data = body;
+    
+            const apply = new Apply({
                 Fname: data.Fname,
                 Lname: data.Lname,
-                Mail: data.Mail,
+                Email: data.Email,
                 Utbildningar: data.Utbildningar,
             });
-            await application.save()
-            return application;
+            await apply.save();
+            return apply;
         } else {
-            return { error: "Fält kan inte lämnas tomma" }
+            return { error: "Fields can not be left blank" }
         }
     }
 }

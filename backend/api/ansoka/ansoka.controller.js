@@ -4,9 +4,9 @@ const Apply = require('./ansoka.model')
 const AnsokaService = require('./ansoka.service')
 const EducationService = require('../education/education.service')
 
-router.post('/createApplication', async (req, res) => {
+router.post('/', async (req, res) => {
     const application = await AnsokaService.createApplication(req.body);
-    if (!application.error) {
+    if (application) {
         res.status(200).send(application);
     } else {
         res.status(400).send({ error: 'bad input' })
