@@ -6,7 +6,6 @@ function Courses() {
 
   return(
   <>
-
 <DisplayCourses/> 
   </>
   )

@@ -6,10 +6,10 @@ const EducationService = require('./education.service');
 
 router.post('/createEducation', async (req,res) => {
     const createEducation = new Education({
-        name: '30 Hours',
-        educationLeader: 'Pete Davidson',
-        courses: ['Life of Pablo','Donda Chant','Heartless'],
-        description: 'Guess whos going to jail tonight ;)',
+        name: 'Webbsäkerhet',
+        educationLeader: 'Pablo Escobar',
+        courses: ['Kurs1','Kurs2','Kurs3'],
+        description: 'Description',
     })
     await createEducation.save()
     res.status(200).send(createEducation)
