@@ -25,6 +25,7 @@ ReactDOM.render(
           <Route path='/Kurser' element={<Kurser />} />
           <Route path="/skapa-kurs" element={<SkapaKurs/>}/>
           <Route path='/personal' element={<Personal />} />
+          <Route path="/AddPersonal" element={AddPersonal}/>
           <Route path='/ansoka' element={<Ansoka />} />
           <Route path="*" element={<NotFound/>} />
       </Routes>

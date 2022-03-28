@@ -1,8 +1,10 @@
-const CourseService = require("../courses/courses.service");
+const PersonalController = require("../courses/courses.service");
 const Personal = require("./personal.model");
 
 module.exports = class PersonalService {
     static async createPersonal(body) {
+        
+        
         if (body.fName && body.lName && body.email && body.bKonto) {
             const data = body;
 
@@ -23,23 +25,29 @@ module.exports = class PersonalService {
         return Personal.find();
     }
 
-    static showPersonal(id){
-        return Personal.findOne({_id: id});
+    static showPersonal(id) {
+        return Personal.findOne({ _id: id });
     }
 
-    static async updatePersonal(id, body){
-        const personal = await CourseService.findOne({_id: id})
-        if(personal) {
-            if (body.fName){
+    static async vetIntePersonal() {
+        let allPersonal = await PersonalService.createPersonal()
+        let allPersonalValue = allPersonal.json()
+        return allPersonalValue
+    }
+
+    static async updatePersonal(id, body) {
+        const personal = await CourseService.findOne({ _id: id })
+        if (personal) {
+            if (body.fName) {
                 personal.fName = body.fName
             }
-            if (body.lName){
+            if (body.lName) {
                 personal.lName = body.lName
             }
-            if (body.email){
+            if (body.email) {
                 personal.email = body.email
             }
-            if (body.bKonto){
+            if (body.bKonto) {
                 personal.bKonto = body.bKonto
             }
             await personal.save();
@@ -49,9 +57,9 @@ module.exports = class PersonalService {
     static async deletePersonal(id) {
         try {
             await Personal.findByIdAndDelete(id)
-            return {status: 204}
+            return { status: 204 }
         } catch (error) {
-            return {error: "Staff could not be found"}
+            return { error: "Staff could not be found" }
         }
     }
 };
