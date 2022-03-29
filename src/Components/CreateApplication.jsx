@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import '../css/create-application.css';
-import logo from '../Logo/Peder.png';
 
 const AddValues = () => {
 
@@ -11,7 +10,7 @@ const AddValues = () => {
     const [applyLname, setLname] = useState("");
     const [applyEmail, setMail] = useState("");
     const [applyUtbildning, setUtbildning] = useState("");
-    const [Educations,setEducations] = useState()
+    const [Educations,setEducations] = useState([])
 
     const CreateApplication = async () => {
         await axios.post('/ansoka', {
@@ -23,10 +22,13 @@ const AddValues = () => {
     }
 
     useEffect(async () => {
-      const res = await axios.get("/AllEducation");
+      const res = await axios.get("education/AllEducation");
       setEducations(res.data)
     }, [])
 
+    useEffect(async () => {
+      console.log(Educations)
+    }, [Educations])
 
   return (
     <div className="App">
@@ -48,21 +50,13 @@ const AddValues = () => {
             onChange={(e) => setMail(e.target.value)}
             name="email"
             value={applyEmail}/>
-          <select
-            placeholder="Välj utbildning"
-            onChange={(e) => setUtbildning(e.target.value)}
-            name="message"
-            value={applyUtbildning}>
-              <option value="" disabled selected hidden>Välj Utbildning</option>
-              <option value="Nya-Westamentet">Nya Westamentet</option>
-              <option value="Saab">Saab</option>
-              <option value="Subaru">Subaru</option>
-            </select>
+          <select name="" id="" onChange={(e) => setUtbildning(e.target.value)}>
+            {Educations.map(x => { return( <option >{x.name}</option> )})}
+          </select>
 
           <input onClick={() => CreateApplication()} type="button" value="Skicka Ansökan" id="submitBtn"/>
         </fieldset>
       </form>
-
       <img className="Logo"></img>
     </div>
   );
