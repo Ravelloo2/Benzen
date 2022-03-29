@@ -3,11 +3,45 @@
 }
 
 .navBar {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  display: flex;
+  align-items: center;
   padding: 1rem;
+  margin: 0 auto;
+}
+
+.navBar .navBar-content {
+  margin: 0 10px;
 }
 
 .landingpage{
-  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(24,auto);
   background-color:#fafafa;
+  width: 95%;
+  margin: 20px auto;
+}
+
+.main-content,.first-content,.third-content {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(24,auto);
+  margin: 10px 0;
+  height: 300px;
+}
+.first-main-content {
+  grid-column: 1 / -1;
+  background-color: #1417afc0;
+}
+.left-side-content {
+  grid-column: 1 / 18;
+  background-color: #1417afc0;
+}
+.right-side-content {
+  grid-column:19 / 25;
+  background-color: #1417afc0;
+}
+.third-main-content {
+  grid-column: 1 / -1;
+  background-color: #1417afc0;
 }
