@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const applyModel = {
     Fname: String,
     Lname: String,
-    Mail: String,
+    Email: String,
     Utbildningar: String,
 }
 

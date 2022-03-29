@@ -13,23 +13,12 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.get('/showEducations', async (req, res) => {
-    const educations = await EducationService.showEducations();
-    if (educations.length >= 1) {
-        res.status(200).send(educations)
-    } else {
-        res.status(404).send({ error: 'no educations found dude' })
-    }
-})
+router.get('/AllEducation', async (req, res) => {
+    const showEducation = await EducationService.showEducations()
+    showEducation ?  res.status(200).send(showEducation)   :   res.status(404).send({error: 'Error with getting files'})});
 
-router.get('/showEducations:id', async (req, res) => {
-    const educations = await EducationService.showEducations(req.params.id); 
-
-    if (educations) {
-        res.status(200).send(educations)
-    } else {
-        res.status(404).send({ error: 'no course with that id found' })
-    }
-})
+router.get('/AllEducation/:id', async (req, res) => {
+    const showOneEducation = await EducationService.showEducations(req.params.id);
+    showOneEducation ?  res.status(200).send(showOneEducation)  :  res.status(404).send({error: 'Error with getting file'})});
 
 module.exports = router;
