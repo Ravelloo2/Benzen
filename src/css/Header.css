@@ -4,13 +4,20 @@
     position:sticky;
     top: 0;
     z-index: 1000;
-
+    margin-bottom: 10px;
+    border-bottom: 1px solid #111;
 }
-#header h2{
+#header #header-content {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    width: 90%;
+}
+#header #header-content h2{
+    width: 100%;
     font-weight: bolder;
 }
 a{
     text-decoration: none;
     font-weight: bold;
-    padding: 1%;
 }

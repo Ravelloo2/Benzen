@@ -1,36 +1,56 @@
-.Education-grid {
-    width: 90%;
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+.utbildningar-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.left-side {
+    width: 40%;
     margin: 0 auto;
-    padding: 1em;
-    border-radius: 10px;
-    background-color: lightgrey;
 }
-
+.right-side {
+    width: 40%;
+    margin: 0 auto;
+}
 .Education-name {
-    text-align: center;
+    padding: 0;
+    font-family: 'Rajdhani' ;
+    background-color: transparent;
     font-size: 30px;
-    color: purple;
+    color: #1417afc0;
     text-decoration: underline;
+    cursor: pointer;
+    border: none;
+}
+.Education-content {
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
+.Education-name:hover {
+    background-color: lightgrey;
+    transition: ease-in 250ms;
+}
 .Education-Leader {
-    text-align: center;
+    font-family: 'Rajdhani' ;
     font-size: 23px;
 }
 
 .Education-Courses {
+    font-family: 'Rajdhani' ;
     margin: 20px 0;
-    text-align: center;
 }
 .Education-description {
+    font-family: 'Rajdhani' ;
     font-size: 15px;
-    text-align: center;
 
 }
 
 .separation-line {
-    height: 2px;
-    width: 70%;
+    font-family: 'Rajdhani' ;
+    height: 1px;
+    width: 100%;
     margin: 0 auto;
-    background-color: black;
+    background-color: #111;
 }

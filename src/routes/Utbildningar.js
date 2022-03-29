@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../css/Education.css'
 import ShowEducation from '../Components/ShowEducation';
@@ -20,22 +20,45 @@ function Utbildningar() {
   
   return (
     <div>
-      <h1 style={{textAlign:'center'}}>UTBILDNINGAR</h1>
+      <div className="utbildningar-container">
+        <div className="left-side">
+      <h1 style={{fontFamily: 'Rajdhani' }}>VÅRA UTBILDNINGAR</h1>
+      <div className="separation-line"></div>
       <div className="Education-grid">
       {Educations.map(x => {
         return (
-          <div style={{marginTop:'50px'}}>
+          <div>
         <ShowEducation
           name={x.name}
           educationLeader={x.educationLeader}
           courses={x.courses}
           description={x.description}
-        />
+          />
         </div>)
       } 
       )}
-      
+      </div>
+      </div>
+      <div className="right-side">
+
+      <h1 style={{textAlign:'center',fontFamily: 'Rajdhani' }}>FRIA KURSER</h1>
+      <div className="separation-line"></div>
+      <div className="Education-grid">
+      {Educations.map(x => {
+        return (
+          <div>
+        <ShowEducation
+          name={x.name}
+          educationLeader={x.educationLeader}
+          courses={x.courses}
+          description={x.description}
+          />
+        </div>)
+      } 
+      )}
+      </div>
     </div>
+  </div>
   </div>
   )
 }

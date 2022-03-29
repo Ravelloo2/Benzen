@@ -22,19 +22,19 @@ const CreateCourse = () => {
     }));
   }
 
-  async function handleSubmit(event) {
+function handleSubmit(event) {
     event.preventDefault();
-    await axios
+  axios
       .post("/createCourse", courseInfo)
       .then((res) => {
         setCourseInfo({ name: "", length: "", description: "", teacherId: "" });
-        console.log(res.data.message);
-        setSubmitMessage(true);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log("Ojdå, kursen kunde inte skapas");
         console.log(err.message);
       });
+      setSubmitMessage(true);
   }
 
   return (
@@ -55,7 +55,7 @@ const CreateCourse = () => {
         <div className="submit-message">
           <h4>Kursen har blivit tillagd.</h4>
           <p>
-            <Link to="/courses">Tillbaka till Kursöversikt</Link>
+            <Link to="/Kurser">Tillbaka till Kursöversikt</Link>
           </p>
         </div>
       ) : (
@@ -93,8 +93,8 @@ const CreateCourse = () => {
             name="length"
             value={courseInfo.length}
             onChange={handleChange}
-            className="input"
-          ><option value="1">1</option>
+            className="input">
+          <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 function Navbar() {
   return (
     <nav className='navBar'> 
-    <Link to="/utbildningar" >Utbildningar</Link> | 
-    <Link to="/Kurser" >Kurser</Link> |
-    <Link to="/personal" >Personal</Link> |
-    <Link to="/ansoka" >Ansöka</Link> 
+    <Link className='navBar-content' to="/utbildningar" >Utbildningar</Link> | 
+    <Link className='navBar-content' to="/Kurser" >Kurser</Link> |
+    <Link className='navBar-content' to="/personal" >Personal</Link> |
+    <Link className='navBar-content' to="/ansoka" >Ansöka</Link> 
   </nav>
  
 )

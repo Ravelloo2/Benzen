@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Collapse } from 'react-bootstrap'
 import '../css/Education.css'
 
-
 const ShowEducation = ({name,educationLeader,courses,description}) => {
-    return (
+const [open, setOpen] = useState(false);
+    return ( 
       <>
-      <div className="Education-name"> {name}</div>
-      <div className="Education-Leader">{educationLeader}</div>
-      <div className="Education-Courses">{courses.join(' ')}</div>
-      <div className="Education-description">{description}</div>
-      <div className="separation-line"></div>
+        <button className="Education-name" onClick={() => setOpen(!open)}>{name}</button>
+        <Collapse in={open}>
+          <div>
+        <div className='Education-content'>
+        <div className="Education-Leader">{educationLeader}</div>
+        <div className="Education-Courses">{courses.join(' ')}</div>
+        <div className="Education-description">{description}</div>
+          </div>
+        </div></Collapse>
+        <div className="separation-line"></div>
       </>
   )
 }

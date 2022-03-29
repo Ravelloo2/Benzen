@@ -21,7 +21,7 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
         <Button variant="outline-warning" name={_id} onClick={editHandler}>
           Uppdatera
         </Button>
-        <Button variant="danger" name={_id} onClick={deleteCourse}>
+        <Button variant="outline-danger" name={_id} onClick={deleteCourse}>
           Ta bort
         </Button>
     </div>
