@@ -14,7 +14,6 @@ const PersonalList = ({ personal, editHandler, deletePersonal }) => {
         </Container>
 
         <div className='personal-btns'>
-            <Button name={_id} onClick={editHandler}>Updatera personal</Button>
             <Button name={_id} onClick={deletePersonal}>Ta bort personal</Button>
         </div>
     </div>

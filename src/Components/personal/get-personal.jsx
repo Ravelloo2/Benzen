@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { Button } from "react-bootstrap";
-import UpdatePersonal from './update-personal';
 import PersonalList from './personal-list';
 
 export function GetPersonal() {
@@ -26,21 +25,9 @@ export function GetPersonal() {
             });
     }, [update]);
 
-    const editHandler = (e) => {
-        setId(e.target.name);
-        setModal(true);
-    };
-    const updateHandler = () => {
-        setUpdate(!update);
-    };
-
-    const closeHandler = () => {
-        setId("");
-        setModal(false);
-    };
 
     const deletePersonal = (e) => {
-        axios.delete(`http://localhost:3001/personal/deletePersonal/${e.target.name}`);
+        axios.delete(`http://localhost:3001/personal/${e.target.name}`);
 
         setPersonalInfo((data) => {
             return data.filter((personal) => personal._id !== e.target.name);
@@ -63,27 +50,12 @@ export function GetPersonal() {
                         <PersonalList
                             key={personal._id}
                             personal={personal}
-                            editHandler={editHandler}
                             deletePersonal={deletePersonal}
                         />
 
-                    ))};
+                    ))}
                 </ul>
             </section>
-            
-
-            <section className='update-container'>
-                <p onClick={closeHandler} className="close">
-                &times;
-            </p>
-            <UpdatePersonal
-                _id={id}
-                closeHandler={closeHandler}
-                updateHandler={updateHandler}></UpdatePersonal>
-            </section>
-            
-
-
         </div>
     )
 }

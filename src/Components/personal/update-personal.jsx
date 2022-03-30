@@ -17,7 +17,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
     const submitHandler = (e) => {
         e.preventDefault();
         console.log(personalInfo)
-        axios.patch(`http://localhost:3001/personal/updatePersonal/${_id}`, personalInfo)
+        axios.patch(`http://localhost:3001/personal/${_id}`, personalInfo)
             .then((res) => {
                 setPersonalInfo({
                     fName: "",
@@ -29,6 +29,15 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
             
     };
     return (
+        <form className="update-form"
+        onSubmit={(e) => {
+          submitHandler(e);
+          updateHandler();
+          closeHandler();
+          }} 
+
+          >
+
         <div className="update-personal-container">
             <form
             type="text"
@@ -55,9 +64,10 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
             onChange={handleChange}
             />
             
-            <Button type="submit" className="update-btn">Updatera personalinformation</Button>
-
+            
+            
         </div>
+        </form>
     )
 }
 
