@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const AddPersonal = () => {
 
@@ -60,7 +62,11 @@ const AddPersonal = () => {
             className='bKonto' 
             /><br />
 
-            <input onClick={() => CreatePersonal()} type="button" value="Create Personal" id='submitBtn' />
+            <input onClick={() => CreatePersonal()} type="button" value="Lägg till ny personal" id='submitBtn' />
+            <br />
+            <Button variant='outline-light' size='sm'>
+                    <Link to="/personal">Lägg till nya anställningar</Link>
+                </Button>
         </div>
     )
 }
