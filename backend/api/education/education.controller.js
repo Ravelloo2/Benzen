@@ -8,12 +8,19 @@ router.post('/createEducation', async (req,res) => {
     const createEducation = new Education({
         name: 'Webbsäkerhet',
         educationLeader: 'Pablo Escobar',
+        length: 2,
+        place: 'Klassrum',
+        points: 400,
         courses: ['Kurs1','Kurs2','Kurs3'],
         description: 'Description',
+        
     })
     await createEducation.save()
     res.status(200).send(createEducation)
 })
+router.get('/AllCourses', async (req,res) => {
+    const getAllCourses = await EducationService.getCourses()
+    getAllCourses ? res.status(200).send(getAllCourses) : res.status(404).send({error: 'Error with getting files'})});
 
 router.get('/AllEducation', async (req, res) => {
     const showEducation = await EducationService.showEducations()
