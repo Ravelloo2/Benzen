@@ -7,6 +7,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Utbildningar from './routes/Utbildningar';
 import Kurser from './routes/Courses';
 import Personal from './routes/Personal';
+import AddPersonal from './Components/personal/create-personal';
 import NotFound from './Components/NotFound';
 import Home from './Components/Home';
 import Header from './Components/Header';
@@ -24,6 +25,7 @@ ReactDOM.render(
           <Route path='/Kurser' element={<Kurser />} />
           <Route path="/skapa-kurs" element={<SkapaKurs/>}/>
           <Route path='/personal' element={<Personal />} />
+          <Route path="/AddPersonal" element={<AddPersonal />}/>
           <Route path='/ansoka' element={<Ansoka />} />
           <Route path="*" element={<NotFound/>} />
       </Routes>

@@ -4,27 +4,29 @@ const Personal = require('./personal.model');
 const PersonalService = require('./personal.service');
 
 router.post ('/', async (req, res) => {
-    const personal = await PersonalService.createPersonal(req.body);
-    if(personal) {
-        res.status(200).send(personal);
+    const newPersonal = await PersonalService.createPersonal(req.body);
+    if(newPersonal) {
+        res.status(200).send(newPersonal);
     } else {
         res.status(401).send({error: "bad input"});
     }
 });
 
-router.get('/showPersonal', async (req, res) => {
-    const personals = await PersonalService.showPersonals();
-    if(personals.length >= 1){
-        res.status(200).send(personals);
+router.get('/allPersonal', async (req, res) => {
+    const showPersonal = await PersonalService.showPersonal()
+    console.log(PersonalService.showPersonal)
+    console.log(showPersonal)
+    if(showPersonal){
+        res.status(200).send(showPersonal);
     } else {
         res.status(404).send({error: 'No staff found'});
     }
 });
 
-router.patch('/showPersonal/:id', async (req, res) => {
-    const personal = await PersonalService.showPersonal(req.params.id);
+router.patch('/allPersonal/:id', async (req, res) => {
+    const showOnePersonal = await PersonalService.showOnePersonal(req.params.id);
     if(personal){
-        res.status(200).send(personal);
+        res.status(200).send(showOnePersonal);
     } else {
         res.status(404).send({error: 'No staff with that id found.'});
     }
@@ -41,7 +43,7 @@ router.patch('/:id', async (req, res) => {
 
 router.delete('/:id', async (req,res) => {
     const personal = await PersonalService.deletePersonal(req.params.id);
-    if(!personal.error){
+    if(personal){
         res.status(204).send();
     } else {
         res.status(404).send({error: "Staff with given id does not exist"});
