@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import UpdateCourse from "./UpdateCourse";
 import CourseList from "./CourseList";
@@ -11,7 +10,7 @@ export function DisplayCourses() {
   const [courseInfo, setCourseInfo] = useState([]);
   const [id, setId] = useState("");
   const [update, setUpdate] = useState(false);
-  const [modal, setModal] = useState(false);
+  const [collapse, setCollapse] = useState(false);
 
   useEffect(() => {
     axios
@@ -27,15 +26,16 @@ export function DisplayCourses() {
 
   const editHandler = (e) => {
     setId(e.target.name);
-    setModal(true);
+    setCollapse(true);
   };
+  
   const updateHandler = () => {
     setUpdate(!update);
   };
 
   const closeHandler = () => {
     setId("");
-    setModal(false);
+    setCollapse(false);
   };
 
   const deleteCourse = (e) => {
@@ -44,20 +44,19 @@ export function DisplayCourses() {
     setCourseInfo((data) => {
       return data.filter((course) => course._id !== e.target.name);
     });
-   
   };
 
   return (
     <section className="course-container">
-    <div className="course-header">
+      <div className="course-header">
         <h2>Våra tillgängliga kurser</h2>
-        <Button variant="light" size="sm">
-      <Link to="/skapa-kurs" className="add-new-course">
-        Lägg till ny kurs
-      </Link></Button>
+        <button className="add-new-course">
+          <Link to="/skapa-kurs">
+            Lägg till ny kurs
+          </Link>
+        </button>
       </div>
       <section className="course-info">
-        
         <ul className="course-list">
           {courseInfo.map((course) => (
             <CourseList
@@ -69,19 +68,15 @@ export function DisplayCourses() {
           ))}
         </ul>
       </section>
-      {modal ? (
-        <section className="update-container">
-          
-            <button onClick={closeHandler} className="close" aria-label="Close">
-             x
-            </button>
 
-            <UpdateCourse
-              _id={id}
-              closeHandler={closeHandler}
-              updateHandler={updateHandler}
-            />
-        
+      
+      {collapse ? (
+        <section className="update-wrapper">
+          <UpdateCourse
+            _id={id}
+            closeHandler={closeHandler}
+            updateHandler={updateHandler}
+          />
         </section>
       ) : (
         ""

@@ -6,7 +6,9 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
   const [courseInfo, setCourseInfo] = useState({
     name: "",
     length: "",
+    startDate: "",
     description: "",
+    location:"",
     teacherId: "",
   });
 
@@ -23,7 +25,9 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
         setCourseInfo({
           name: "",
           length: "",
+          startDate: "",
           description: "",
+          location:"",
           teacherId: "",
         });
       })
@@ -31,8 +35,13 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
         console.error(err);
       });
   };
+
+
   return (
-    <section className="update-course-info">
+    <section className="update-course">
+     <button onClick={closeHandler} className="close" aria-label="Close">
+             x
+            </button>
     <form
       className="update-form"
       onSubmit={(e) => {
@@ -50,6 +59,16 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
         className="input"
         onChange={handleChange}
       />
+      <label htmlFor="description" className="label">
+        Ny kursbeskrivning:
+      </label>
+      <textarea
+        type="textarea"
+        name="description"
+        className="input"
+        onChange={handleChange}
+      />
+
       <label htmlFor="length" className="label">
         Ny längd på kurs:
       </label>
@@ -65,28 +84,34 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
         <option value="9">9</option>
         <option value="10">10</option>
       </select>
-      <label htmlFor="description" className="label">
-        Ny kursbeskrivning:
-      </label>
-      <textarea
-        type="textarea"
-        name="description"
-        className="input"
-        onChange={handleChange}
-      />
-      <label htmlFor="teacher" className="label">
+      
+      <label htmlFor="location" className="courseLabel">
+              Plats:
+            </label>
+            <select
+              id="kurs"
+              type="select"
+              name="location"
+              value={courseInfo.location}
+              onChange={handleChange}
+              className="input"
+            >
+              <option>Distans</option>
+              <option>Kista</option>
+            </select>
+
+      <label htmlFor="teacherId" className="label">
         Ny lärare:
       </label>
       <select
         type="textarea"
-        name="teacher"
+        name="teacherId"
         className="input"
         onChange={handleChange}
       >
         <option value="teacherId1">Lärare 1</option>
         <option value="teacherId2">Lärare 2</option>
-        <option value="teacherId3">Lärare 3</option>
-        <option value="teacherId4">Lärare 4</option>
+       
       </select>
       <Button variant="outline-warning" type="submit" className="update-btn">
         Updatera Kurs
