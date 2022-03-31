@@ -29,6 +29,7 @@ ReactDOM.render(
           <Route path='/ansoka' element={<Ansoka />} />
           <Route path="*" element={<NotFound/>} />
       </Routes>
+      <Footer />
     </BrowserRouter>
  
   </React.StrictMode>,

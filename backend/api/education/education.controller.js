@@ -30,7 +30,8 @@ router.get('/AllEducation/:id', async (req, res) => {
     const showOneEducation = await EducationService.showEducations(req.params.id);
     showOneEducation ?  res.status(200).send(showOneEducation)  :  res.status(404).send({error: 'Error with getting file'})});
 
-router.patch('/:id', async (req,res) => {});
+router.patch('/:id', async (req,res) => {
+});
 
 router.delete('/:id', async (req,res)=> {
     const education = await EducationService.deleteOneEducation(req.params.id);

@@ -10,7 +10,7 @@ const ShowCourses = ({name,length,description}) => {
         <Collapse in={open}>
           <div>
         <div className='Education-content'>
-        <div className="Education-Leader">{length}</div>
+        <div className="Education-length">{length}</div>
         <div className="Education-description">{description}</div>
           </div>
         </div></Collapse>
