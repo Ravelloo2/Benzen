@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "..", "build")));
 
 mongoose
-.connect('mongodb://localhost:27017/BenzenDB', {useNewUrlParser: true})
+.connect('mongodb+srv://beder:sparken@benzendb.untda.mongodb.net/BenzenDB?retryWrites=true&w=majority', {useNewUrlParser: true})
   .then(()=> {
     console.log('Database connected');
   })
