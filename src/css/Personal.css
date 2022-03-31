@@ -1,0 +1,63 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+    margin: 1em;
+    color: #666666;
+}
+
+body {
+    background-color: #fae5df;
+}
+
+.personals {
+    margin: 2em auto;
+    width: 50%;
+    min-height: 45vh;
+    background-color: #ffffff;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.personal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-personal-btn {
+    background-color: #ed7966;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 15px;
+}
+
+.personal-container {
+    background-color: #ffffff;
+    width: 30%;
+
+}
+
+.add-personal-container {
+    margin: 2em auto;
+    width: 40%;
+    min-height: 45vh;
+    background-color: #ffffff;
+    border-radius: 25px;
+    padding: 15px;
+}
+
+#fName, #lName, #email, #bKonto {
+    width: auto;
+    height: fit-content;
+}
+
+.fName, .lName, .email, .bKonto {
+    width: auto;
+    height: fit-content;
+}
