@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const CourseService = require("./courses.service");
+const PersonalService = require("../personal/personal.service");
 
 router.post('/createCourse', async (req, res) => {
   const course = await CourseService.createCourse(req.body);
@@ -46,5 +47,11 @@ router.delete("/deleteCourse/:id", async (req, res) => {
     res.status(404).send({ error: "Course with given id doesn't exist" });
   }
 });
+
+router.get("/showPersonal", async (req, res) => {
+  const showPersonal = await PersonalService.showPersonal();
+  showPersonal ? res.status(200).send(showPersonal) : res.status(404).send({Error: 'could not get personal files.'})
+});
+
 
 module.exports = router;

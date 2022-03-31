@@ -2,13 +2,23 @@ const Course = require("./courses.model");
 
 module.exports = class CourseService {
   static async createCourse(body) {
-    if (body.name && body.length && body.description) {
+    if (
+      body.name &&
+      body.description &&
+      body.length &&
+      body.startDate &&
+      body.location &&
+      body.teacherId
+    ) {
       const data = body;
 
       const course = new Course({
         name: data.name,
-        length: data.length,
         description: data.description,
+        length: data.length,
+        startDate: data.startDate,
+        location: data.location,
+        teacherId: data.teacherId,
       });
       await course.save();
       return course;
@@ -32,11 +42,21 @@ module.exports = class CourseService {
         if (body.name) {
           course.name = body.name;
         }
-        if (body.length) {
-          course.length = +body.length;
-        }
         if (body.description) {
           course.description = body.description;
+        }
+        if (body.length) {
+          course.length = body.length;
+        }
+        if (body.startDate) {
+          course.startDate = body.startDate;
+        }
+
+        if (body.location) {
+          course.location = body.location;
+        }
+        if (body.teacherId) {
+          course.teacherId = body.teacherId;
         }
         await course.save();
       }
