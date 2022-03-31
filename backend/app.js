@@ -10,7 +10,6 @@ app.use(express.static("public"));
 
 const mongoose = require('mongoose');
 const courseEndpoints = require('./api/courses/course.controller'); 
-const { fail } = require('assert');
 app.use(cors());
 
 app.use(express.static(path.join(__dirname, "..", "build")));
