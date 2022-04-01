@@ -1,3 +1,4 @@
+/* PETRAS */ 
 import React, { useState } from "react";
 
 const CourseList = ({ course, editHandler, deleteCourse }) => {

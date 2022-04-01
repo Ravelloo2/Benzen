@@ -1,3 +1,4 @@
+/*PETRAS*/
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -8,15 +9,15 @@ const CreateCourse = () => {
   const [submitMessage, setSubmitMessage] = useState(false);
   const [weeks, setWeeks] = useState(0);
 
-  const [Personal, setPersonal] = useState([]);
+  const [teacher, setTeacher] = useState([]);
 
   const [courseInfo, setCourseInfo] = useState({
     name: "",
     description: "",
     length: "1",
     location: "distans",
-    teacherId: "1",
     startDate: "",
+    teacherId: "",
   });
 
   function handleChange(e) {
@@ -36,8 +37,8 @@ const CreateCourse = () => {
           description: "",
           length: "",
           location: "",
-          teacherId: "",
           startDate: "",
+          teacherId: "",
         });
         console.log(res.data);
         setSubmitMessage(true);
@@ -48,15 +49,14 @@ const CreateCourse = () => {
       });
   }
 
-  
   useEffect(async () => {
-    const res = await axios.get("/personal/showPersonal");
-    setPersonal(res.data);
+    const res = await axios.get("/personal/allPersonal");
+    setTeacher(res.data);
   }, []);
 
   useEffect(async () => {
-    console.log(Personal);
-  }, [Personal]);
+    console.log(teacher);
+  }, [teacher]);
 
   return (
     <section className="course-container">
@@ -137,10 +137,16 @@ const CreateCourse = () => {
               { (5 * weeks) }
          
             </p>*/}
-            <label htmlFor="startDate" className="courseLabel">
+            <label htmlFor="startDate" className="course-label">
               Kursstart:
             </label>
-            <input type="date" min="2022-04-10" value={courseInfo.startDate} onChange={handleChange}></input>
+            <input
+              type="date"
+              min="2022-04-10"
+              name="startDate"
+              value={courseInfo.startDate}
+              onChange={handleChange}
+            ></input>
 
             <label htmlFor="location" className="course-label">
               Plats:
@@ -161,15 +167,16 @@ const CreateCourse = () => {
               Kursens lärare
             </label>
             <select
-              id="kurs"
+              id=""
               type="select"
               name="teacherId"
+              className="input"
               value={courseInfo.teacherId}
               onChange={handleChange}
-              className="input"
             >
-              <option>1</option>
-              <option>2</option>
+              {teacher.map(teachers => {
+                return (<option key={teacher._id}>{teachers.fName}</option>
+              )})}
             </select>
 
             <button type="submit" className="add-course-btn course-btns">
