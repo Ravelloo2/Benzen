@@ -25,10 +25,11 @@ function Utbildningar() {
   }, [Educations])
   
   return (
-    <div>
+    <div className="">
+    <div className='utbildningar-container-wrapper'>
       <div className="utbildningar-container">
         <div className="left-side">
-      <h1 style={{fontFamily: 'Rajdhani' }}>VÅRA UTBILDNINGAR</h1>
+      <h1 style={{color:'white'}}>VÅRA UTBILDNINGAR</h1>
       <div className="separation-line"></div>
       <div className="Education-grid">
       {Educations.map(x => {
@@ -50,7 +51,7 @@ function Utbildningar() {
       </div>
       <div className="right-side">
 
-      <h1 style={{fontFamily: 'Rajdhani' }}>FRIA KURSER</h1>
+      <h1 style={{color:'white'}}>FRIA KURSER</h1>
       <div className="separation-line"></div>
       <div className="Education-grid">
         {Courses.map(y => {
@@ -68,6 +69,13 @@ function Utbildningar() {
       </div>
     </div>
   </div>
+  <div className="utbildningar-secondary">
+    
+  </div>
+  </div>
+  <div className="utbildningar-secondary-content">
+      <h1 style={{color:'black'}}>Kontakta Studie & Yrkesvägledare</h1>
+    </div>
   </div>
   )
 }

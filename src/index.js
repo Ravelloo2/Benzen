@@ -13,6 +13,7 @@ import Home from './Components/Home';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import SkapaKurs from './Components/NewCourseComponents/CreateCourse'
+import Kontakta from './routes/Kontakta';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -27,6 +28,7 @@ ReactDOM.render(
           <Route path='/personal' element={<Personal />} />
           <Route path="/AddPersonal" element={<AddPersonal />}/>
           <Route path='/ansoka' element={<Ansoka />} />
+          <Route path='/kontakta' element={<Kontakta />} />
           <Route path="*" element={<NotFound/>} />
       </Routes>
       <Footer />

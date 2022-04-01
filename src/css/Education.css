@@ -1,8 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+/* Generell css + section 1*/
+.utbildningar-container-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    background-color: #1417afc0;
+}
 .utbildningar-container {
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
+    box-sizing: border-box;
+    min-height: 70vh;
 }
 .left-side {
     width: 40%;
@@ -17,10 +25,9 @@
     display: flex;
     justify-content: left;
     padding:  5px 0 5px 5px;
-    font-family: 'Rajdhani' ;
     background-color: transparent;
     font-size: 30px;
-    color: #1417afc0;
+    color: white;
     /* text-decoration: underline; */
     cursor: pointer;
     border: none;
@@ -33,18 +40,29 @@
 }
 
 .Education-name:hover {
-    background-color: rgb(231, 229, 229);
-    transition: ease-in 250ms;
+    transition: ease-in 50ms;
+    color: black;
 }
 .Education-Leader {
     font-size: 23px;
     font-weight: bold;
 }
-
-
+.Education-content {
+    padding: 5px;
+    color: white;
+}
 .separation-line {
     height: 1px;
     width: 100%;
     margin: 0 auto;
     background-color: #111;
+}
+
+
+/* Section 2 */
+
+.utbildningar-secondary-content {
+    width: 90%;
+    margin: 20px auto 0 auto;
+    height: 70vh;
 }
