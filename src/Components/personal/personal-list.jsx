@@ -7,14 +7,13 @@ const PersonalList = ({ personal, editHandler, deletePersonal }) => {
   return (
     <div className='show-personal'>
         <Container>
-            <div>{fName}</div>
-            <div>{lName}</div>
-            <div>{email}</div>
-            <div>{bKonto}</div>
+            <div>{'Namn: ' + fName + ' ' + lName} </div>
+            <div>{'Mailadress: ' + email}</div>
+            <div>{'Bankkonto: ' + bKonto}</div>
         </Container>
 
         <div className='personal-btns'>
-            <Button name={_id} onClick={deletePersonal}>Ta bort personal</Button>
+            <Button name={_id} variant="outline-danger" onClick={deletePersonal}>Ta bort personal</Button>
         </div>
     </div>
 
