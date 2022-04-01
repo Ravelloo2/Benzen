@@ -1,3 +1,4 @@
+/*PETRAS*/
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -50,11 +51,11 @@ export function DisplayCourses() {
     <section className="course-container">
       <div className="course-header">
         <h2>Våra tillgängliga kurser</h2>
-        <button className="add-new-course">
           <Link to="/skapa-kurs">
+        <button type="button" className="add-new-course-btn course-btns">
             Lägg till ny kurs
-          </Link>
         </button>
+          </Link>
       </div>
       <section className="course-info">
         <ul className="course-list">
