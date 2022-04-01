@@ -8,9 +8,8 @@ const Education = require("./education.model");
 module.exports = class EducationService {
     static async getCourses() {
       let courses = await CourseController.showCourses()
-      const coursesResponse = await courses.json()
-      console.log(coursesResponse)
-      return coursesResponse
+      console.log(courses)
+      return courses
     }
     // static async getEducationTeacher() {
     //   let educationTeacher = await PersonalController.

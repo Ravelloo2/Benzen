@@ -10,13 +10,12 @@ app.use(express.static("public"));
 
 const mongoose = require('mongoose');
 const courseEndpoints = require('./api/courses/course.controller'); 
-const { fail } = require('assert');
 app.use(cors());
 
 app.use(express.static(path.join(__dirname, "..", "build")));
 
 mongoose
-.connect('mongodb://localhost:27017/BenzenDB', {useNewUrlParser: true})
+.connect('mongodb+srv://beder:sparken@benzendb.untda.mongodb.net/BenzenDB?retryWrites=true&w=majority', {useNewUrlParser: true})
   .then(()=> {
     console.log('Database connected');
   })
@@ -34,13 +33,12 @@ app.use('/education',require('./api/education/education.controller'));
 app.use('/personal',require('./api/personal/personal.controller'));
 app.use('/ansoka', require('./api/ansoka/ansoka.controller'))
 
-
+/*
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
 });
 
-
+*/
   app.listen(3001, () => {
     console.log("server started on port 3001");
   });
-  

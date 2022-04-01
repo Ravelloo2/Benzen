@@ -1,5 +1,27 @@
+.footer-container,.social-media ,.contact {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    opacity: 1;
+}
 
-footer {
+
+.footer-container {
+    width: 100%;
+     position: fixed;
+    bottom: 0; 
+    background-color: white;
+    border-top: 1px solid #111;
+    
+}
+
+.social-media .content,.contact .content {
+    margin: 0 10px;
+    font-size: 30px;
+    color: #1417afc0;
+}
+
+/* footer {
     background-color: rgba(0, 0, 139, 0.596);
     color: #fafafa;
     position: fixed;
@@ -10,4 +32,4 @@ footer {
 footer p {
     font-style: italic;
     font-weight:bold;
-}
+} */
