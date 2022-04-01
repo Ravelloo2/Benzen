@@ -1,8 +1,8 @@
 :root {
 
     /* Font Family */
-    --ff-primary: ;
-    --ff-secondary: ;
+    --ff-primary: 'Raleway';
+    --ff-secondary:  sans-serif;
 
     /* Font Sizes */
 
