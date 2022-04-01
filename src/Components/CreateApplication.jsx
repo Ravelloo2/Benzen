@@ -33,24 +33,24 @@ const AddValues = () => {
   return (
     <div className="App">
       <form className="form">
-        <fieldset>
-          <label>ANSÖK HÄR!</label>
+        <fieldset className="fieldset-apply">
+          <label id="label-apply">ANSÖK HÄR!</label>
           <input
             placeholder="Förnamn"
             onChange={(e) => setFname(e.target.value)}
-            className="name"
+            id="Fname-apply"
             value={applyFname}/>
           <input
             placeholder="Efternamn"
             onChange={(e) => setLname(e.target.value)}
-            name="name"
+            id="Lname-apply"
             value={applyLname}/>
           <input
             placeholder="Email"
             onChange={(e) => setMail(e.target.value)}
-            name="email"
+            id="email-apply"
             value={applyEmail}/>
-          <select name="" id="" onChange={(e) => setUtbildning(e.target.value)}>
+          <select name="" id="select-apply" onChange={(e) => setUtbildning(e.target.value)}>
             {Educations.map(x => { return( <option >{x.name}</option> )})}
           </select>
 

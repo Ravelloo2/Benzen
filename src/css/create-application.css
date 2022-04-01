@@ -1,11 +1,22 @@
-input {
-    height: 50px;
-    border-radius:5px;
-    border: 1px solid black;
-    margin: 20px;
+
+.fieldset-apply {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    border: 0px solid black;
+    background-color: #1417afc0;
 }
 
-form {
+.App {
+    background-image: url(../Logo/developers.png);
+    
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form {
     display: flex;
     height: 100vh;
     width: 80%;
@@ -15,36 +26,42 @@ form {
     padding-top: 200px;
 }
 
-fieldset {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    border: 0px solid black;
-    background-color: #1417afc0;
-}
-
-label {
+#label-apply {
     font-size: 120%;
     font-weight: bold;
     color: white
 }
 
-select {
+#select-apply {
     border: 1px solid black;
     border-radius: 5px;
     margin: 20px;
     height:50px;
 }
 
-.App {
-    background-image: url(../Logo/Peder.png);
-
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+#Fname-apply {
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin:20px;
+}
+#Lname-apply {
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin:20px;
+}
+#email-apply {
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin:20px;
 }
 
 #submitBtn {
     cursor: pointer;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 20px;
 }
