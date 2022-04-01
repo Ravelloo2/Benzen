@@ -50,11 +50,11 @@ export function DisplayCourses() {
     <section className="course-container">
       <div className="course-header">
         <h2>Våra tillgängliga kurser</h2>
-        <button className="add-new-course">
           <Link to="/skapa-kurs">
+        <button type="button" className="add-new-course-btn course-btns">
             Lägg till ny kurs
-          </Link>
         </button>
+          </Link>
       </div>
       <section className="course-info">
         <ul className="course-list">

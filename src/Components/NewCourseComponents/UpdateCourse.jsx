@@ -50,7 +50,7 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
         closeHandler();
       }}
     >
-      <label htmlFor="name" className="label">
+      <label htmlFor="name" className="course-label">
         Nytt kursnamn:
       </label>
       <input
@@ -59,7 +59,7 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
         className="input"
         onChange={handleChange}
       />
-      <label htmlFor="description" className="label">
+      <label htmlFor="description" className="course-label">
         Ny kursbeskrivning:
       </label>
       <textarea
@@ -69,7 +69,7 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
         onChange={handleChange}
       />
 
-      <label htmlFor="length" className="label">
+      <label htmlFor="length" className="course-label">
         Ny längd på kurs:
       </label>
       <select type="" name="length" className="input" onChange={handleChange}>
@@ -85,7 +85,7 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
         <option value="10">10</option>
       </select>
       
-      <label htmlFor="location" className="courseLabel">
+      <label htmlFor="location" className="course-label">
               Plats:
             </label>
             <select
@@ -100,7 +100,7 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
               <option>Kista</option>
             </select>
 
-      <label htmlFor="teacherId" className="label">
+      <label htmlFor="teacherId" className="course-label">
         Ny lärare:
       </label>
       <select

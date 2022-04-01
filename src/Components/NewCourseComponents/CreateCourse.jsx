@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import axios from "axios";
 
 const CreateCourse = () => {
@@ -49,7 +48,7 @@ const CreateCourse = () => {
       });
   }
 
-  /*
+  
   useEffect(async () => {
     const res = await axios.get("/personal/showPersonal");
     setPersonal(res.data);
@@ -58,13 +57,13 @@ const CreateCourse = () => {
   useEffect(async () => {
     console.log(Personal);
   }, [Personal]);
-*/
+
   return (
     <section className="course-container">
       <div className="course-header">
         <h2>Lägg till ny kurs</h2>
         <Link to="/Kurser">
-          <button type="button" className="todo-btn todo-btn-back">
+          <button type="button" className="go-back-btn course-btns">
             Tillbaka
           </button>
         </Link>
@@ -79,7 +78,7 @@ const CreateCourse = () => {
       ) : (
         <section className="course-specs">
           <form onSubmit={handleSubmit} className="add-course-form" noValidate>
-            <label className="courseLabel" htmlFor="name">
+            <label className="course-label" htmlFor="name">
               Kursnamn:
             </label>
             <input
@@ -90,7 +89,7 @@ const CreateCourse = () => {
               onChange={handleChange}
               className="input"
             />
-            <label className="courseLabel" htmlFor="description">
+            <label className="course-label" htmlFor="description">
               Kursbeskrivning:
             </label>
             <textarea
@@ -102,7 +101,7 @@ const CreateCourse = () => {
               onChange={handleChange}
               className="input"
             />
-            <label className="courseLabel" htmlFor="length">
+            <label className="course-label" htmlFor="length">
               Kursens längd i veckor:
             </label>
             <select
@@ -125,25 +124,25 @@ const CreateCourse = () => {
               <option value="10">10</option>
             </select>
 
-            {/*<label htmlFor="points" className="courseLabel">
+            {/*<label htmlFor="points" className="course-label">
               Poäng:
             </label>
-            <select
+            <p
               type=""
               name="points"
               className="input"
               value={courseInfo.points}
               onChange={handleChange}
             >
-              <p value="1">{5 * weeks}</p>
+              { (5 * weeks) }
          
-            </select>*/}
+            </p>*/}
             <label htmlFor="startDate" className="courseLabel">
               Kursstart:
             </label>
             <input type="date" min="2022-04-10" value={courseInfo.startDate} onChange={handleChange}></input>
 
-            <label htmlFor="location" className="courseLabel">
+            <label htmlFor="location" className="course-label">
               Plats:
             </label>
             <select
@@ -158,7 +157,7 @@ const CreateCourse = () => {
               <option>Kista</option>
             </select>
 
-            <label className="courseLabel" htmlFor="teacher">
+            <label className="course-label" htmlFor="teacher">
               Kursens lärare
             </label>
             <select
@@ -173,7 +172,7 @@ const CreateCourse = () => {
               <option>2</option>
             </select>
 
-            <button type="submit" className="add-course-btn">
+            <button type="submit" className="add-course-btn course-btns">
               Skapa Kurs
             </button>
           </form>
