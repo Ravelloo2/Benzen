@@ -27,9 +27,11 @@
 }
 
 #label-apply {
+    display: flex;
     font-size: 120%;
     font-weight: bold;
-    color: white
+    color: white;
+    justify-content: center;
 }
 
 #select-apply {
