@@ -33,7 +33,7 @@ function Home() {
           <h1>TILLGÄNGLIGA UTBILDNINGAR</h1>
           {Educations.map(x => {
             return (
-              <h3 style={{textTransform:'uppercase'}}>{x.name}</h3>
+              <h4 style={{textTransform:'uppercase'}}>{x.name}</h4>
             )
           })}
           <Link to='/utbildningar' className='main-page-read-more-button'><h3>Läs mer...</h3></Link>
@@ -42,7 +42,7 @@ function Home() {
           <h1>TILLGÄNGLIGA KURSER</h1>
           {Courses.map(x => {
             return (
-              <h3 style={{textTransform:'uppercase'}}>{x.name}</h3>
+              <h4 style={{textTransform:'uppercase'}}>{x.name}</h4>
             )
           })}
           <Link to='/kurser'className='main-page-read-more-button' ><h3>Läs mer...</h3></Link>

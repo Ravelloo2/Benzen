@@ -29,7 +29,7 @@
   grid-column: 1 / -1;
   /* grid-row: 1; */
   height: 90vh;
-  background-color: #1417afc0;
+  background-color: var(--backgroundColor-primary);
 }
 .hero-page {
   margin: 200px 0 0 100px;
@@ -71,7 +71,7 @@ height: 80vh;
 } */
 
 .third-content {
-  background-color: #1417afc0;
+  background-color: var(--backgroundColor-primary);
   height: 80vh;
 }
 .third-main-content {
