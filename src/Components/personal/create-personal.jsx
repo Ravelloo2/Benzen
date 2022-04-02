@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../../css/Personal.css";
 
@@ -26,6 +25,7 @@ const AddPersonal = () => {
 
     return (
         <div className='add-personal-container'>
+        <div className='form-container'>
             <div className='personal-form'>
                 <label className='fName'>Förnamn:</label><br />
                 <input
@@ -64,11 +64,11 @@ const AddPersonal = () => {
                     className='bKonto'
                 /><br />
             </div>
-            <input onClick={() => CreatePersonal()} type="button" value="Lägg till ny personal" id='submitBtn' />
+            <input className='submit-new-btn' onClick={() => CreatePersonal()} type="button" value="Lägg till ny personal" id='submitBtn' />
             <br />
-            <Button variant='outline-info' size='sm'>
-                <Link to="/personal">Tillbaka</Link>
-            </Button>
+            
+                <Link to="/personal"><button className='tillbaka-btn'>Tillbaka</button></Link>
+            </div>
 
         </div>
     )

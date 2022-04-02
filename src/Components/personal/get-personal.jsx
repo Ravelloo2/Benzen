@@ -39,9 +39,11 @@ export function GetPersonal() {
         <div className='personals'>
             <div className='personal-header'>
                 <h2>Anställda lärare:</h2>
-                <button className='add-personal-btn'>
-                    <Link to="/AddPersonal">Lägg till nya anställningar</Link>
-                </button>
+                    <Link to="/AddPersonal">
+                    <button className='add-personal-btn'>
+                    Lägg till nya anställningar
+                    </button>
+                    </Link>
             </div>
             <section className='peronal-container'>
                 <ul className='personal-list'>

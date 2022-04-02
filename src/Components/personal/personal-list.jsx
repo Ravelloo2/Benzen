@@ -12,8 +12,8 @@ const PersonalList = ({ personal, editHandler, deletePersonal }) => {
             <div>{'Bankkonto: ' + bKonto}</div>
         </Container>
 
-        <div className='personal-btns'>
-            <Button name={_id} variant="outline-danger" onClick={deletePersonal}>Ta bort personal</Button>
+        <div>
+            <button className='delete-personal-btn' name={_id} onClick={deletePersonal}>Ta bort personal</button>
         </div>
     </div>
 
