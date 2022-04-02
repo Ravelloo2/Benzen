@@ -5,17 +5,33 @@ h2 {
     color: #666666;
 }
 
-body {
-    background-color: #fae5df;
-}
-
 .personals {
+    margin: 1em;
+    color: #666666;
     margin: 2em auto;
     width: 50%;
     min-height: 45vh;
-    background-color: #ffffff;
+    background-color: #f5cac2;
     border-radius: 25px;
     padding: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.form-container {
+    margin: 1em;
+    color: #666666;
+    margin: 2em auto;
+    width: 80%;
+    min-height: 55vh;
+    background-color: #f5cac2;
+    border-radius: 25px;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.personal-form {
+    width: 45vh;
+
 }
 
 .personal-header {
@@ -23,8 +39,8 @@ body {
     justify-content: space-between;
 }
 
-.add-personal-btn {
-    background-color: #ed7966;
+.add-personal-btn, .submit-new-btn {
+    background-color: #303179;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -33,6 +49,18 @@ body {
     display: inline-block;
     font-size: 12px;
     border-radius: 15px;
+}
+
+.delete-personal-btn, .tillbaka-btn{
+    background-color: #ed7966;
+    border: none;
+    color: white;
+    padding: 15px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 13px;
 }
 
 .personal-container {
@@ -53,6 +81,12 @@ body {
 #fName, #lName, #email, #bKonto {
     width: auto;
     height: fit-content;
+}
+
+.bKonto::-webkit-outer-spin-button,
+.bKonto::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .fName, .lName, .email, .bKonto {
