@@ -21,9 +21,11 @@ const courseModel = {
   },
   teacherId: {
     type: String,
+    required: true,
   },
   startDate: {
     type: Date,
+    required: true,
   }
 };
 module.exports = mongoose.model("Course", courseModel);

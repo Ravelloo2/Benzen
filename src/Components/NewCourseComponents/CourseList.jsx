@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 
 const CourseList = ({ course, editHandler, deleteCourse }) => {
-  const { _id, name, length, description, location, teacherId } = course;
+  const { _id, name, length, description, location, teacherId, startDate, points } = course;
 
   const [isOpen, setIsOpen] = useState(false);
-  const [weeks, setWeeks] = useState(0);
+ 
 
   return (
     <div className="show-courses">
@@ -26,16 +26,19 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
                {description}
               </section>
               <table className="course-table">
+              <tbody>
                 <tr>
                   <th className="course-th">Längd i veckor:</th>
                   <th className="course-th">Poäng:</th>
                   <th className="course-th">Startdatum:</th>
                 </tr>
+
                 <tr>
                   <td>{length}</td>
-                  <td>{length}</td>
-                  <td>{length}</td>
+                  <td>{length * 5}</td>
+                  <td>{startDate.slice(0,10)}</td>
                 </tr>
+
                 <tr>
                   <th className="course-th">Plats: </th>
                   <th className="course-th">Lärare:</th>
@@ -44,6 +47,7 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
                   <td>{location}</td>
                   <td>{teacherId}</td>
                 </tr>
+                </tbody>
               </table>
               <div className="course-btn-container">
                 <button

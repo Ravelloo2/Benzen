@@ -21,7 +21,7 @@ function Home() {
         <div className="first-main-content">
         <div className="hero-page">
             <h1>Benzen Education</h1>
-            <h4>Vi är en av sveriges största skolor</h4>
+            <h4>Vi är en av Sveriges största skolor</h4>
             <Link to="/ansoka"><button className='hero-button'>ANSÖK TILL OSS!</button></Link>
           </div>
         </div>

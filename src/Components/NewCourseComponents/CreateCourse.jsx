@@ -7,9 +7,8 @@ const CreateCourse = () => {
   axios.defaults.baseURL = "http://localhost:3001";
 
   const [submitMessage, setSubmitMessage] = useState(false);
-  const [weeks, setWeeks] = useState(0);
-
   const [teacher, setTeacher] = useState([]);
+
 
   const [courseInfo, setCourseInfo] = useState({
     name: "",
@@ -18,6 +17,7 @@ const CreateCourse = () => {
     location: "distans",
     startDate: "",
     teacherId: "",
+    points:"",
   });
 
   function handleChange(e) {
@@ -39,6 +39,7 @@ const CreateCourse = () => {
           location: "",
           startDate: "",
           teacherId: "",
+          points:"",
         });
         console.log(res.data);
         setSubmitMessage(true);
@@ -124,23 +125,24 @@ const CreateCourse = () => {
               <option value="10">10</option>
             </select>
 
-            {/*<label htmlFor="points" className="course-label">
-              Poäng:
+            <label htmlFor="points" className="course-label">
+              Poäng = 5 per vecka 
             </label>
             <p
               type=""
               name="points"
-              className="input"
+              className="points"
               value={courseInfo.points}
               onChange={handleChange}
             >
-              { (5 * weeks) }
          
-            </p>*/}
+            </p>
+
             <label htmlFor="startDate" className="course-label">
               Kursstart:
             </label>
             <input
+            id="kurs"
               type="date"
               min="2022-04-10"
               name="startDate"
@@ -167,7 +169,7 @@ const CreateCourse = () => {
               Kursens lärare
             </label>
             <select
-              id=""
+              id="kurs"
               type="select"
               name="teacherId"
               className="input"
