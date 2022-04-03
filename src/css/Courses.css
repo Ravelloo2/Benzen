@@ -9,8 +9,11 @@
   font-weight: bold;
   border: none;
   background-color: var(--backgroundColor-secondary);
+  text-align:center;
+  padding: .5em;
 }
 .course-container {
+  font-family: 'Raleway', sans-serif;
   margin: 2rem auto;
   width: 90%;
   min-height: 60vh;
@@ -23,7 +26,9 @@
   justify-content: space-around;
   align-items: center;
 }
-
+.course-label {
+  margin-top: .6em;
+}
 .show-courses {
   margin: 0 auto;
   width: 70%;
