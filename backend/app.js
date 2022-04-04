@@ -34,7 +34,6 @@ app.use('/personal',require('./api/personal/personal.controller'));
 app.use('/ansoka', require('./api/ansoka/ansoka.controller'))
 
 
-
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
 // });
