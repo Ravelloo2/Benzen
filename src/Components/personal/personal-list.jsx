@@ -1,26 +1,25 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import UpdatePersonal from './update-personal';
 
-const PersonalList = ({ personal, deletePersonal }) => {
-    const { _id, fName, lName, email, bKonto } = personal;
+const PersonalList = ({ personalInfos, editHandler, deleteHandler }) => {
+  const { _id, fName, lName, email, bKonto } = personalInfos;
 
 
   return (
-    <div className='show-personal'>
+    <li key={_id}>
+      <div className='show-personal'>
         <Container>
-            <div>{'Namn: ' + fName + ' ' + lName} </div>
-            <div>{'Mailadress: ' + email}</div>
-            <div>{'Bankkonto: ' + bKonto}</div>
+          <div>{'Namn: ' + fName + ' ' + lName} </div>
+          <div>{'Mailadress: ' + email}</div>
+          <div>{'Bankkonto: ' + bKonto}</div>
         </Container>
-
         <div>
-            <button className='delete-personal-btn' name={_id} onClick={deletePersonal}>Ta bort personal</button>
-            <button className='update-personal-btn' name={_id} onClick={UpdatePersonal}>Uppdatera personal</button>
+          <button className='delete-personal-btn' name={_id} onClick={deleteHandler}>Ta bort personal</button>
+          <button className='update-personal-btn' name={_id} onClick={editHandler}>Updatera information</button>
         </div>
-    </div>
-
+      </div>
+    </li>
   )
-}
+};
 
-export default PersonalList
+export default PersonalList;

@@ -2,13 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import PersonalList from './personal-list';
+import UpdatePersonal from "./update-personal";
 import "../../css/Personal.css";
 
 export function GetPersonal() {
 
     axios.defaults.baseURL = "http://localhost:3001/personal";
 
+    const [id, setId] = useState("");
     const [personalInfo, setPersonalInfo] = useState([]);
+    const [update, setUpdate] = useState(false);
+    const [infoPersonal, setInfoPersonal] = useState([]);
+    const [modal, setModal] = useState(false);
 
     useEffect(() => {
         axios
@@ -20,7 +25,16 @@ export function GetPersonal() {
             .catch((err) => {
                 console.log(err);
             });
-    }, []);
+    }, [update]);
+
+    const editHandler = (e) => {
+        setId(e.target.name);
+        setModal(true);
+    };
+
+    const updateHandler = (e) => {
+        setUpdate(!update);
+    };
 
 
     const deletePersonal = (e) => {
@@ -29,6 +43,11 @@ export function GetPersonal() {
         setPersonalInfo((data) => {
             return data.filter((personal) => personal._id !== e.target.name);
         });
+    };
+
+    const closeHandler = () => {
+        setId("");
+        setModal(false);
     };
 
 
@@ -46,16 +65,35 @@ export function GetPersonal() {
             </div>
             <section className='peronal-container'>
                 <ul className='personal-list'>
-                    {personalInfo.map((personal) => (
+                    {personalInfo.map((personalInfo, index) => (
                         <PersonalList
-                            key={personal._id}
-                            personal={personal}
+                            key={index}
+                            personalInfos={personalInfo}
+                            editHandler={editHandler}
                             deletePersonal={deletePersonal}
                         />
 
                     ))}
                 </ul>
             </section>
+            {modal ? (
+                <section className='update-personal-container'>
+                    <div className='update-personal-data'>
+                        <p onClick={closeHandler} className="close">
+                            &times;
+                        </p>
+
+                        <UpdatePersonal
+                        _id={id}
+                        closeHandler={closeHandler}
+                        updateHandler={updateHandler} 
+
+                        />
+                    </div>
+                </section>
+            ) : (
+                ""
+            )}
         </div>
         </div>
     )
