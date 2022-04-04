@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import { Button } from "react-bootstrap";
 import PersonalList from './personal-list';
 import "../../css/Personal.css";
 
@@ -10,7 +9,6 @@ export function GetPersonal() {
     axios.defaults.baseURL = "http://localhost:3001/personal";
 
     const [personalInfo, setPersonalInfo] = useState([]);
-
 
     useEffect(() => {
         axios
