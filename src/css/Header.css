@@ -1,17 +1,20 @@
 #header {
     width: 100%;
-    background-color: #fafafa;
+    background-color: var(--backgroundColor-primary);
     position:sticky;
     top: 0;
     z-index: 1000;
     /* margin-bottom: 10px; */
     border-bottom: 1px solid #111;
+    height: 10em;
 }
 #header #header-content {
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
     margin: 0 auto;
     width: 90%;
+    height: 100%;
 }
 #header #header-content h2{
     width: 100%;
@@ -21,4 +24,11 @@
 a{
     text-decoration: none;
     font-weight: bold;
+}
+h2 a, .navBar a{
+    font-size:1em;
+    color: var(--color-secondary);
+}
+h2 a:focus, .navBar a:focus{
+    color: var(--color-primary);
 }

@@ -1,0 +1,43 @@
+@import "./root.css";
+
+.contact-wrapper {
+  width: 100%;
+  margin: 0;
+  padding: 1em;
+  background-color: var(--backgroundColor-primary);
+  color: var(--color-primary);
+}
+.contact-content {
+  width: 80%;
+  margin: 2em auto;
+}
+.contact-form-input {
+  width: 50%;
+  padding: 1%;
+  border-radius: 5px;
+}
+.contact-label {
+  margin: 0.6em 0;
+  font-weight: bold;
+}
+
+/* relaterat till då meddelande skickas via form */
+.contact-form span {
+  display: none;
+}
+.contact-form .visible {
+  display: inline-block;
+}
+
+.form-btn-vis {
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.form-btn-hidden {
+  display: none;
+}
