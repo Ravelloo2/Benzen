@@ -1,0 +1,19 @@
+button {
+    margin-top: 20px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-login {
+    margin-top: 5px;
+}
+
+.input-label {
+    padding-top: 10px;
+    font-weight: bold;
+}
