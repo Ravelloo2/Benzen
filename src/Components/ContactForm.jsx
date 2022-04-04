@@ -62,7 +62,7 @@ function ContactForm({sendMessage}) {
         ></input>
         <br />
 
-        <label className="contact-label">Vad har du frågor om? </label>
+        <label className="contact-label">Vad vill du kontakta oss om? </label>
         <br />{" "}
         <select
           className="contact-form-input"
@@ -78,7 +78,7 @@ function ContactForm({sendMessage}) {
           <option>Intresserad av arbete</option>
         </select>{" "}
         <br />
-        <label className="contact-label">Vad vill du fråga om? </label>
+        <label className="contact-label">Skriv något! </label>
         <br />
         <textarea
           className="contact-form-input"
