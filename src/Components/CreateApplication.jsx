@@ -1,3 +1,5 @@
+// Det här är Eliaz Kod
+
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import '../css/create-application.css';
@@ -39,7 +41,11 @@ const AddValues = () => {
             placeholder="Förnamn"
             onChange={(e) => setFname(e.target.value)}
             id="Fname-apply"
-            value={applyFname}/>
+            value={applyFname} 
+            required
+            validationErrors = {{ 
+              isDefaultRequiredValue: 'Field is required!'
+            }}/>
           <input
             placeholder="Efternamn"
             onChange={(e) => setLname(e.target.value)}
