@@ -74,7 +74,6 @@ function ContactForm({sendMessage}) {
         >
           <option>Fråga om utbildning</option>
         
-        <br />{" "}
       
           <option>Intresserad av arbete</option>
         </select>{" "}

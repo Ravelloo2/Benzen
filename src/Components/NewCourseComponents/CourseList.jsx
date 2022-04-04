@@ -1,11 +1,19 @@
-/* PETRAS */ 
+/* PETRAS */
 import React, { useState } from "react";
 
 const CourseList = ({ course, editHandler, deleteCourse }) => {
-  const { _id, name, length, description, location, teacherId, startDate, points } = course;
+  const {
+    _id,
+    name,
+    length,
+    description,
+    location,
+    teacherId,
+    startDate,
+    points,
+  } = course;
 
   const [isOpen, setIsOpen] = useState(false);
- 
 
   return (
     <div className="show-courses">
@@ -22,31 +30,29 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
           </div>
           {isOpen && (
             <div className="course-details">
-              <section className="course-decription">
-               {description}
-              </section>
+              <section className="course-decription">{description}</section>
               <table className="course-table">
-              <tbody>
-                <tr>
-                  <th className="course-th">Längd i veckor:</th>
-                  <th className="course-th">Poäng:</th>
-                  <th className="course-th">Startdatum:</th>
-                </tr>
+                <tbody>
+                  <tr>
+                    <th className="course-th">Längd i veckor:</th>
+                    <th className="course-th">Poäng:</th>
+                    <th className="course-th">Startdatum:</th>
+                  </tr>
 
-                <tr>
-                  <td>{length}</td>
-                  <td>{length * 5}</td>
-                  <td>{startDate.slice(0,10)}</td>
-                </tr>
+                  <tr>
+                    <td>{length}</td>
+                    <td>{length * 5}</td>
+                    <td>{startDate.slice(0, 10)}</td>
+                  </tr>
 
-                <tr>
-                  <th className="course-th">Plats: </th>
-                  <th className="course-th">Lärare:</th>
-                </tr>
-                <tr>
-                  <td>{location}</td>
-                  <td>{teacherId}</td>
-                </tr>
+                  <tr>
+                    <th className="course-th">Plats: </th>
+                    <th className="course-th">Lärare:</th>
+                  </tr>
+                  <tr>
+                    <td>{location}</td>
+                    <td>{teacherId}</td>
+                  </tr>
                 </tbody>
               </table>
               <div className="course-btn-container">
