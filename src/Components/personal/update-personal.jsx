@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Button } from "react-bootstrap";
 
 function UpdatePersonal({ _id, closeHandler, updateHandler }) {
     const [personalInfo, setPersonalInfo] = useState({
@@ -11,13 +10,13 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
     });
 
     const handleChange = (e) => {
-        setPersonalInfo((data) => ({ ...data, [e.target.fName]: e.target.value }));
+        setPersonalInfo((data) => ({ ...data, [e.target._id]: e.target.value }));
     };
 
     const submitHandler = (e) => {
         e.preventDefault();
         console.log(personalInfo)
-        axios.patch(`http://localhost:3001/personal/${_id}`, personalInfo)
+        axios.patch(`http://localhost:3001/personal/AllPersonal/${_id}`, personalInfo)
             .then((res) => {
                 setPersonalInfo({
                     fName: "",
@@ -39,25 +38,25 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
           >
 
         <div className="update-personal-container">
-            <form
+            <input
             type="text"
             name="fName"
             className="input"
             onChange={handleChange}
             />
-            <form
+            <input
             type="text"
             name="lName"
             className="input"
             onChange={handleChange}
             />
-            <form
+            <input
             type="text"
             name="email"
             className="input"
             onChange={handleChange}
             />
-            <form
+            <input
             type="text"
             name="bKonto"
             className="input"
@@ -71,4 +70,4 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
     )
 }
 
-export default UpdatePersonal
+export default UpdatePersonal;

@@ -5,6 +5,11 @@ h2 {
     color: #666666;
 }
 
+/* .personal-body{
+    background-color: #303179;
+    margin: none;
+} */
+
 .personals {
     margin: 1em;
     color: #666666;
@@ -30,7 +35,7 @@ h2 {
 }
 
 .personal-form {
-    width: 45vh;
+    width: 65vh;
 
 }
 
@@ -40,7 +45,7 @@ h2 {
 }
 
 .add-personal-btn, .submit-new-btn {
-    background-color: #303179;
+    background-color: #141850;
     border: none;
     color: white;
     padding: 15px 32px;
