@@ -14,8 +14,7 @@
 }
 .course-container {
   font-family: 'Raleway', sans-serif;
-  margin: 2rem auto;
-  width: 90%;
+  width: 100%;
   min-height: 60vh;
   padding: 2%;
   background-color: var(--backgroundColor-primary);
@@ -117,6 +116,7 @@ background: none;
 }
 .submit-message {
   text-align: center;
+  color:var(--color-primary);
 }
 
 /* Relaterat till Modal/ Update */
