@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Button } from "react-bootstrap";
 
 function UpdatePersonal({ _id, closeHandler, updateHandler }) {
     const [personalInfo, setPersonalInfo] = useState({

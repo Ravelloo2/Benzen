@@ -24,10 +24,11 @@ const AddPersonal = () => {
 
         Array.from(document.querySelectorAll("input")).forEach(
             input => (input.value = "")
-          );
-          this.setState({
+        );
+        this.setState({
             itemvalues: [{}]
-          });
+        });
+
     }
 
 
@@ -73,7 +74,7 @@ const AddPersonal = () => {
                         className='bKonto'
                     /><br />
                 </div>
-                <button className='submit-new-btn' onClick={() => CreatePersonal()}  id='submitBtn'>Lägg till ny personal</button>
+                <button className='submit-new-btn' onClick={() => CreatePersonal()} id='submitBtn'>Lägg till ny personal</button>
                 <br />
 
                 <Link to="/personal"><button className='tillbaka-btn'>Tillbaka</button></Link>
