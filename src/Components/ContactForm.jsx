@@ -1,3 +1,5 @@
+/*Petra gjort form och connection med emailjs */
+
 import React, {useRef, useState} from "react";
 import emailjs, { init } from '@emailjs/browser';
 init("w0pMHdTXTuQAA31pT");
