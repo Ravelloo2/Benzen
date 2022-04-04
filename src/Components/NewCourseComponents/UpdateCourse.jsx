@@ -1,9 +1,11 @@
 /*PETRAS*/
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 
 function UpdateCourse({ _id, closeHandler, updateHandler }) {
+  const [teacher, setTeacher] = useState([]);
+  
   const [courseInfo, setCourseInfo] = useState({
     name: "",
     length: "",
@@ -36,6 +38,14 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
         console.error(err);
       });
   };
+  useEffect(async () => {
+    const res = await axios.get("/personal/allPersonal");
+    setTeacher(res.data);
+  }, []);
+
+  useEffect(async () => {
+    console.log(teacher);
+  }, [teacher]);
 
 
   return (
@@ -110,10 +120,10 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
         className="input"
         onChange={handleChange}
       >
-        <option value="teacherId1">Lärare 1</option>
-        <option value="teacherId2">Lärare 2</option>
-       
-      </select>
+                    {teacher.map(teachers => {
+                return (<option key={teacher._id}>{teachers.email}</option>
+              )})}
+              </select>
       <Button variant="outline-warning" type="submit" className="update-btn">
         Updatera Kurs
       </Button>
