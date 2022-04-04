@@ -32,7 +32,7 @@ router.patch('/allPersonal/:id', async (req, res) => {
     }
 });
 
-router.patch('/:id', async (req, res) => {
+router.patch('/uppdateraPersonal/:id', async (req, res) => {
     const personal = await PersonalService.updatePersonal(req.params.id, req.body);
     if(personal){
         res.status(200).send(personal);
