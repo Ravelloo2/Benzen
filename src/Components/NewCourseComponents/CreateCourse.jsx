@@ -177,7 +177,7 @@ const CreateCourse = () => {
               onChange={handleChange}
             >
               {teacher.map(teachers => {
-                return (<option key={teacher._id}>{teachers.fName}</option>
+                return (<option key={teacher._id}>{teachers.email}</option>
               )})}
             </select>
 
