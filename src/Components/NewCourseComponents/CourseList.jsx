@@ -1,43 +1,74 @@
-import React, {useState} from "react";
-
+/* PETRAS */ 
+import React, { useState } from "react";
 
 const CourseList = ({ course, editHandler, deleteCourse }) => {
-  const { _id, name, length, description, location, teacherId } = course;
+  const { _id, name, length, description, location, teacherId, startDate, points } = course;
 
   const [isOpen, setIsOpen] = useState(false);
-  const [weeks, setWeeks] = useState(0);
+ 
 
   return (
     <div className="show-courses">
-    
-    
-        <div>
+      <div>
         <div className="course-collaps" key={_id}>
-        <div className="card-header"><h3>{name}</h3> <button className="open-course-info" onClick={()=> setIsOpen(!isOpen)}>Info</button> </div>
-        {isOpen && (
-          <div className="course-details">
-            <section className="course-decription">Beskrivning: {description}</section>
-            <table>
-            <p className="course-length">Längd i veckor: {length}</p>
-            <p className="course-points">Poäng:  {length}</p>
-            <p className="course-start">Startdatum: {length}</p>
-            <p className="course-location">Plats: {location}</p> 
-            <p className="course-teacher">Lärare: {teacherId}</p>
-            </table>
-            <div className="course-btns">
-              <button className="update-course-btn" name={_id} onClick={editHandler}>
-                Uppdatera
-              </button>
-              <button className="delete-course-btn" name={_id} onClick={deleteCourse}>
-                Ta bort
-              </button>
-            </div>
+          <div className="card-header">
+            <h3>{name}</h3>{" "}
+            <button
+              className="open-course-info course-btns"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              Info
+            </button>{" "}
           </div>
-        )}
-      </div>
-   
+          {isOpen && (
+            <div className="course-details">
+              <section className="course-decription">
+               {description}
+              </section>
+              <table className="course-table">
+              <tbody>
+                <tr>
+                  <th className="course-th">Längd i veckor:</th>
+                  <th className="course-th">Poäng:</th>
+                  <th className="course-th">Startdatum:</th>
+                </tr>
+
+                <tr>
+                  <td>{length}</td>
+                  <td>{length * 5}</td>
+                  <td>{startDate.slice(0,10)}</td>
+                </tr>
+
+                <tr>
+                  <th className="course-th">Plats: </th>
+                  <th className="course-th">Lärare:</th>
+                </tr>
+                <tr>
+                  <td>{location}</td>
+                  <td>{teacherId}</td>
+                </tr>
+                </tbody>
+              </table>
+              <div className="course-btn-container">
+                <button
+                  className="update-course-btn course-btns"
+                  name={_id}
+                  onClick={editHandler}
+                >
+                  Uppdatera
+                </button>
+                <button
+                  className="delete-course-btn course-btns"
+                  name={_id}
+                  onClick={deleteCourse}
+                >
+                  Ta bort
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-     
+      </div>
     </div>
   );
 };

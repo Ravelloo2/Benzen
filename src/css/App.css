@@ -1,7 +1,8 @@
+@import './root.css';
+
 .App {
   margin: 0;
   padding: 0;
-  
 }
 
 .navBar {
@@ -28,26 +29,31 @@
   grid-column: 1 / -1;
   /* grid-row: 1; */
   height: 90vh;
-  background-color: #1417afc0;
+  background-color: var(--backgroundColor-primary);
 }
 .hero-page {
   margin: 200px 0 0 100px;
+  color: white;
 }
-.hero-page .hero-button {
-  display: flex;
+.hero-button {
+  display: inline-flex;
   align-items: center;
   padding: 1em 2em 1em 2em;
   background-color: #22249dc0;
+  color: white;
   border: none;
 }
 .secondary-content,.first-content,.third-content {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(24,auto);
-  margin: 10px 0;
+  margin: 0;
 }
 .first-content {
   margin: 0;
+}
+.secondary-content {
+  background-color: #fae5df;
 }
 .sidebar-container {
 grid-column: 1 / -1;
@@ -56,10 +62,23 @@ justify-content: space-evenly;
 padding: 3em;
 height: 80vh;
 }
-.left-side-content {
+.main-page-read-more-button {
+  display: inline-block;
+}
+/* .left-side-content {
 }
 .right-side-content {
+} */
+
+.third-content {
+  background-color: var(--backgroundColor-primary);
+  height: 80vh;
 }
 .third-main-content {
   grid-column: 1 / -1;
+}
+@media (max-width:1300px){
+  .sidebar-container {
+    display: block;
+  }
 }

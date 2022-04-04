@@ -1,5 +1,5 @@
+/*PETRAS*/
 const mongoose = require("mongoose");
-
 
 const courseModel = {
   name: {
@@ -21,9 +21,11 @@ const courseModel = {
   },
   teacherId: {
     type: String,
+    required: true,
   },
   startDate: {
     type: Date,
+    required: true,
   }
 };
 module.exports = mongoose.model("Course", courseModel);

@@ -3,15 +3,14 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import { Button } from "react-bootstrap";
 import PersonalList from './personal-list';
+import "../../css/Personal.css";
 
 export function GetPersonal() {
 
     axios.defaults.baseURL = "http://localhost:3001/personal";
 
     const [personalInfo, setPersonalInfo] = useState([]);
-    const [id, setId] = useState("");
-    const [update, setUpdate] = useState(false);
-    const [modal, setModal] = useState(false);
+
 
     useEffect(() => {
         axios
@@ -23,7 +22,7 @@ export function GetPersonal() {
             .catch((err) => {
                 console.log(err);
             });
-    }, [update]);
+    }, []);
 
 
     const deletePersonal = (e) => {
@@ -40,9 +39,11 @@ export function GetPersonal() {
         <div className='personals'>
             <div className='personal-header'>
                 <h2>Anställda lärare:</h2>
-                <Button variant='outline-light' size='sm'>
-                    <Link to="/AddPersonal">Lägg till nya anställningar</Link>
-                </Button>
+                    <Link to="/AddPersonal">
+                    <button className='add-personal-btn'>
+                    Lägg till nya anställningar
+                    </button>
+                    </Link>
             </div>
             <section className='peronal-container'>
                 <ul className='personal-list'>

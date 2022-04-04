@@ -1,8 +1,8 @@
 :root {
 
     /* Font Family */
-    --ff-primary: ;
-    --ff-secondary: ;
+    --ff-primary: 'Raleway';
+    --ff-secondary:  sans-serif;
 
     /* Font Sizes */
 
@@ -12,10 +12,11 @@
     
     /* Colors */
 
-    --color-primary: ;
-    --color-secondary: ;
-    --backgroundColor-primary: ;
-    --backgroundColor-secodary: ;
+    --color-primary: #fae5df ;
+    --color-secondary: #ed7966;
+    --backgroundColor-primary:#141850 ;
+    --backgroundColor-secondary: #303179;
+    --backgroundColor-third: #f5cac2;
 
     /* Grid System */
     --default-grid-columns: ;

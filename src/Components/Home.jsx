@@ -21,35 +21,42 @@ function Home() {
         <div className="first-main-content">
         <div className="hero-page">
             <h1>Benzen Education</h1>
-            <h4>Vi är en av sveriges största skolor</h4>
+            <h4>Vi är en av Sveriges största skolor</h4>
             <Link to="/ansoka"><button className='hero-button'>ANSÖK TILL OSS!</button></Link>
           </div>
         </div>
       </div>
       <div className="secondary-content">
-        <h1 style={{textAlign:'center',gridColumn:'1 / -1'}}>INFORMATION</h1>
+        <h1 style={{textAlign:'center',marginTop:'10px',gridColumn:'1 / -1'}}>INFORMATION</h1>
         <div className="sidebar-container">
         <div className="left-side-content">
           <h1>TILLGÄNGLIGA UTBILDNINGAR</h1>
           {Educations.map(x => {
             return (
-              <h3 style={{textTransform:'uppercase'}}>{x.name}</h3>
+              <h4 style={{textTransform:'uppercase'}}>{x.name}</h4>
             )
           })}
-          <Link to='/utbildningar'><h3>Läs mer</h3></Link>
+          <Link to='/utbildningar' className='main-page-read-more-button'><h3>Läs mer...</h3></Link>
       </div>
         <div className="right-side-content">
           <h1>TILLGÄNGLIGA KURSER</h1>
           {Courses.map(x => {
             return (
-              <h3 style={{textTransform:'uppercase'}}>{x.name}</h3>
+              <h4 style={{textTransform:'uppercase'}}>{x.name}</h4>
             )
           })}
-          <Link to='/kurser'><h3>Läs mer</h3></Link>
+          <Link to='/kurser'className='main-page-read-more-button' ><h3>Läs mer...</h3></Link>
         </div>
       </div>
       <div className="third-content">
-        <div className="third-main-content">Third section</div>
+        <div className="third-main-content">
+          <h1 style={{textAlign:'center',marginTop:'10px',color:'white'}}>VILL DU JOBBA HOS OSS?</h1>
+
+          <div className="hero-page">
+            <h1 style={{marginBottom:'8px'}}>Har du det som krävs <br/> för att jobba hos oss?</h1>
+            <Link to="/personal"><button className='hero-button'>BLI EN LÄRARE IDAG!</button></Link>
+          </div>
+        </div>
       </div>
     </div>
     </div>

@@ -1,15 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
-.utbildningar-container {
+/* Generell css + section 1*/
+.utbildningar-first-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    background-color: var(--backgroundColor-primary);
+}
+.utbildningar-first {
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
+    min-height: 80vh;
 }
+
+.utbildningar-first-wrapper h1 {
+    color:var(--color-secondary);
+}
+.utbildningar-secondary {
+    color: black;
+} 
 .left-side {
-    width: 40%;
+    width: 30%;
     margin: 0 auto;
 }
 .right-side {
-    width: 40%;
+    width: 30%;
     margin: 0 auto;
 }
 .Education-name {
@@ -17,34 +33,75 @@
     display: flex;
     justify-content: left;
     padding:  5px 0 5px 5px;
-    font-family: 'Rajdhani' ;
     background-color: transparent;
     font-size: 30px;
-    color: #1417afc0;
+    color: white;
     /* text-decoration: underline; */
     cursor: pointer;
     border: none;
 }
 .Education-content {
     padding: 0;
-    display: block;
+    /* display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: center; */
+}
+
+.first-container,.second-container,.third-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.Education-button {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    color: white;
+    background-color: transparent;
+    border: none;
 }
 
 .Education-name:hover {
-    background-color: rgb(231, 229, 229);
-    transition: ease-in 250ms;
+    transition: ease-in 50ms;
+    color: black;
 }
 .Education-Leader {
     font-size: 23px;
     font-weight: bold;
 }
-
-
+.Education-content {
+    padding: 5px;
+    color: white;
+}
 .separation-line {
-    height: 1px;
+    height: 2px;
     width: 100%;
     margin: 0 auto;
-    background-color: #111;
+    background-color: black;
+}
+
+
+/* Section 2 */
+.utbildningar-secondary {
+
+}
+
+.utbildningar-secondary-content {
+    width: 90%;
+    margin: 20px auto 0 auto;
+    height: 90vh;
+}
+.utbildningar-secondary-content-content {
+    margin: 15px 0 30px 0;
+}
+
+/* Section 3 */
+
+.utbildningar-third {
+    background-color: var(--backgroundColor-primary);
+    height: 70vh;
+}
+.utbildningar-third-content {
+
 }
