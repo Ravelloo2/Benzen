@@ -1,4 +1,9 @@
 /* Generell css + section 1*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 .utbildningar-first-wrapper {
     width: 100%;
     margin: 0;
@@ -83,9 +88,7 @@
 
 
 /* Section 2 */
-.utbildningar-secondary {
 
-}
 
 .utbildningar-secondary-content {
     width: 90%;
@@ -102,6 +105,16 @@
     background-color: var(--backgroundColor-primary);
     height: 70vh;
 }
-.utbildningar-third-content {
+
+
+.create-utbildning-form-div {
+    display:flex;
+    flex-direction: column;
+}
+
+.create-utbildning-form-div input,.create-utbildning-form-div select {
+    padding: 0.5em;
+    border-radius: 10px;
+    margin: 1px 0;
 
 }

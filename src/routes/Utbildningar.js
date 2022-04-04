@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../css/Education.css'
-import ShowEducation from '../Components/ShowEducation';
-import ShowCourses from '../Components/ShowCourses';
+import ShowEducation from '../Components/EducationComponents/ShowEducation';
+import ShowCourses from '../Components/EducationComponents/ShowCourses';
 import { Link } from 'react-router-dom';
 
 function Utbildningar() {
@@ -11,7 +11,7 @@ function Utbildningar() {
             
   const [Educations, setEducations] = useState([])
   const [Courses, setCourses] = useState([])
-
+// skriv om till funktioner med useeffect och sen kalla dom i slutet
   useEffect(async () => {
     const res = await axios.get("/AllEducation");
     setEducations(res.data)
@@ -24,7 +24,8 @@ function Utbildningar() {
   useEffect(async () => {
     console.log(Educations)
   }, [Educations])
-  
+
+
   return (
     <div>
     <div className='utbildningar-first-wrapper'>
@@ -35,7 +36,7 @@ function Utbildningar() {
       <div className="Education-grid">
       {Educations.map(x => {
         return (
-          <div>
+          <div key={x._id}>
         <ShowEducation
           name={x.name}
           educationLeader={x.educationLeader}
@@ -57,7 +58,7 @@ function Utbildningar() {
       <div className="Education-grid">
         {Courses.map(y => {
           return (
-            <div>
+            <div key={y._id}>
               <ShowCourses 
               name={y.name}
               length={y.length}
@@ -70,6 +71,7 @@ function Utbildningar() {
       </div>
     </div>
   </div>
+  <Link to="/skapaUtbildning">Skapa utbildning</Link>
   </div>
   <div className="utbildningar-secondary">
   <div className="utbildningar-secondary-content">

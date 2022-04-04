@@ -1,6 +1,6 @@
 import React, {useState } from 'react'
 import { Collapse } from 'react-bootstrap'
-import '../css/Education.css'
+import '../../css/Education.css'
 
 const ShowCourses = ({name,length,description}) => {
     const [open, setOpen] = useState(false);

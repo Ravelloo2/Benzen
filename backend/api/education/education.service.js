@@ -6,6 +6,32 @@ const Education = require("./education.model");
 
 
 module.exports = class EducationService {
+  static async createEducation(body) {
+    if (
+      body.name &&
+      body.educationLeader &&
+      body.length &&
+      body.place &&
+      body.points &&
+      body.courses &&
+      body.description
+    ) {
+      const data = body;
+      const education = new Education({
+        name: data.name,
+        educationLeader: data.educationLeader,
+        length: data.length,
+        place: data.place,
+        points: data.points,
+        courses: data.courses,
+        description: data.description,
+      });
+      await education.save();
+      return education;
+    } else {
+      return { error: "Fields can not be left blank." };
+    }
+  }
     static async getCourses() {
       let courses = await CourseController.showCourses()
       console.log(courses)

@@ -1,13 +1,15 @@
 import React, {useState } from 'react'
 import { Collapse } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
-import '../css/Education.css'
+import '../../css/Education.css'
 
 const ShowEducation = ({name,educationLeader,length,place,points,courses,description}) => {
 const [open, setOpen] = useState(false);
+
+
     return ( 
       <>
-        <button className="Education-name" onClick={() => setOpen(!open)}>{name}</button>
+        <button  className="Education-name" onClick={() => setOpen(!open)}>{name}</button>
         <Collapse in={open}>
         <div className='Education-content'>
           <div className="first-container">
@@ -29,7 +31,7 @@ const [open, setOpen] = useState(false);
           <div className="third-container">
           <div>
           <label htmlFor="">Kurser:</label>
-        <div className="Education-Courses">{courses.join(' ')}</div></div>
+        <div className="Education-Courses">{courses}</div></div>
             <div>
         <label htmlFor="">Beskrivning:</label>
         <div className="Education-description">{description}</div>

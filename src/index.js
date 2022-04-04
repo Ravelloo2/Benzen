@@ -15,7 +15,7 @@ import Footer from './Components/Footer';
 import SkapaKurs from './Components/NewCourseComponents/CreateCourse'
 import Kontakta from './routes/Kontakta';
 import Login from './Components/Login';
-
+import CreateEducation from './Components/EducationComponents/CreateEducation';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -24,6 +24,7 @@ ReactDOM.render(
           <Route path="/" element={<App/>}/>
           <Route path="/Home" element={<Home/>}/>
           <Route path='/utbildningar' element={<Utbildningar />} />
+          <Route path='/skapaUtbildning' element={<CreateEducation />} />
           <Route path='/Kurser' element={<Kurser />} />
           <Route path="/skapa-kurs" element={<SkapaKurs/>}/>
           <Route path='/personal' element={<Personal />} />

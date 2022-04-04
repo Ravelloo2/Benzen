@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const utbildningModel = {
 name: String,
 educationLeader: String,
-length: Number,
+length: String,
 place: String,
 points: Number,
 courses: Array,
