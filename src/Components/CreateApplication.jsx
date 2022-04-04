@@ -39,7 +39,11 @@ const AddValues = () => {
             placeholder="Förnamn"
             onChange={(e) => setFname(e.target.value)}
             id="Fname-apply"
-            value={applyFname}/>
+            value={applyFname} 
+            required
+            validationErrors = {{ 
+              isDefaultRequiredValue: 'Field is required!'
+            }}/>
           <input
             placeholder="Efternamn"
             onChange={(e) => setLname(e.target.value)}
