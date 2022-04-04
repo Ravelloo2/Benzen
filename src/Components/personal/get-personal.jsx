@@ -12,7 +12,6 @@ export function GetPersonal() {
     const [id, setId] = useState("");
     const [personalInfo, setPersonalInfo] = useState([]);
     const [update, setUpdate] = useState(false);
-    const [infoPersonal, setInfoPersonal] = useState([]);
     const [modal, setModal] = useState(false);
 
     useEffect(() => {
@@ -36,65 +35,62 @@ export function GetPersonal() {
         setUpdate(!update);
     };
 
+    const closeHandler = () => {
+        setId("");
+        setModal(false);
+    };
 
     const deletePersonal = (e) => {
-        axios.delete(`http://localhost:3001/personal/${e.target.name}`);
+        axios.delete(`http://localhost:3001/personal/deletePersonal/${e.target.name}`);
 
         setPersonalInfo((data) => {
             return data.filter((personal) => personal._id !== e.target.name);
         });
     };
 
-    const closeHandler = () => {
-        setId("");
-        setModal(false);
-    };
-
-
-
     return (
         <div className='personal-body'>
-        <div className='personals'>
-            <div className='personal-header'>
-                <h2>Anställda lärare:</h2>
+            <div className='personals'>
+                <div className='personal-header'>
+                    <h2>Anställda lärare:</h2>
                     <Link to="/AddPersonal">
-                    <button className='add-personal-btn'>
-                    Lägg till nya anställningar
-                    </button>
+                        <button className='add-personal-btn'>
+                            Lägg till nya anställningar
+                        </button>
                     </Link>
-            </div>
-            <section className='peronal-container'>
-                <ul className='personal-list'>
-                    {personalInfo.map((personalInfo, index) => (
-                        <PersonalList
-                            key={index}
-                            personalInfos={personalInfo}
-                            editHandler={editHandler}
-                            deletePersonal={deletePersonal}
-                        />
+                </div>
+                <section className='peronal-container'>
+                    <ul className='personal-list'>
+                        {personalInfo.map((personal) => (
+                            <PersonalList
+                                key={personal._id}
+                                personalInfos={personal}
+                                editHandler={editHandler}
+                                deletePersonal={deletePersonal}
+                            />
 
-                    ))}
-                </ul>
-            </section>
-            {modal ? (
-                <section className='update-personal-container'>
-                    <div className='update-personal-data'>
-                        <p onClick={closeHandler} className="close">
-                            &times;
-                        </p>
-
-                        <UpdatePersonal
-                        _id={id}
-                        closeHandler={closeHandler}
-                        updateHandler={updateHandler} 
-
-                        />
-                    </div>
+                        ))}
+                    </ul>
                 </section>
-            ) : (
-                ""
-            )}
-        </div>
+                {modal ? (
+                    <section className='update-personal-container'>
+                        <div className='update-personal-data'>
+                            <p onClick={closeHandler} className="close">
+                                &times;
+                            </p>
+
+                            <UpdatePersonal
+                                _id={id}
+                                closeHandler={closeHandler}
+                                updateHandler={updateHandler}
+
+                            />
+                        </div>
+                    </section>
+                ) : (
+                    ""
+                )}
+            </div>
         </div>
     )
 }

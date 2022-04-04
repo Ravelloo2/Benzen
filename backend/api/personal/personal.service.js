@@ -1,4 +1,4 @@
-const PersonalController = require("../courses/courses.service");
+// CAMERONS
 const Personal = require("./personal.model");
 
 module.exports = class PersonalService {
@@ -31,23 +31,11 @@ module.exports = class PersonalService {
 
 
     static async updatePersonal(id, body) {
-        const personal = await CourseService.findOne({ _id: id })
-        if (personal) {
-            if (body.fName) {
-                personal.fName = body.fName
-            }
-            if (body.lName) {
-                personal.lName = body.lName
-            }
-            if (body.email) {
-                personal.email = body.email
-            }
-            if (body.bKonto) {
-                personal.bKonto = body.bKonto
-            }
-            await personal.save();
+        try {
+            return await Personal.updateOne({_id: id}, {...body});
+        } catch (error) {
+            console.log(error);
         }
-        return personal;
     }
     static async deletePersonal(id) {
         try {

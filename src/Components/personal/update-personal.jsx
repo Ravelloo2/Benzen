@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import "../../css/Personal.css";
 
 function UpdatePersonal({ _id, closeHandler, updateHandler }) {
+    axios.defaults.baseURL = "http://localhost:3001/";
 
     const [personalInfo, setPersonalInfo] = useState({
         fName: "",
@@ -16,9 +17,10 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
     };
 
     const submitHandler = (e) => {
-        e.preventDefault();
+        e.preventDefault(personalInfo);
+        console.log(personalInfo);
 
-        axios.put(`http://localhost:3001/personal/updatePersonal/${_id}`, personalInfo)
+        axios.patch(`/personal/updatePersonal/${_id}`, personalInfo)
             .then((res) => {
                 setPersonalInfo({
                     fName: "",
@@ -26,10 +28,11 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     email: "",
                     bKonto: "",
                 })
-                    .catch((err) => {
-                        console.error(err);
-                    })
-            });
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.error(err);
+            })
 
     };
 
@@ -44,10 +47,9 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
         >
 
             <div className="update-personal-container">
+                <h2>Redigera personal information:</h2>
 
-                <h2>Uppdatera personal information:</h2>
-
-                <label htmlFor='fName' className='label'>Förnamn:</label>
+                <label htmlFor='fName' className='label'>Nytt förnamn:</label>
                 <input
                     type="text"
                     name="fName"
@@ -55,7 +57,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     onChange={handleChange}
                 />
 
-                <label htmlFor='lName' className='label'>Efternamn:</label>
+                <label htmlFor='lName' className='label'>Nytt efternamn:</label>
                 <input
                     type="text"
                     name="lName"
@@ -63,7 +65,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     onChange={handleChange}
                 />
 
-                <label htmlFor='email' className='label'>Mailadress:</label>
+                <label htmlFor='email' className='label'>Ny mailadress:</label>
                 <input
                     type="text"
                     name="email"
@@ -71,7 +73,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     onChange={handleChange}
                 />
 
-                <label htmlFor='bKonto' className='label'>Bankkonto:</label>
+                <label htmlFor='bKonto' className='label'>Nytt bankkonto:</label>
                 <input
                     type="text"
                     name="bKonto"

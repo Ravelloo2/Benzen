@@ -83,6 +83,11 @@ h2 {
     padding: 15px;
 }
 
+.update-personal-container{
+    display: flex;
+    flex-direction: column;
+}
+
 #fName, #lName, #email, #bKonto {
     width: auto;
     height: fit-content;
