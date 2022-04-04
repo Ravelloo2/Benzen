@@ -34,6 +34,7 @@ export function GetPersonal() {
 
 
     return (
+        <div className='personal-body'>
         <div className='personals'>
             <div className='personal-header'>
                 <h2>Anställda lärare:</h2>
@@ -55,6 +56,7 @@ export function GetPersonal() {
                     ))}
                 </ul>
             </section>
+        </div>
         </div>
     )
 }
