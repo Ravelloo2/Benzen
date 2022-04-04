@@ -75,7 +75,7 @@ export function GetPersonal() {
                 {modal ? (
                     <section className='update-personal-container'>
                         <div className='update-personal-data'>
-                            <p onClick={closeHandler} className="close">
+                            <p onClick={closeHandler} cursor="pointer" className="close-update-form">
                                 &times;
                             </p>
 
