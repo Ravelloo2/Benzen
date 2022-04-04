@@ -8,6 +8,7 @@ module.exports = class CourseService {
       body.description &&
       body.length &&
       body.startDate &&
+      body.points &&
       body.location &&
       body.teacherId
     ) {
@@ -18,6 +19,7 @@ module.exports = class CourseService {
         description: data.description,
         length: data.length,
         startDate: data.startDate,
+        points: data.points,
         location: data.location,
         teacherId: data.teacherId,
       });
@@ -38,30 +40,7 @@ module.exports = class CourseService {
 
   static async updateCourse(id, body) {
     try {
-      const course = await Course.findOne({ _id: id });
-      if (course) {
-        if (body.name) {
-          course.name = body.name;
-        }
-        if (body.description) {
-          course.description = body.description;
-        }
-        if (body.length) {
-          course.length = body.length;
-        }
-        if (body.startDate) {
-          course.startDate = body.startDate;
-        }
-
-        if (body.location) {
-          course.location = body.location;
-        }
-        if (body.teacherId) {
-          course.teacherId = body.teacherId;
-        }
-        await course.save();
-      }
-      return course;
+      return await Course.updateOne({_id: id}, {...body});
     } catch (error) {
       console.log(error);
     }

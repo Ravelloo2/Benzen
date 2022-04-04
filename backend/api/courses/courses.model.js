@@ -15,6 +15,9 @@ const courseModel = {
     type: Number,
     required: true,
   },
+  points: {
+    type: Number
+  },
   location: {
     type: String,
     required: true,
