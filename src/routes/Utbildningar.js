@@ -3,6 +3,7 @@ import axios from 'axios'
 import '../css/Education.css'
 import ShowEducation from '../Components/EducationComponents/ShowEducation';
 import ShowCourses from '../Components/EducationComponents/ShowCourses';
+import CreateEducation from '../Components/EducationComponents/CreateEducation';
 import { Link } from 'react-router-dom';
 
 function Utbildningar() {
@@ -21,9 +22,14 @@ function Utbildningar() {
     setCourses(res.data)
   }, [])
   
-  useEffect(async () => {
-    console.log(Educations)
-  }, [Educations])
+
+
+  const deleteEducation = (e) => {
+  axios.delete(`http://localhost:3001/education/delete/${e.target.name}`);
+  setEducations((data) => {
+    return data.filter((education) => education._id !== e.target.name);
+  });
+}
 
 
   return (
@@ -38,13 +44,8 @@ function Utbildningar() {
         return (
           <div key={x._id}>
         <ShowEducation
-          name={x.name}
-          educationLeader={x.educationLeader}
-          length={x.length}
-          place={x.place}
-          points={x.points}
-          courses={x.courses}
-          description={x.description}
+        Educations={x}
+        deleteEducation={deleteEducation}
           />
         </div>)
       } 
@@ -60,18 +61,18 @@ function Utbildningar() {
           return (
             <div key={y._id}>
               <ShowCourses 
-              name={y.name}
-              length={y.length}
-              description={y.description}
+              displaycourses={y}
               />
             </div>
           )
         })}
-
       </div>
     </div>
   </div>
-  <Link to="/skapaUtbildning">Skapa utbildning</Link>
+  <div className="skapaUtbildning-button">
+  <Link style={{color: 'white'}} to="/skapaUtbildning">Skapa Utbildning</Link>
+  <Link style={{color: 'white'}} to="/updateUtbildning">Uppdatera Utbildning</Link>
+  </div>
   </div>
   <div className="utbildningar-secondary">
   <div className="utbildningar-secondary-content">

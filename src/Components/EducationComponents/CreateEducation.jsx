@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../../css/Education.css'
 
-axios.defaults.baseURL = "http://localhost:3001/";
 
 
 // hämta personal
@@ -10,10 +9,10 @@ axios.defaults.baseURL = "http://localhost:3001/";
 // poäng välj hur många veckor *5 för poäng
 // set description
 const CreateEducation = () => {
-    const [utbildningsledare,setUtbildningsledare] = useState([])
-    const [kurser,setKurser] = useState([])
-
- const [createdUtbildning, setCreatedUtbildning] = useState([{
+  const [utbildningsledare,setUtbildningsledare] = useState([])
+  const [kurser,setKurser] = useState([])
+  
+  const [createdUtbildning, setCreatedUtbildning] = useState([{
     name: "",
     educationLeader:"",
     length:"",
@@ -22,13 +21,19 @@ const CreateEducation = () => {
     courses:[],
     description:"",
   }]);
+  axios.defaults.baseURL = "http://localhost:3000/";
  useEffect(async () => {
-    const res = await axios.get("education/AllCourses");
-    setKurser(res.data)
+    await axios.get("education/AllCourses")
+    .then((res) => {
+      console.log(kurser)
+      setKurser(res.data)})
   }, [])
+
     useEffect(async () => {
-        const res = await axios.get("personal/AllPersonal");
-        setUtbildningsledare(res.data)
+        await axios.get("personal/AllPersonal")
+        .then((res) => {
+          console.log(utbildningsledare)
+          setUtbildningsledare(res.data)})
       }, [])
 
       useEffect(async() => {
@@ -62,8 +67,6 @@ const CreateEducation = () => {
                 console.log(err.message);
               });
       }
-
-
   return (
     <>
     <div className="utbildningar-first-wrapper">

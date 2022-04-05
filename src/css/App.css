@@ -8,12 +8,15 @@
 .navBar {
   /* border-bottom: 1px solid black; */
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 1rem;
+  padding: 1em;
   margin: 0 auto;
 }
 
 .navBar .navBar-content {
+  display: flex;
+  justify-content: space-evenly;
   margin: 0 10px;
 }
 

@@ -50,12 +50,6 @@ module.exports = class EducationService {
   static showEducation(id){
     return Education.findOne({_id: id});
   }
-  
-    static async Utbildning1Kurser() {
-      let allCourses = await EducationService.getCourses()
-      let allCoursesValue = await allCourses.json()
-      return allCoursesValue
-    }
     static async updateEducation(id, body){
       const updatedEducation = await Education.findOne({_id: id})
       if(updatedEducation) {
@@ -78,7 +72,7 @@ module.exports = class EducationService {
     static async deleteOneEducation(id) {
       try {
           await Education.findByIdAndDelete(id)
-          return {status: 200,message:'success'}
+          return {status: 200}
       } catch (error) {
           return {error: "course could not be found"}
       }

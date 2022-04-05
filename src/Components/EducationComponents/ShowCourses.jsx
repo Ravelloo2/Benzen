@@ -2,7 +2,12 @@ import React, {useState } from 'react'
 import { Collapse } from 'react-bootstrap'
 import '../../css/Education.css'
 
-const ShowCourses = ({name,length,description}) => {
+const ShowCourses = ({displaycourses}) => {
+  const {
+    name,
+    length,
+    description
+  } = displaycourses
     const [open, setOpen] = useState(false);
   return (
     <>
