@@ -36,8 +36,10 @@ router.get('/AllEducation/:id', async (req, res) => {
     const showOneEducation = await EducationService.showEducations(req.params.id);
     showOneEducation ?  res.status(200).send(showOneEducation)  :  res.status(404).send({error: 'Error with getting file'})});
 
-router.patch('/:id', async (req,res) => {
-});
+router.patch('/updateEducation/:id', async (req,res) => {
+    const course = await EducationService.updateEducation(req.params.id, req.body);
+    {course ? (res.status(200).send(course)): (res.status(404).send({ error: "no education found with matching id." }))};
+    });
 
 router.delete('/delete/:id', async (req,res)=> {
     const education = await EducationService.deleteOneEducation(req.params.id);

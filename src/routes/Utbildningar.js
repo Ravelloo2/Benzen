@@ -12,6 +12,8 @@ function Utbildningar() {
             
   const [Educations, setEducations] = useState([])
   const [Courses, setCourses] = useState([])
+  
+  
 // skriv om till funktioner med useeffect och sen kalla dom i slutet
   useEffect(async () => {
     const res = await axios.get("/AllEducation");
@@ -22,6 +24,7 @@ function Utbildningar() {
     setCourses(res.data)
   }, [])
   
+ 
 
 
   const deleteEducation = (e) => {
@@ -33,11 +36,15 @@ function Utbildningar() {
 
 
   return (
+    <>
     <div>
     <div className='utbildningar-first-wrapper'>
       <div className="utbildningar-first">
-        <div className="left-side">
-      <h1>VÅRA UTBILDNINGAR</h1>
+        <div className="utbildningar">
+          <div className="utbildningar-header">
+          <h1>UTBILDNINGAR</h1>
+          <Link style={{color: 'white'}} to="/skapaUtbildning">Skapa Utbildning</Link>
+          </div>
       <div className="separation-line"></div>
       <div className="Education-grid">
       {Educations.map(x => {
@@ -46,15 +53,18 @@ function Utbildningar() {
         <ShowEducation
         Educations={x}
         deleteEducation={deleteEducation}
+        
           />
         </div>)
       } 
       )}
       </div>
       </div>
-      <div className="right-side">
-
-      <h1>FRIA KURSER</h1>
+      <div className="kurser">
+      <div className="utbildningar-header">
+        <h1>FRIA KURSER</h1>
+        <Link style={{color: 'white'}} to="/Kurser">Hantera Kurser</Link>
+        </div>
       <div className="separation-line"></div>
       <div className="Education-grid">
         {Courses.map(y => {
@@ -66,14 +76,12 @@ function Utbildningar() {
             </div>
           )
         })}
-      </div>
+    </div>
     </div>
   </div>
-  <div className="skapaUtbildning-button">
-  <Link style={{color: 'white'}} to="/skapaUtbildning">Skapa Utbildning</Link>
-  <Link style={{color: 'white'}} to="/updateUtbildning">Uppdatera Utbildning</Link>
   </div>
   </div>
+  
   <div className="utbildningar-secondary">
   <div className="utbildningar-secondary-content">
       <h1 style={{color:'black'}}>KONTAKTA STUDIE & YRKESVÄGLEDARE</h1>
@@ -105,7 +113,7 @@ function Utbildningar() {
     <div className="utbildningar-third">
       <div className="utbildningar-third-content"></div>
     </div>
-  </div>
+  </>
   )
 }
 

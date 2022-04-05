@@ -51,30 +51,44 @@ module.exports = class EducationService {
     return Education.findOne({_id: id});
   }
     static async updateEducation(id, body){
-      const updatedEducation = await Education.findOne({_id: id})
-      if(updatedEducation) {
-          if (body.name != null){
-              updatedEducation.name = body.name
-          } 
-          if (body.educationLeader!= null){
-              updatedEducation.educationLeader = body.educationLeader
-          } 
-          if (body.courses!= null) {
-              updatedEducation.courses = body.courses
+      try {
+        const education = await Education.findOne({ _id: id });
+        if (education) {
+          if (body.name) {
+            education.name = body.name;
           }
-          if (body.description!= null){
-              updatedEducation.description = body.description
+          if (body.educationLeader) {
+            education.educationLeader = body.educationLeader;
           }
-          await updatedEducation.save();
-      }
-      return updatedEducation;
-    } 
+          if (body.length) {
+            education.length = body.length;
+          }
+          if (body.place) {
+            education.place = body.place;
+          }
+  
+          if (body.points) {
+            education.points = body.points;
+          }
+          if (body.courses) {
+            education.courses = body.courses;
+          }
+          if (body.description) {
+            education.description = body.description;
+          }
+          await education.save();
+        }
+        return education;
+      } catch (error) {
+        console.log(error);
+      }}
+
     static async deleteOneEducation(id) {
       try {
           await Education.findByIdAndDelete(id)
           return {status: 200}
       } catch (error) {
-          return {error: "course could not be found"}
+          return {error: "education could not be found"}
       }
     }
     };  

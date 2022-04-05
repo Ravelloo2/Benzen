@@ -17,6 +17,7 @@ import SkapaKurs from './Components/NewCourseComponents/CreateCourse'
 import Kontakta from './routes/Kontakta';
 import Login from './Components/Login';
 import CreateEducation from './Components/EducationComponents/CreateEducation';
+import UpdateEducation from './Components/EducationComponents/UpdateEducation';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

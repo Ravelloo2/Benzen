@@ -9,17 +9,25 @@ const ShowCourses = ({displaycourses}) => {
     description
   } = displaycourses
     const [open, setOpen] = useState(false);
+    const [CourseCollapse, setCourseCollapse] = useState(false)
+  // 
   return (
     <>
-    <button className="Education-name" onClick={() => setOpen(!open)}>{name}</button>
-        <Collapse in={open}>
-          <div>
+    <button className="Education-name" onClick={() => setCourseCollapse(!CourseCollapse)}>{name}</button>
+    <div className="separation-line"></div>
+    {CourseCollapse ? (
+    <>
+      <div>
         <div className='Education-content'>
         <div className="Education-length">{length}</div>
         <div className="Education-description">{description}</div>
           </div>
-        </div></Collapse>
+        </div>
         <div className="separation-line"></div>
+      </>) : 
+      (<>
+      </>) }
+        
     </>
   )
 }
