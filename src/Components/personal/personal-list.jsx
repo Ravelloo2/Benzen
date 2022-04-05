@@ -1,23 +1,26 @@
-import React from 'react';
-import { Button, Container } from "react-bootstrap";
+// CAMERONS
+import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 
-const PersonalList = ({ personal, editHandler, deletePersonal }) => {
-    const { _id, fName, lName, email, bKonto } = personal;
+const PersonalList = ({ personalInfos, editHandler, deletePersonal }) => {
+  const { _id, fName, lName, email, bKonto, courseName } = personalInfos;
 
   return (
-    <div className='show-personal'>
+    <li key={_id}>
+      <div className='show-personal'>
         <Container>
-            <div>{'Namn: ' + fName + ' ' + lName} </div>
-            <div>{'Mailadress: ' + email}</div>
-            <div>{'Bankkonto: ' + bKonto}</div>
+          <h5>{ fName + ' ' + lName} </h5>
+          <div>{'Mailadress: ' + email}</div>
+          <div>{'Bankkonto: ' + bKonto}</div>
+          <div>{'Kursnamn: ' + courseName}</div>
         </Container>
-
         <div>
-            <button className='delete-personal-btn' name={_id} onClick={deletePersonal}>Ta bort personal</button>
+          <button className='delete-personal-btn' name={_id} onClick={deletePersonal}>Ta bort personal</button>
+          <button className='update-personal-btn' name={_id} onClick={editHandler}>Updatera information</button>
         </div>
-    </div>
-
+      </div>
+    </li>
   )
-}
+};
 
-export default PersonalList
+export default PersonalList;

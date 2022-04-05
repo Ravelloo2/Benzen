@@ -13,7 +13,7 @@ router.post('/createCourse', async (req, res) => {
   }
 });
 
-router.get('/showCourses' , async (req, res) => {
+router.get('/showCourses' , async ( _req,res) => {
   const courses = await CourseService.showCourses();
   if (courses.length >= 1) {
     res.status(200).send(courses);
@@ -49,10 +49,6 @@ router.delete("/deleteCourse/:id", async (req, res) => {
   }
 });
 
-router.get("/showPersonal", async (req, res) => {
-  const showPersonal = await PersonalService.showPersonal();
-  showPersonal ? res.status(200).send(showPersonal) : res.status(404).send({Error: 'could not get personal files.'})
-});
 
 
 module.exports = router;

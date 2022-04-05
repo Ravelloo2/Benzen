@@ -8,6 +8,7 @@ module.exports = class CourseService {
       body.description &&
       body.length &&
       body.startDate &&
+      body.points &&
       body.location &&
       body.teacherId
     ) {
@@ -18,6 +19,7 @@ module.exports = class CourseService {
         description: data.description,
         length: data.length,
         startDate: data.startDate,
+        points: data.points,
         location: data.location,
         teacherId: data.teacherId,
       });

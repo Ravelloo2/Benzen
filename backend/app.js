@@ -23,10 +23,11 @@ mongoose
     console.log('Error connecting to database');
     process.exit();
   });
-
-  app.use(express.json());
-  app.use(express.urlencoded({extended:false}));
   
+
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+
 
 app.use('/courses', courseEndpoints);
 app.use('/education',require('./api/education/education.controller'));

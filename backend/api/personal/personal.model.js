@@ -5,5 +5,6 @@ const personalModel = {
     lName: String,
     email: String,
     bKonto: Number,
+    courseName: String,
 };
 module.exports = mongoose.model("Personal", personalModel);

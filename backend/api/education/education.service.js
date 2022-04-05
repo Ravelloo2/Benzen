@@ -6,6 +6,32 @@ const Education = require("./education.model");
 
 
 module.exports = class EducationService {
+  static async createEducation(body) {
+    if (
+      body.name &&
+      body.educationLeader &&
+      body.length &&
+      body.place &&
+      body.points &&
+      body.courses &&
+      body.description
+    ) {
+      const data = body;
+      const education = new Education({
+        name: data.name,
+        educationLeader: data.educationLeader,
+        length: data.length,
+        place: data.place,
+        points: data.points,
+        courses: data.courses,
+        description: data.description,
+      });
+      await education.save();
+      return education;
+    } else {
+      return { error: "Fields can not be left blank." };
+    }
+  }
     static async getCourses() {
       let courses = await CourseController.showCourses()
       console.log(courses)
@@ -24,12 +50,6 @@ module.exports = class EducationService {
   static showEducation(id){
     return Education.findOne({_id: id});
   }
-  
-    static async Utbildning1Kurser() {
-      let allCourses = await EducationService.getCourses()
-      let allCoursesValue = await allCourses.json()
-      return allCoursesValue
-    }
     static async updateEducation(id, body){
       const updatedEducation = await Education.findOne({_id: id})
       if(updatedEducation) {
@@ -52,7 +72,7 @@ module.exports = class EducationService {
     static async deleteOneEducation(id) {
       try {
           await Education.findByIdAndDelete(id)
-          return {status: 200,message:'success'}
+          return {status: 200}
       } catch (error) {
           return {error: "course could not be found"}
       }

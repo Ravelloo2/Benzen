@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../css/Education.css'
-import ShowEducation from '../Components/ShowEducation';
-import ShowCourses from '../Components/ShowCourses';
+import ShowEducation from '../Components/EducationComponents/ShowEducation';
+import ShowCourses from '../Components/EducationComponents/ShowCourses';
+import CreateEducation from '../Components/EducationComponents/CreateEducation';
 import { Link } from 'react-router-dom';
 
 function Utbildningar() {
@@ -11,7 +12,7 @@ function Utbildningar() {
             
   const [Educations, setEducations] = useState([])
   const [Courses, setCourses] = useState([])
-
+// skriv om till funktioner med useeffect och sen kalla dom i slutet
   useEffect(async () => {
     const res = await axios.get("/AllEducation");
     setEducations(res.data)
@@ -21,10 +22,16 @@ function Utbildningar() {
     setCourses(res.data)
   }, [])
   
-  useEffect(async () => {
-    console.log(Educations)
-  }, [Educations])
-  
+
+
+  const deleteEducation = (e) => {
+  axios.delete(`http://localhost:3001/education/delete/${e.target.name}`);
+  setEducations((data) => {
+    return data.filter((education) => education._id !== e.target.name);
+  });
+}
+
+
   return (
     <div>
     <div className='utbildningar-first-wrapper'>
@@ -35,15 +42,10 @@ function Utbildningar() {
       <div className="Education-grid">
       {Educations.map(x => {
         return (
-          <div>
+          <div key={x._id}>
         <ShowEducation
-          name={x.name}
-          educationLeader={x.educationLeader}
-          length={x.length}
-          place={x.place}
-          points={x.points}
-          courses={x.courses}
-          description={x.description}
+        Educations={x}
+        deleteEducation={deleteEducation}
           />
         </div>)
       } 
@@ -57,18 +59,19 @@ function Utbildningar() {
       <div className="Education-grid">
         {Courses.map(y => {
           return (
-            <div>
+            <div key={y._id}>
               <ShowCourses 
-              name={y.name}
-              length={y.length}
-              description={y.description}
+              displaycourses={y}
               />
             </div>
           )
         })}
-
       </div>
     </div>
+  </div>
+  <div className="skapaUtbildning-button">
+  <Link style={{color: 'white'}} to="/skapaUtbildning">Skapa Utbildning</Link>
+  <Link style={{color: 'white'}} to="/updateUtbildning">Uppdatera Utbildning</Link>
   </div>
   </div>
   <div className="utbildningar-secondary">

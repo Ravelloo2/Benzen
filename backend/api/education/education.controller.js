@@ -4,20 +4,26 @@ const Education = require('./education.model');
 const EducationService = require('./education.service');
 
 
-router.post('/createEducation', async (req,res) => {
+router.post('/createBackendEducation', async (req,res) => {
     const createEducation = new Education({
         name: 'Webbsäkerhet',
         educationLeader: 'Pablo Escobar',
         length: 2,
         place: 'Klassrum',
         points: 400,
-        courses: ['Kurs1','Kurs2','Kurs3'],
+        courses: ['test','test'],
         description: 'Description',
         
     })
     await createEducation.save()
     res.status(200).send(createEducation)
 })
+
+router.post('/createEducation', async (req,res) => {
+    const education = await EducationService.createEducation(req.body);
+    education ? 
+        res.status(200).send(education) : res.status(404).send({ error: "bad input" })
+    })
 router.get('/AllCourses', async (req,res) => {
     const getAllCourses = await EducationService.getCourses()
     getAllCourses ? res.status(200).send(getAllCourses) : res.status(404).send({error: 'Error with getting files'})});
@@ -33,11 +39,11 @@ router.get('/AllEducation/:id', async (req, res) => {
 router.patch('/:id', async (req,res) => {
 });
 
-router.delete('/:id', async (req,res)=> {
+router.delete('/delete/:id', async (req,res)=> {
     const education = await EducationService.deleteOneEducation(req.params.id);
     !education.error ? res.status(200).send({status: 'succesfully deleted file :) '}) :  res.status(404).send({ error: "Error with deleting file" });});
 
-router.delete('/', async (req,res) => {
+router.delete('delete/', async (req,res) => {
     const deleteAllEducation = await Education.deleteMany()
     !deleteAllEducation.error ? res.status(200).send( {status: 'successfully deleted all :)'}) : res.status(404).send({error: ' Couldnt delete them all :('})});
 

@@ -88,7 +88,7 @@ const CreateCourse = () => {
               name="name"
               value={courseInfo.name}
               onChange={handleChange}
-              className="input"
+              className="course-input"
             />
             <label className="course-label" htmlFor="description">
               Kursbeskrivning:
@@ -100,7 +100,7 @@ const CreateCourse = () => {
               name="description"
               value={courseInfo.description}
               onChange={handleChange}
-              className="input"
+              className="course-input"
             />
             <label className="course-label" htmlFor="length">
               Kursens längd i veckor:
@@ -111,7 +111,7 @@ const CreateCourse = () => {
               name="length"
               value={courseInfo.length}
               onChange={handleChange}
-              className="input"
+              className="course-input"
             >
               <option value="1">1</option>
               <option value="2">2</option>
@@ -146,6 +146,7 @@ const CreateCourse = () => {
               type="date"
               min="2022-04-10"
               name="startDate"
+              className="course-input"
               value={courseInfo.startDate}
               onChange={handleChange}
             ></input>
@@ -159,12 +160,13 @@ const CreateCourse = () => {
               name="location"
               value={courseInfo.location}
               onChange={handleChange}
-              className="input"
+              className="course-input"
             >
+              <option>Stockholm</option>
+              <option>Göteborg</option>
               <option>Distans</option>
-              <option>Kista</option>
             </select>
-
+        
             <label className="course-label" htmlFor="teacher">
               Kursens lärare
             </label>
@@ -172,12 +174,12 @@ const CreateCourse = () => {
               id="kurs"
               type="select"
               name="teacherId"
-              className="input"
+              className="course-input"
               value={courseInfo.teacherId}
               onChange={handleChange}
             >
               {teacher.map(teachers => {
-                return (<option key={teacher._id}>{teachers.email}</option>
+                return (<option key={teacher._id}>{teachers.fName}</option>
               )})}
             </select>
 

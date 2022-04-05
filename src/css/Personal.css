@@ -1,9 +1,12 @@
-
-
 h2 {
     margin: 1em;
     color: #666666;
 }
+
+/* .personal-body{
+    background-color: #303179;
+    margin: none;
+} */
 
 .personals {
     margin: 1em;
@@ -30,7 +33,7 @@ h2 {
 }
 
 .personal-form {
-    width: 45vh;
+    width: 65vh;
 
 }
 
@@ -40,7 +43,7 @@ h2 {
 }
 
 .add-personal-btn, .submit-new-btn {
-    background-color: #303179;
+    background-color: #141850;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -77,6 +80,36 @@ h2 {
     border-radius: 25px;
     padding: 15px;
 }
+
+.update-form{
+    width: fit-content;
+    height:60%;
+    position: fixed;
+    top: 15rem;
+    left: 27rem;
+}
+
+.update-personal-container{
+    display: flex;
+    flex-direction: column;
+}
+.update-personal-container h2{
+    color: #ffffff;
+}
+
+.close-update-form{
+  height: 2rem;
+  aspect-ratio: 1;
+  text-align: center;
+  background-color: #ed7966;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  position: fixed;
+  top: 13rem;
+  left: 27rem;
+  
+}
+
 
 #fName, #lName, #email, #bKonto {
     width: auto;
