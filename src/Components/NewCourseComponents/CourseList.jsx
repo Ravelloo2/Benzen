@@ -12,6 +12,8 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
     startDate,
     points,
   } = course;
+  
+
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,13 +22,13 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
       <div>
         <div className="course-collaps" key={_id}>
           <div className="card-header">
-            <h3>{name}</h3>{" "}
+            <h3>{name}</h3>
             <button
               className="open-course-info course-btns"
               onClick={() => setIsOpen(!isOpen)}
             >
-              Info
-            </button>{" "}
+              {isOpen ? ( `Stäng` ) : (`Info`) }
+            </button>
           </div>
           {isOpen && (
             <div className="course-details">
