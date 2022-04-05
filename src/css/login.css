@@ -1,19 +1,36 @@
-button {
-    margin-top: 20px;
+.title {
+    display: flex;
+    justify-content: center;
+    background-color: #141850;
+    font-weight: bold;
+    font-size: 50px;
+    text-decoration: underline #fae5df;
+    color: #fae5df;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 5px;
+    height: 100vh;
+    background-color: #141850;
+    color: #fae5df;
 }
 
 .login-form {
+    background-color: #141850;
+    height: 100vh;
+}
+
+.submit-btn:hover {
+    cursor: pointer;
+}
+
+.logged-in {
+    color: #fae5df;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-}
-
-.input-login {
-    margin-top: 5px;
-}
-
-.input-label {
-    padding-top: 10px;
-    font-weight: bold;
+    font-size: 1000%
 }
