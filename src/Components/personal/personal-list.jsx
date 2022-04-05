@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 
 const PersonalList = ({ personalInfos, editHandler, deletePersonal }) => {
-  const { _id, fName, lName, email, bKonto } = personalInfos;
+  const { _id, fName, lName, email, bKonto, courseName } = personalInfos;
 
   return (
     <li key={_id}>
@@ -12,6 +12,7 @@ const PersonalList = ({ personalInfos, editHandler, deletePersonal }) => {
           <h5>{ fName + ' ' + lName} </h5>
           <div>{'Mailadress: ' + email}</div>
           <div>{'Bankkonto: ' + bKonto}</div>
+          <div>{'Kursnamn: ' + courseName}</div>
         </Container>
         <div>
           <button className='delete-personal-btn' name={_id} onClick={deletePersonal}>Ta bort personal</button>

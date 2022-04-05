@@ -13,6 +13,7 @@ module.exports = class PersonalService {
                 lName: data.lName,
                 email: data.email,
                 bKonto: data.bKonto,
+                courseName: data.courseName
             });
             await personal.save();
             return personal;

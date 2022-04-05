@@ -5,11 +5,14 @@ import "../../css/Personal.css";
 function UpdatePersonal({ _id, closeHandler, updateHandler }) {
     axios.defaults.baseURL = "http://localhost:3001/";
 
+    const [courseName, setcourseName] = useState([]);
+
     const [personalInfo, setPersonalInfo] = useState({
         fName: "",
         lName: "",
         email: "",
         bKonto: "",
+        courseName: "",
     });
 
     const handleChange = (e) => {
@@ -27,6 +30,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     lName: "",
                     email: "",
                     bKonto: "",
+                    courseName: "",
                 })
                 console.log(res.data);
             })
@@ -35,6 +39,19 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
             })
 
     };
+
+    useEffect(async () => {
+        const res = await axios.get("/courses/showCourses");
+        setcourseName(res.data);
+    }, []);
+
+    useEffect(async () => {
+        console.log(courseName);
+    }, [courseName]);
+
+    console.log(courseName);
+
+
 
     return (
         <form
@@ -80,6 +97,13 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     className="input"
                     onChange={handleChange}
                 />
+                <select name="" id="">
+                    <option value="" selected disabled>Välj Kurs:</option>
+                    {courseName.map(courseNames => {
+                        return (<option key={courseNames._id}>{courseNames.name}</option>
+                        )
+                    })}
+                </select>
                 <button type="submit" className="updatePersonalBtn">Klar</button>
 
 

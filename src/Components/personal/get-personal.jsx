@@ -5,7 +5,7 @@ import PersonalList from './personal-list';
 import UpdatePersonal from "./update-personal";
 import "../../css/Personal.css";
 
-export function GetPersonal() {
+function GetPersonal() {
 
     axios.defaults.baseURL = "http://localhost:3001/personal";
 
