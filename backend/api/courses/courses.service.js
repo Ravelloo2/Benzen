@@ -40,7 +40,30 @@ module.exports = class CourseService {
 
   static async updateCourse(id, body) {
     try {
-      return await Course.updateOne({_id: id}, {...body});
+      const course = await Course.findOne({ _id: id });
+      if (course) {
+        if (body.name) {
+          course.name = body.name;
+        }
+        if (body.description) {
+          course.description = body.description;
+        }
+        if (body.length) {
+          course.length = body.length;
+        }
+        if (body.startDate) {
+          course.startDate = body.startDate;
+        }
+
+        if (body.location) {
+          course.location = body.location;
+        }
+        if (body.teacherId) {
+          course.teacherId = body.teacherId;
+        }
+        await course.save();
+      }
+      return course;
     } catch (error) {
       console.log(error);
     }

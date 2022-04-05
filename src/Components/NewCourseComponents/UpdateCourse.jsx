@@ -84,7 +84,7 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
         <label htmlFor="length" className="course-label">
           Ny längd på kurs:
         </label>
-        <select type="" name="length" className="input" onChange={handleChange}>
+        <select type="" name="length" className="course-input" onChange={handleChange}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -108,8 +108,9 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
           onChange={handleChange}
           className="course-input"
         >
+          <option>Stockholm</option>
+          <option>Göteborg</option>
           <option>Distans</option>
-          <option>Kista</option>
         </select>
 
         <label htmlFor="teacher" className="course-label">
@@ -123,10 +124,10 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
           value={courseInfo.teacherId}
           onChange={handleChange}
         >
-          {teacher.map(teachers => {
-                return (<option key={teacher._id}>{teachers.fName}</option>
-              )})}
-            </select>
+          {teacher.map((teachers) => {
+            return <option key={teacher._id}>{teachers.fName}</option>;
+          })}
+        </select>
         <button type="submit" className="update-btn">
           Updatera Kurs
         </button>

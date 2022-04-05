@@ -25,6 +25,7 @@ export function DisplayCourses() {
       });
   }, [update]);
 
+
   const editHandler = (e) => {
     setId(e.target.name);
     setCollapse(true);
@@ -39,6 +40,7 @@ export function DisplayCourses() {
     setCollapse(false);
   };
 
+
   const deleteCourse = (e) => {
     axios.delete(`http://localhost:3001/courses/deleteCourse/${e.target.name}`);
 
@@ -51,6 +53,7 @@ export function DisplayCourses() {
     <section className="course-container">
       <div className="course-header">
         <h2>Våra tillgängliga kurser</h2>
+        <button  className="course-btns"   id="sort-courses">Sortera A-Ö</button>
           <Link to="/skapa-kurs">
         <button type="button" className="add-new-course-btn course-btns">
             Lägg till ny kurs
