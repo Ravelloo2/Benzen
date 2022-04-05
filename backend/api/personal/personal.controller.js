@@ -5,7 +5,7 @@ const PersonalService = require('./personal.service');
 
 router.post ('/', async (req, res) => {
     const newPersonal = await PersonalService.createPersonal(req.body);
-    if(newPersonal) {
+    if(newPersonal){
         res.status(200).send(newPersonal);
     } else {
         res.status(401).send({error: "bad input"});
@@ -32,7 +32,7 @@ router.patch('/allPersonal/:id', async (req, res) => {
     }
 });
 
-router.patch('/uppdateraPersonal/:id', async (req, res) => {
+router.patch('/updatePersonal/:id', async (req, res) => {
     const personal = await PersonalService.updatePersonal(req.params.id, req.body);
     if(personal){
         res.status(200).send(personal);
@@ -41,9 +41,9 @@ router.patch('/uppdateraPersonal/:id', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req,res) => {
+router.delete('/deletePersonal/:id', async (req,res) => {
     const personal = await PersonalService.deletePersonal(req.params.id);
-    if(personal){
+    if(!personal.error){
         res.status(204).send();
     } else {
         res.status(404).send({error: "Staff with given id does not exist"});
