@@ -5,25 +5,25 @@
   color: var(--color-secondary);
   font-size: 2rem;
 }
-.course-btns{
+.course-btns {
   border-radius: 5px;
   color: var(--color-primary);
   font-weight: bold;
   border: none;
   background-color: var(--backgroundColor-secondary);
-  text-align:center;
-  padding: .5em;
+  text-align: center;
+  padding: 0.5em;
 }
 .course-container {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   width: 100%;
-  min-height: 60vh; 
+  min-height: 60vh;
   padding: 2%;
   background-color: var(--backgroundColor-primary);
- box-shadow: rgb(0 0 0 / 22%) 0px 1px 15px;
+  box-shadow: rgb(0 0 0 / 22%) 0px 1px 15px;
 }
-.course-info{
-  border-radius:25px;
+.course-info {
+  border-radius: 25px;
 }
 .course-header {
   display: flex;
@@ -31,7 +31,7 @@
   align-items: center;
 }
 .course-label {
-  margin-top: .6em;
+  margin-top: 0.6em;
 }
 .show-courses {
   margin: 0 auto;
@@ -40,27 +40,25 @@
   background-color: var(--backgroundColor-third);
 }
 
-
-.card-header{
-display: flex;
-padding: 0;
-justify-content: space-between;
-background: none;
+.card-header {
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+  background: none;
 }
 
 .card-header h3 {
-  font-size:1.2rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  font-weight: bold; 
+  font-weight: bold;
   color: var(--backgroundColor-primary);
 }
-.course-details{
+.course-details {
   font-size: 1rem;
   border-bottom: 1px solid #333;
 }
 .course-table {
   width: 100%;
- 
 }
 .course-th {
   font-weight: bold;
@@ -69,10 +67,10 @@ background: none;
 }
 
 .course-decription {
-  width:80%;
+  width: 80%;
   min-height: 10ch;
   margin-top: 0.8em;
-  line-height:1.6;
+  line-height: 1.6;
   font-size: 1em;
 }
 .course-btn-container {
@@ -82,9 +80,9 @@ background: none;
   margin: 1em 0;
 }
 
-.delete-course-btn{
+.delete-course-btn {
   background-color: rgba(255, 0, 0, 0.534);
-  margin-left:3em;
+  margin-left: 3em;
 }
 .update-course-btn {
   background-color: var(--backgroundColor-secondary);
@@ -94,8 +92,8 @@ background: none;
 
 .course-specs {
   width: 70%;
-  margin:0 auto;
-  padding:1%;
+  margin: 0 auto;
+  padding: 1%;
   border-radius: 25px;
   background-color: var(--backgroundColor-third);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -122,16 +120,16 @@ background: none;
 }
 .submit-message {
   text-align: center;
-  color:var(--color-primary);
+  color: var(--color-primary);
 }
 
 /* Relaterat till Modal/ Update */
 .update-wrapper {
   width: fit-content;
-  height:40%;
+  height: 40%;
   position: fixed;
-  top:4rem;
-  left:20rem;
+  top: 4rem;
+  left: 20rem;
   z-index: 1000;
 }
 .update-form {
@@ -160,4 +158,31 @@ select {
   background-color: white;
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
+}
+
+/* SMALLER SCREEN */
+
+@media screen and (max-width: 700px) {
+  body {
+    width: 100%;
+  }
+  .contact-wrapper {
+    width: 100%;
+  }
+  .show-courses {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .course-header {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0.6em 1em;
+  }
+  .course-header h2 {
+    width: 100%;
+  }
+  .course-header button {
+    margin: 1em;
+
+  }
 }
