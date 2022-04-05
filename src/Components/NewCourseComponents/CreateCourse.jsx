@@ -162,10 +162,11 @@ const CreateCourse = () => {
               onChange={handleChange}
               className="course-input"
             >
+              <option>Stockholm</option>
+              <option>Göteborg</option>
               <option>Distans</option>
-              <option>Kista</option>
             </select>
-
+        
             <label className="course-label" htmlFor="teacher">
               Kursens lärare
             </label>

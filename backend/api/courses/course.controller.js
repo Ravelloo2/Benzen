@@ -13,7 +13,7 @@ router.post('/createCourse', async (req, res) => {
   }
 });
 
-router.get('/showCourses' , async res => {
+router.get('/showCourses' , async (_req, res) => {
   const courses = await CourseService.showCourses();
   if (courses.length >= 1) {
     res.status(200).send(courses);
