@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function UpdateEducation({_id, closeHandler, updateHandler}) {
-  axios.defaults.baseURL = "http://localhost:3001";
+  axios.defaults.baseURL = "http://localhost:3001/education";
   const [utbildningsledare, setUtbildningsledare] = useState([]);
   const [kurser, setKurser] = useState([]);
   const [EducationsInfo, setEducationsInfo] = useState({
@@ -10,33 +10,38 @@ function UpdateEducation({_id, closeHandler, updateHandler}) {
     educationLeader:"",
     length:"",
     place:"",
-    points:"",
-    courses:[],
+    points:0,
+    courses:"",
     description:"",
   });
 
+  useEffect(async() => {
+    console.log(EducationsInfo)
+  },[EducationsInfo])
 
 
   useEffect(async () => {
-    const res = await axios.get("/personal/allPersonal");
+    const res = await axios.get("/allPersonal");
     setUtbildningsledare(res.data);
   }, []);
   useEffect(async () => {
-    const res = await axios.get("/courses/showCourses");
+    const res = await axios.get("/AllCourses");
     setKurser(res.data);
   }, []);
 
   const submitHandler = (e) => {
+    console.log(EducationsInfo)
     e.preventDefault();
     axios
-      .patch(`/education/updateEducation/${_id}`, EducationsInfo)
+      .patch(`/updateEducation/${_id}`, EducationsInfo)
       .then((res) => {
         setEducationsInfo({
           name: "",
           educationLeader: "",
           length: "",
           place: "",
-          courses: "",
+          points: 0,
+          courses: [],
           description: "",
         });
         console.log(res.data);
@@ -76,7 +81,7 @@ function UpdateEducation({_id, closeHandler, updateHandler}) {
                 <option>Klassrum</option>
                 <option>Distans</option>
             </select>
-            <input type="number" name="points" id="" placeholder="Poäng" onChange={onAnyChange} />
+            <input type="number" name="points" id="" value={EducationsInfo.points} onChange={onAnyChange} />
             <select name="courses" onChange={onAnyChange} value={EducationsInfo.courses}>
               <option selected disabled>Välj Kurs..</option>
             {kurser.map(x => {return (<option key={x._id}>{x.name}</option>)})}</select>

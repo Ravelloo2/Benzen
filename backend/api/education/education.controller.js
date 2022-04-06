@@ -27,6 +27,9 @@ router.post('/createEducation', async (req,res) => {
 router.get('/AllCourses', async (req,res) => {
     const getAllCourses = await EducationService.getCourses()
     getAllCourses ? res.status(200).send(getAllCourses) : res.status(404).send({error: 'Error with getting files'})});
+router.get('/AllPersonal', async (req,res) => {
+    const getAllPersonal = await EducationService.getPersonal()
+    getAllPersonal ? res.status(200).send(getAllPersonal) : res.status(404).send({error: 'Error with getting files'})});
 
 router.get('/AllEducation', async (req, res) => {
     const showEducation = await EducationService.showEducations()
@@ -37,9 +40,10 @@ router.get('/AllEducation/:id', async (req, res) => {
     showOneEducation ?  res.status(200).send(showOneEducation)  :  res.status(404).send({error: 'Error with getting file'})});
 
 router.patch('/updateEducation/:id', async (req,res) => {
-    const course = await EducationService.updateEducation(req.params.id, req.body);
-    {course ? (res.status(200).send(course)): (res.status(404).send({ error: "no education found with matching id." }))};
+    const education = await EducationService.updateEducation(req.params.id, req.body);
+    {education ? (res.status(200).send(education)): (res.status(404).send({ error: "no education found with matching id." }))};
     });
+    
 
 router.delete('/delete/:id', async (req,res)=> {
     const education = await EducationService.deleteOneEducation(req.params.id);

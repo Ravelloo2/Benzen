@@ -82,7 +82,7 @@ const closeHandler = () => {
         : (
           <>
         {UpdateCollapse ? 
-        (<UpdateEducation id={_id} closeHandler={closeHandler} updateHandler={updateHandler}/>) : ("")}
+        (<UpdateEducation id={_id} closeHandler={closeHandler} updateHandler={updateHandler}/>) : (<></>)}
         
         <div className="separation-line"></div>
       </>

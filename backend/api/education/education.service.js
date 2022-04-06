@@ -1,4 +1,5 @@
 const CourseController = require('../courses/courses.service');
+const PersonalController = require('../personal/personal.service');
 // const PersonlController = require('../courses/courses.service');
 const Education = require("./education.model");
 
@@ -37,13 +38,11 @@ module.exports = class EducationService {
       console.log(courses)
       return courses
     }
-    // static async getEducationTeacher() {
-    //   let educationTeacher = await PersonalController.
-    //   const educationTeacherResponse = await educationTeacher.json()
-    //   let theEducationTeacher = educationTeacherResponse.body.educationTeacher
-    //   console.log(theEducationTeacher)
-    //   return theEducationTeacher
-    // }
+    static async getPersonal() {
+      let personal = await PersonalController.showPersonal()
+      console.log(personal)
+      return personal
+    }
     static showEducations() {
       return Education.find();
   }
@@ -52,36 +51,42 @@ module.exports = class EducationService {
   }
     static async updateEducation(id, body){
       try {
-        const education = await Education.findOne({ _id: id });
-        if (education) {
-          if (body.name) {
-            education.name = body.name;
-          }
-          if (body.educationLeader) {
-            education.educationLeader = body.educationLeader;
-          }
-          if (body.length) {
-            education.length = body.length;
-          }
-          if (body.place) {
-            education.place = body.place;
-          }
-  
-          if (body.points) {
-            education.points = body.points;
-          }
-          if (body.courses) {
-            education.courses = body.courses;
-          }
-          if (body.description) {
-            education.description = body.description;
-          }
-          await education.save();
-        }
-        return education;
-      } catch (error) {
+        return await Education.updateOne({_id: id}, {...body});
+    } catch (error) {
         console.log(error);
-      }}
+    }
+  }
+      // try {
+      //   const education = await Education.findOne({ _id: id });
+      //   if (education) {
+      //     if (body.name) {
+      //       education.name = body.name;
+      //     }
+      //     if (body.educationLeader) {
+      //       education.educationLeader = body.educationLeader;
+      //     }
+      //     if (body.length) {
+      //       education.length = body.length;
+      //     }
+      //     if (body.place) {
+      //       education.place = body.place;
+      //     }
+  
+      //     if (body.points) {
+      //       education.points = body.points;
+      //     }
+      //     if (body.courses) {
+      //       education.courses = body.courses;
+      //     }
+      //     if (body.description) {
+      //       education.description = body.description;
+      //     }
+      //     await education.save();
+      //   }
+      //   return education;
+      // } catch (error) {
+      //   console.log(error);
+     
 
     static async deleteOneEducation(id) {
       try {
