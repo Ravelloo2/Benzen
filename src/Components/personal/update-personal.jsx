@@ -9,6 +9,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
     const [courseName, setcourseName] = useState([]);
     const [personalAPI, setPersonalAPI] = useState([]);
 
+    // den här dängan tar all information ifrån samma specifika ID som man klickar på och slänger in värdena in i lådorna när edit modalen kommer upp
     useEffect(() => {
         axios.get(`/showOnePersonal/${_id}`)
             .then((res) => {
@@ -18,7 +19,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
             .catch((err) => {
                 console.log(err);
             });
-    }, [personalAPI]);
+    }, []);
 
     const [personalInfo, setPersonalInfo] = useState({
         fName: "",
@@ -30,13 +31,14 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
 
     const handleChange = (e) => {
         setPersonalInfo((data) => ({ ...data, [e.target.name]: e.target.value }));
+        setPersonalAPI(e.target.value)
     };
 
     const submitHandler = (e) => {
         e.preventDefault(personalInfo);
         console.log(personalInfo);
 
-        axios.patch(`/personal/updatePersonal/${_id}`, personalInfo)
+        axios.patch(`/updatePersonal/${_id}`, personalInfo)
             .then((res) => {
                 setPersonalInfo({
                     fName: "",
@@ -53,6 +55,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
 
     };
 
+    // den här plockar namnet på kursen finns i petras kurser
     useEffect(async () => {
         const res = await axios.get("http://localhost:3001/courses/showCourses");
         setcourseName(res.data);
@@ -61,13 +64,6 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
     useEffect(async () => {
         console.log(courseName);
     }, [courseName]);
-
-    // useEffect(async () => {
-    //     const res = await axios.get("/personal/allPersonal");
-    //     setfName(res.data);
-    // }, []);
-
-
 
     return (
         <form
@@ -88,10 +84,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     name="fName"
                     className="input"
                     onChange={handleChange}
-                    value={personalAPI.map((personalAPI) => {
-                        return (<div key={personalAPI._id}>{personalAPI.fName}</div>
-                        )
-                    })}
+                    value={personalAPI.fName}    
                 >
                 </input>
 
@@ -101,6 +94,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     name="lName"
                     className="input"
                     onChange={handleChange}
+                    value={personalAPI.lName}  
                 />
 
                 <label htmlFor='email' className='label'>Ny mailadress:</label>
@@ -109,6 +103,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     name="email"
                     className="input"
                     onChange={handleChange}
+                    value={personalAPI.email}  
                 />
 
                 <label htmlFor='bKonto' className='label'>Nytt bankkonto:</label>
@@ -117,6 +112,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     name="bKonto"
                     className="input"
                     onChange={handleChange}
+                    value={personalAPI.bKonto}  
                 />
                 <select
                     name="courseName"
