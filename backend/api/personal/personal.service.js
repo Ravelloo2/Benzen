@@ -3,8 +3,8 @@ const Personal = require("./personal.model");
 
 module.exports = class PersonalService {
     static async createPersonal(body) {
-        
-        
+
+
         if (body.fName && body.lName && body.email && body.bKonto) {
             const data = body;
 
@@ -26,14 +26,14 @@ module.exports = class PersonalService {
         return Personal.find();
     }
 
-    static showOnePersonal(id) {
-        return Personal.findOne({ _id: id });
+    static async showOnePersonal(id) {
+        return await Personal.findOne({ _id: id });
     }
 
 
     static async updatePersonal(id, body) {
         try {
-            return await Personal.updateOne({_id: id}, {...body});
+            return await Personal.updateOne({ _id: id }, { ...body });
         } catch (error) {
             console.log(error);
         }

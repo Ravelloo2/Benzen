@@ -1,18 +1,31 @@
+// CAMERON
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import "../../css/Personal.css";
 
 function UpdatePersonal({ _id, closeHandler, updateHandler }) {
-    axios.defaults.baseURL = "http://localhost:3001/";
+    axios.defaults.baseURL = "http://localhost:3001/personal/";
 
     const [courseName, setcourseName] = useState([]);
+    const [personalAPI, setPersonalAPI] = useState([]);
+
+    useEffect(() => {
+        axios.get(`/showOnePersonal/${_id}`)
+            .then((res) => {
+                console.log(res.data);
+                setPersonalAPI(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [personalAPI]);
 
     const [personalInfo, setPersonalInfo] = useState({
         fName: "",
         lName: "",
         email: "",
         bKonto: "",
-        courseName: "",
+        courseName: [],
     });
 
     const handleChange = (e) => {
@@ -30,7 +43,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     lName: "",
                     email: "",
                     bKonto: "",
-                    courseName: "",
+                    courseName: [],
                 })
                 console.log(res.data);
             })
@@ -41,7 +54,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
     };
 
     useEffect(async () => {
-        const res = await axios.get("/courses/showCourses");
+        const res = await axios.get("http://localhost:3001/courses/showCourses");
         setcourseName(res.data);
     }, []);
 
@@ -49,7 +62,10 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
         console.log(courseName);
     }, [courseName]);
 
-    console.log(courseName);
+    // useEffect(async () => {
+    //     const res = await axios.get("/personal/allPersonal");
+    //     setfName(res.data);
+    // }, []);
 
 
 
@@ -72,7 +88,12 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     name="fName"
                     className="input"
                     onChange={handleChange}
-                />
+                    value={personalAPI.map((personalAPI) => {
+                        return (<div key={personalAPI._id}>{personalAPI.fName}</div>
+                        )
+                    })}
+                >
+                </input>
 
                 <label htmlFor='lName' className='label'>Nytt efternamn:</label>
                 <input
@@ -97,16 +118,18 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
                     className="input"
                     onChange={handleChange}
                 />
-                <select name="" id="">
+                <select
+                    name="courseName"
+                    type="select"
+                    onChange={handleChange}
+                >
                     <option value="" selected disabled>Välj Kurs:</option>
-                    {courseName.map(courseNames => {
-                        return (<option key={courseNames._id}>{courseNames.name}</option>
+                    {courseName.map((courseName) => {
+                        return (<option key={courseName._id}>{courseName.name}</option>
                         )
                     })}
                 </select>
                 <button type="submit" className="updatePersonalBtn">Klar</button>
-
-
             </div>
         </form>
     )
