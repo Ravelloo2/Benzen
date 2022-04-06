@@ -23,10 +23,10 @@ router.get('/allPersonal', async (req, res) => {
     }
 });
 
-router.patch('/allPersonal/:id', async (req, res) => {
-    const showOnePersonal = await PersonalService.showOnePersonal(req.params.id);
-    if(personal){
-        res.status(200).send(showOnePersonal);
+router.get('/showOnePersonal/:id', async (req, res) => {
+    const OnePersonal = await PersonalService.showOnePersonal(req.params.id);
+    if(OnePersonal){
+        res.status(200).send(OnePersonal);
     } else {
         res.status(404).send({error: 'No staff with that id found.'});
     }

@@ -66,6 +66,18 @@ h2 {
     border-radius: 13px;
 }
 
+.update-personal-btn{
+    background-color: #141850;
+    border: none;
+    color: white;
+    padding: 15px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 13px;
+}
+
 .personal-container {
     background-color: #ffffff;
     width: 30%;
