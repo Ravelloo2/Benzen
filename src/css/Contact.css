@@ -12,10 +12,11 @@
   width: 80%;
   margin: 2em auto;
   display: flex;
+  justify-content:space-evenly ;
 }
 .contact-form-container{
-  margin-left: 1em;
-  width: 60%;
+ margin-left: 2em;
+  width: 50%;
   padding: 1em;
   border-radius: 15px;
   color: var(--backgroundColor-primary);
@@ -30,15 +31,17 @@
   border-radius: 5px;
 }
 .contact-label {
-  margin: 0.6em 0;
+  margin-top: 0.9em;
+  margin-bottom: 0.5em;
   font-weight: bold;
 }
-.contact-icons{
+#contact-icons{
   font-size: 1.5em;
   color:var(--color-primary);
 }
-.city {
-  font-size: 1em;
+.city, .email-info, .ringring {
+  font-weight:lighter;
+  font-size: .6em;
   margin-left: 1ch;
 }
 /* relaterat till då meddelande skickas via form */
@@ -50,12 +53,13 @@
 }
 
 .form-btn-vis {
-  background-color: white;
-  background-repeat: no-repeat;
-  background-position: center;
-  text-align: center;
-  cursor: pointer;
   border-radius: 5px;
+  color: var(--color-primary);
+  font-weight: bold;
+  border: none;
+  background-color: var(--backgroundColor-secondary);
+  text-align: center;
+  padding: 0.5em;
 }
 
 .form-btn-hidden {
@@ -67,6 +71,7 @@
 
 .contact-content{
   flex-direction: column;
+  font-size: 1.2em;;
 }
 .contact-form-container{
   width: 100%;

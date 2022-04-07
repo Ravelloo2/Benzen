@@ -62,6 +62,7 @@ export function DisplayCourses() {
 
   return (
     <section className="course-container">
+    <section className="course-specs">
       <div className="course-header">
         <h2>Våra tillgängliga kurser</h2>
         <button  className="course-btns"  id="sort-courses" onClick={sortCourses}><FaSortAlphaDown/></button>
@@ -82,6 +83,7 @@ export function DisplayCourses() {
             />
           ))}
         </ul>
+        </section>
       </section>
 
       
