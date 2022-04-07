@@ -14,7 +14,6 @@ import NotFound from "./Components/NotFound";
 import Home from "./Components/Home";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import SkapaKurs from "./Components/NewCourseComponents/CreateCourse";
 import Kontakta from "./routes/Kontakta";
 import Login from "./Components/Login";
 import CreateEducation from "./Components/EducationComponents/CreateEducation";
