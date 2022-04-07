@@ -44,7 +44,7 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
 
                   <tr>
                     <td>{length}</td>
-                    <td>{length * 5}</td>
+                    <td>{points}</td>
                     <td>{startDate.slice(0, 10)}</td>
                   </tr>
 
@@ -71,7 +71,7 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
                   name={_id}
                   onClick={deleteCourse}
                 >
-                  <FaTrashAlt/>
+                  Delete
                 </button>
               </div>
             </div>
