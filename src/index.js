@@ -31,8 +31,8 @@ ReactDOM.render(
           <Route path="/skapaUtbildning" element={<RequireAuth><CreateEducation /> </RequireAuth>} />
           <Route path="/Kurser" element={<Kurser />} />
           <Route path="/skapa-kurs" element={<RequireAuth><SkapaKurs /> </RequireAuth>} />
-          <Route path="/personal" element={<RequireAuth> <Personal /> </RequireAuth>} />
-          <Route path="/AddPersonal" element={<AddPersonal />} />
+          <Route path="/personal" element={ <Personal /> } />
+          <Route path="/AddPersonal" element={<RequireAuth> <AddPersonal /> </RequireAuth>} />
           <Route path="/UppdateraPersonal" element={<UpdatePersonal />} />
           <Route path="/ansoka" element={<Ansoka />} />
           <Route path="/kontakta" element={<Kontakta />} />

@@ -1,5 +1,16 @@
 .login-form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #181450;
+}
+
+.label-input {
+    margin-top: 10px;
+    color: white;
+}
+
+.login-btn {
+    margin-top: 10px;
 }

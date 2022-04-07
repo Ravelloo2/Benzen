@@ -98,6 +98,15 @@ h2 a:focus, .navBar a:focus{
     }
   }
 
+  .logout-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      color:#ed7966;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+
   @media only screen and (max-width: 600px) {
     #header {
         

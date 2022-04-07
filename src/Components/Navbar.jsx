@@ -18,7 +18,12 @@ function Navbar() {
           Logga in
         </Link>
       )}
+
+    {auth.user && (
+      <button className='logout-btn'>Logga ut</button>
+    )}
   </nav>
+
  
 )
   

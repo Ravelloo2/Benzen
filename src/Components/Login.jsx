@@ -21,13 +21,11 @@ const Login = () => {
     }
   return (
     <div className='login-form'>
-        <label> 
-            Username: <input type='text' onChange={(e) => setuser(e.target.value)} />
-        </label>
-        <label>
-            Lösenord: <input type='password' onChange={(e) => setpass(e.target.value)} />
-        </label>
-        <button onClick={handleLogin} >Login</button>
+        <label className='label-input'> Användarnamn: </label>
+            <input type='text' onChange={(e) => setuser(e.target.value)} />
+        <label className='label-input'> Lösenord: </label>
+        <input type='password' onChange={(e) => setpass(e.target.value)} />
+        <button onClick={handleLogin} className='login-btn' >Login</button>
     </div>
   )
 }
