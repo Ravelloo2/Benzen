@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function UpdateEducation({_id, closeHandler, updateHandler}) {
+function UpdateEducation({id, closeHandler}) {
   axios.defaults.baseURL = "http://localhost:3001/education";
   const [utbildningsledare, setUtbildningsledare] = useState([]);
   const [kurser, setKurser] = useState([]);
@@ -10,16 +10,13 @@ function UpdateEducation({_id, closeHandler, updateHandler}) {
     educationLeader:"",
     length:"",
     place:"",
-    points:0,
-    courses:"",
+    points:"",
+    courses:[],
     description:"",
   });
-
   useEffect(async() => {
     console.log(EducationsInfo)
   },[EducationsInfo])
-
-
   useEffect(async () => {
     const res = await axios.get("/allPersonal");
     setUtbildningsledare(res.data);
@@ -28,23 +25,22 @@ function UpdateEducation({_id, closeHandler, updateHandler}) {
     const res = await axios.get("/AllCourses");
     setKurser(res.data);
   }, []);
-
-  const submitHandler = (e) => {
+  const handleSubmit = (e) => {
     console.log(EducationsInfo)
     e.preventDefault();
     axios
-      .patch(`/updateEducation/${_id}`, EducationsInfo)
+      .patch(`/updateEducation/${id}`, EducationsInfo)
       .then((res) => {
         setEducationsInfo({
           name: "",
           educationLeader: "",
           length: "",
           place: "",
-          points: 0,
-          courses: [],
+          points: "",
+          courses: [""],
           description: "",
         });
-        console.log(res.data);
+        console.log(EducationsInfo);
       })
       .catch((err) => {
         console.error(err);
@@ -55,38 +51,44 @@ function UpdateEducation({_id, closeHandler, updateHandler}) {
   };
   return (
     <>
-    <div className="utbildningar-first-wrapper">
-        <div className="utbildningar-first">
-            <form onSubmit={() => {submitHandler();updateHandler();closeHandler()}} noValidate>
-              <div className="create-utbildning-form-div">
-                <button onClick={closeHandler}>x</button>
-                <h3>Uppdatera Utbildning</h3>
+    <div className="">
+        <div className="">
+            <form onSubmit={() => {handleSubmit();closeHandler()}}>
+              <div className="update-utbildning-form-div">
+                <div className="update-utbildning-header-div">
+                <h3 style={{color: 'white'}}>Uppdatera Utbildning</h3>
+                <button onClick={closeHandler} className="update-close-button">Tillbaka</button>
+                </div>
                 <input type="text" name="name" value={EducationsInfo.name} onChange={onAnyChange} placeholder='Utbildningsnamn'/>
                 <select value={EducationsInfo.educationLeader} name="educationLeader"  onChange={onAnyChange}>
-                    <option selected disabled>Välj Utbildningsledare..</option>
+                    <option hidden></option>
+                    <option disabled>Välj Utbildningsledare..</option>
                 {utbildningsledare.map(x => {return (<option key={x._id}>{x.fName} {x.lName} </option>)})}
                 </select>
                 <select name="length" value={EducationsInfo.length}
                 onChange={onAnyChange}>
-                    <option value='1' disabled>Längd på utbildningen..</option>
-                    <option value='2' >1 År</option>
-                    <option value='3' >2 År</option>
-                    <option value='4' >3 År</option>
-                    <option value='5' >4 År</option>
-                    <option value='6' >5 År</option>
-                    <option value='7' >6 År</option>
+                    <option hidden></option>
+                    <option disabled>Längd på utbildningen..</option>
+                    <option value='1' >1 År</option>
+                    <option value='2' >2 År</option>
+                    <option value='3' >3 År</option>
+                    <option value='4' >4 År</option>
+                    <option value='5' >5 År</option>
+                    <option value='6' >6 År</option>
                 </select>
             <select value={EducationsInfo.place} name="place" onChange={onAnyChange}>
-                <option selected disabled>Välj Plats..</option>
+                <option hidden></option>
+                <option disabled>Välj Plats..</option>
                 <option>Klassrum</option>
                 <option>Distans</option>
             </select>
-            <input type="number" name="points" id="" value={EducationsInfo.points} onChange={onAnyChange} />
+            <input type="number" name="points" id="" placeholder="Poäng" onChange={onAnyChange} />
             <select name="courses" onChange={onAnyChange} value={EducationsInfo.courses}>
-              <option selected disabled>Välj Kurs..</option>
+              <option hidden></option>
+              <option disabled>Välj Kurs..</option>
             {kurser.map(x => {return (<option key={x._id}>{x.name}</option>)})}</select>
             <input name="description" onChange={onAnyChange} value={EducationsInfo.description} type="text" placeholder='Beskrivning'/>
-            <input type="submit" />
+            <input type="submit" value="Uppdatera Utbildning" />
             </div>
             </form>
         </div>

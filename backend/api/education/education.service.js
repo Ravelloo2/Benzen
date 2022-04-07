@@ -8,15 +8,7 @@ const Education = require("./education.model");
 
 module.exports = class EducationService {
   static async createEducation(body) {
-    if (
-      body.name &&
-      body.educationLeader &&
-      body.length &&
-      body.place &&
-      body.points &&
-      body.courses &&
-      body.description
-    ) {
+    if (body.name &&body.educationLeader && body.length && body.place && body.points && body.courses && body.description) {
       const data = body;
       const education = new Education({
         name: data.name,
@@ -56,36 +48,6 @@ module.exports = class EducationService {
         console.log(error);
     }
   }
-      // try {
-      //   const education = await Education.findOne({ _id: id });
-      //   if (education) {
-      //     if (body.name) {
-      //       education.name = body.name;
-      //     }
-      //     if (body.educationLeader) {
-      //       education.educationLeader = body.educationLeader;
-      //     }
-      //     if (body.length) {
-      //       education.length = body.length;
-      //     }
-      //     if (body.place) {
-      //       education.place = body.place;
-      //     }
-  
-      //     if (body.points) {
-      //       education.points = body.points;
-      //     }
-      //     if (body.courses) {
-      //       education.courses = body.courses;
-      //     }
-      //     if (body.description) {
-      //       education.description = body.description;
-      //     }
-      //     await education.save();
-      //   }
-      //   return education;
-      // } catch (error) {
-      //   console.log(error);
      
 
     static async deleteOneEducation(id) {

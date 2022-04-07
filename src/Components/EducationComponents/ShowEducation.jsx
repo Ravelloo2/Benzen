@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import '../../css/Education.css'
 import UpdateEducation from './UpdateEducation';
@@ -6,7 +6,7 @@ import UpdateEducation from './UpdateEducation';
 const ShowEducation = ({Educations,deleteEducation}) => {
 const [EducationsCollapse, setEducationsCollapse] = useState(false)
 const [UpdateCollapse, setUpdateCollapse] = useState(false)
-const [update, setUpdate] = useState([])
+
 const [id, setId] = useState("");
 const {
   _id,
@@ -25,15 +25,14 @@ const editHandler = (e) => {
   setEducationsCollapse(false)
 };
 
-const updateHandler = () => {
-  setUpdate(!update);
-};
-
 
 const closeHandler = () => {
   setId("");
   setUpdateCollapse(false);
+  setEducationsCollapse(true)
 };
+
+useEffect(()=> console.log(id),[id])
 
     return ( 
       <>
@@ -82,9 +81,7 @@ const closeHandler = () => {
         : (
           <>
         {UpdateCollapse ? 
-        (<UpdateEducation id={_id} closeHandler={closeHandler} updateHandler={updateHandler}/>) : (<></>)}
-        
-        <div className="separation-line"></div>
+        (<UpdateEducation _id={_id} closeHandler={closeHandler} />) : (<></>)}
       </>
 )} 
 

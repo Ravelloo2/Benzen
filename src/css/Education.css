@@ -97,10 +97,49 @@ input[type=number]::-webkit-outer-spin-button {
 .Education-content {
     padding: 0;
 }
-
-.create-utbildning-form-div {
-    
+.create-utbildning-background {
+    background-color: var(--backgroundColor-primary);
+    padding: 5em;
 }
+.create-utbildning-form-div {
+    margin: 0 auto;
+    width: 50%;
+    padding: 1em;
+    background-color: var(--backgroundColor-third);
+}
+.create-utbildning-header-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-utbildning-form-div input,.create-utbildning-form-div select,.update-utbildning-form-div input,.update-utbildning-form-div select,.utbildningar textarea {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin: 3px 0;
+    border: 1px solid black
+
+}
+.update-utbildning-form-div {
+    width: 100%;
+}
+
+.update-utbildning-header-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.update-utbildning-header-div .update-close-button{
+    font-size: 25px;
+    display: flex;
+    justify-content: right;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
 
 
 
@@ -161,10 +200,10 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
-.create-utbildning-form-div input,.create-utbildning-form-div select {
-    padding: 0.5em;
-    border-radius: 10px;
-    margin: 1px 0;
 
-}
 
+@media (max-width:1400px){
+    .utbildningar-first,.utbildningar .read-more-and-buttons,.utbildningar .utbildningar-header,.kurser .utbildningar-header {
+      display: block;
+    }
+  }

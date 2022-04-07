@@ -3,7 +3,6 @@ import axios from 'axios'
 import '../css/Education.css'
 import ShowEducation from '../Components/EducationComponents/ShowEducation';
 import ShowCourses from '../Components/EducationComponents/ShowCourses';
-import CreateEducation from '../Components/EducationComponents/CreateEducation';
 import { Link } from 'react-router-dom';
 
 function Utbildningar() {
@@ -12,8 +11,7 @@ function Utbildningar() {
             
   const [Educations, setEducations] = useState([])
   const [Courses, setCourses] = useState([])
-  
-  
+ 
 // skriv om till funktioner med useeffect och sen kalla dom i slutet
   useEffect(async () => {
     const res = await axios.get("/AllEducation");
@@ -23,7 +21,7 @@ function Utbildningar() {
     const res = await axios.get("/AllCourses");
     setCourses(res.data)
   }, [])
-  
+
  
 
 

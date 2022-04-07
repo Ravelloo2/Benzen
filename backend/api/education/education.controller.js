@@ -13,7 +13,6 @@ router.post('/createBackendEducation', async (req,res) => {
         points: 400,
         courses: ['test','test'],
         description: 'Description',
-        
     })
     await createEducation.save()
     res.status(200).send(createEducation)
@@ -27,6 +26,7 @@ router.post('/createEducation', async (req,res) => {
 router.get('/AllCourses', async (req,res) => {
     const getAllCourses = await EducationService.getCourses()
     getAllCourses ? res.status(200).send(getAllCourses) : res.status(404).send({error: 'Error with getting files'})});
+
 router.get('/AllPersonal', async (req,res) => {
     const getAllPersonal = await EducationService.getPersonal()
     getAllPersonal ? res.status(200).send(getAllPersonal) : res.status(404).send({error: 'Error with getting files'})});
@@ -44,7 +44,6 @@ router.patch('/updateEducation/:id', async (req,res) => {
     {education ? (res.status(200).send(education)): (res.status(404).send({ error: "no education found with matching id." }))};
     });
     
-
 router.delete('/delete/:id', async (req,res)=> {
     const education = await EducationService.deleteOneEducation(req.params.id);
     !education.error ? res.status(200).send({status: 'succesfully deleted file :) '}) :  res.status(404).send({ error: "Error with deleting file" });});
