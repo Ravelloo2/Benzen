@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from './auth'
+import '../css/login.css'
 
 const Login = () => {
     const [user, setuser] = useState('')
