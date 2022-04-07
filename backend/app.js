@@ -19,7 +19,7 @@ mongoose
   .then(()=> {
     console.log('Database connected');
   })
-  .catch((error)=> {
+  .catch((_error)=> {
     console.log('Error connecting to database');
     process.exit();
   });

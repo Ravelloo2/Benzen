@@ -1,3 +1,5 @@
+/*PETRA gjort*/
+
 import React, { useState } from "react";
 import ContactForm from "./ContactForm";
 import '../css/Contact.css';
