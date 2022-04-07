@@ -1,6 +1,6 @@
+/* Jontes */
 const CourseController = require('../courses/courses.service');
 const PersonalController = require('../personal/personal.service');
-// const PersonlController = require('../courses/courses.service');
 const Education = require("./education.model");
 
 

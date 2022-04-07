@@ -1,3 +1,6 @@
+/* Jontes */
+
+
 /* Generell css + section 1*/
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -105,12 +108,19 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0 auto;
     width: 50%;
     padding: 1em;
-    background-color: var(--backgroundColor-third);
+    background-color: var(--color-secondary);
+    border-radius: 30px;
 }
 .create-utbildning-header-div {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.create-utbildning-back-button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size:25px;
 }
 
 .create-utbildning-form-div input,.create-utbildning-form-div select,.update-utbildning-form-div input,.update-utbildning-form-div select,.utbildningar textarea {
@@ -132,7 +142,7 @@ input[type=number]::-webkit-outer-spin-button {
     align-items: center;
 }
 .update-utbildning-header-div .update-close-button{
-    font-size: 25px;
+    font-size: 35px;
     display: flex;
     justify-content: right;
     color: white;
@@ -140,7 +150,9 @@ input[type=number]::-webkit-outer-spin-button {
     border: none;
 }
 
-
+ .header-h1 {
+    color: white;
+}
 
 
 .Education-button {

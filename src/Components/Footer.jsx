@@ -1,3 +1,4 @@
+/* Jontes */
 import React from 'react'
 import '../css/Footer.css'
 import { FaGithub,FaLinkedin,FaInstagram,FaAddressBook,FaPhone,FaMailBulk } from 'react-icons/fa';

@@ -1,5 +1,5 @@
+/* Jontes */
 import React, {useState } from 'react'
-import { Collapse } from 'react-bootstrap'
 import '../../css/Education.css'
 
 const ShowCourses = ({displaycourses}) => {
@@ -8,7 +8,6 @@ const ShowCourses = ({displaycourses}) => {
     length,
     description
   } = displaycourses
-    const [open, setOpen] = useState(false);
     const [CourseCollapse, setCourseCollapse] = useState(false)
   // 
   return (

@@ -1,3 +1,4 @@
+/* Jontes */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../../css/Education.css'
@@ -5,10 +6,6 @@ import { Link } from 'react-router-dom'
 
 
 
-// hämta personal
-//hämta kurser
-// poäng välj hur många veckor *5 för poäng
-// set description
 const CreateEducation = () => {
   const [utbildningsledare,setUtbildningsledare] = useState([])
   const [kurser,setKurser] = useState([])
@@ -75,8 +72,8 @@ const CreateEducation = () => {
             <form onSubmit={Submitted} noValidate>
               <div className="create-utbildning-form-div">
                 <div className="create-utbildning-header-div">
-                <h1>Skapa Utbildning</h1>
-                <Link to="/utbildningar" className="create-utbildning-back-button">Tillbaka</Link>
+                <h1 className='header-h1'>Skapa Utbildning</h1>
+                <Link to="/utbildningar" style={{color:'white'}}><button className="create-utbildning-back-button">X</button></Link>
                 </div>
                 <input type="text" name="name" value={createdUtbildning.name} onChange={onAnyChange} placeholder='Utbildningsnamn'/>
                 <select value={createdUtbildning.educationLeader} name="educationLeader"  onChange={onAnyChange}>

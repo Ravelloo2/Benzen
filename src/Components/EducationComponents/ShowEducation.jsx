@@ -1,3 +1,4 @@
+/* Jontes */
 import React, {useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import '../../css/Education.css'
@@ -70,7 +71,7 @@ useEffect(()=> console.log(id),[id])
         </div>
           </div>
           <div className="read-more-and-buttons">
-          <button className='Education-button'><Link to='/kontakta'>Läs Mer om kraven för utbildning...</Link></button>
+          <button className='Education-button'><Link to='/kontakta'>Kontakta oss ifall du har frågor...</Link></button>
         <div className="buttons-div">
         <button name={_id} onClick={editHandler}>Uppdatera</button>
           <button name={_id} onClick={deleteEducation}>Ta Bort</button>
