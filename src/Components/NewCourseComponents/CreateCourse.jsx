@@ -61,6 +61,7 @@ const CreateCourse = () => {
 
   return (
     <section className="course-container">
+    <section className="course-specs">
       <div className="course-header">
         <h2>Lägg till ny kurs</h2>
         <Link to="/Kurser">
@@ -77,7 +78,7 @@ const CreateCourse = () => {
           </p>
         </div>
       ) : (
-        <section className="course-specs">
+        
           <form onSubmit={handleSubmit} className="add-course-form" noValidate>
             <label className="course-label" htmlFor="name">
               Kursnamn:
@@ -187,8 +188,8 @@ const CreateCourse = () => {
               Skapa Kurs
             </button>
           </form>
-        </section>
       )}
+        </section>
     </section>
   );
 };
