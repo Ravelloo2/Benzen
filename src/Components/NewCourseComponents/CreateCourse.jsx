@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const CreateCourse = () => {
+
+  
   axios.defaults.baseURL = "http://localhost:3001";
 
   const [submitMessage, setSubmitMessage] = useState(false);
@@ -94,7 +96,7 @@ const CreateCourse = () => {
               Kursbeskrivning:
             </label>
             <textarea
-              id="kurs"
+            id="kurs"
               rows={3}
               type="textarea"
               name="description"
@@ -106,7 +108,7 @@ const CreateCourse = () => {
               Kursens längd i veckor:
             </label>
             <select
-              id="kurs"
+             id="kurs"
               type="select"
               name="length"
               value={courseInfo.length}
@@ -129,6 +131,7 @@ const CreateCourse = () => {
               Poäng = 5 per vecka 
             </label>
             <p
+            id="kurs"
               type=""
               name="points"
               className="points"
@@ -171,7 +174,7 @@ const CreateCourse = () => {
               Kursens lärare
             </label>
             <select
-              id="kurs"
+             id="kurs"
               type="select"
               name="teacherId"
               className="course-input"
