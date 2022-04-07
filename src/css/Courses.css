@@ -1,9 +1,17 @@
-/* PETRAS*/
-
+/* PETRA gjort*/
+.course-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .course-header h2 {
   margin: 1em;
   color: var(--color-secondary);
-  font-size: 2rem;
+  font-size: 2.5em;
+  text-decoration: underline;
+}
+.add-new-course-btn {
+  margin-left: 2ch;
 }
 .course-btns {
   border-radius: 5px;
@@ -25,11 +33,7 @@
 .course-info {
   border-radius: 25px;
 }
-.course-header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+
 .course-label {
   margin-top: 0.6em;
 }
@@ -40,6 +44,7 @@
   background-color: var(--backgroundColor-third);
 }
 
+/* COURSE "CARDS" */
 .card-header {
   display: flex;
   padding: 0;
@@ -85,7 +90,8 @@
   margin-left: 3em;
 }
 .update-course-btn {
-  background-color: var(--backgroundColor-secondary);
+  margin: 1em 0;
+  
 }
 
 /* Relaterat till AddCourse */
@@ -124,26 +130,26 @@
 }
 
 /* Relaterat till Modal/ Update */
+
 .update-wrapper {
-  width: fit-content;
-  height: 40%;
   position: fixed;
   top: 4rem;
-  left: 20rem;
+  left: 10%;
   z-index: 1000;
-}
-.update-form {
-  padding: 1em;
   display: grid;
   gap: 0.5em;
-  width: 60ch;
+  width: 40ch;
   justify-content: center;
+  color: var(--color-primary);
   background-color: rgba(0, 0, 0, 0.664);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.update-form label {
-  color: #fafafa;
+
+.update-course-form {
+  width: 80%;
+  margin: 1em auto;
 }
+
 .update-form input,
 textarea,
 select {
@@ -151,24 +157,20 @@ select {
   padding: 1%;
 }
 
-.close {
+#close {
   height: 2rem;
   aspect-ratio: 1;
   text-align: center;
   background-color: white;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
+}
+#close:hover {
+  color: red;
+  background-color: rgba(0, 0, 0, 0.664);
 }
 
 /* SMALLER SCREEN */
 
-@media screen and (max-width: 700px) {
-  body {
-    width: 100%;
-  }
-  .contact-wrapper {
-    width: 100%;
-  }
+@media screen and (max-width: 800px) {
   .show-courses {
     width: 100%;
     margin: 0 auto;
@@ -176,13 +178,14 @@ select {
   .course-header {
     display: flex;
     flex-wrap: wrap;
-    margin: 0.6em 1em;
+    margin: 0.6em 0;
+    justify-content: center;
   }
   .course-header h2 {
     width: 100%;
+    text-align: center;
   }
   .course-header button {
     margin: 1em;
-
   }
 }

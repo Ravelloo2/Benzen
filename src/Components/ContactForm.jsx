@@ -1,4 +1,4 @@
-/*Petra gjort form och connection med emailjs */
+/*Petra gjort */
 
 import React, {useRef, useState} from "react";
 import emailjs, { init } from '@emailjs/browser';
@@ -37,8 +37,8 @@ function ContactForm({sendMessage}) {
   };
 
   return (
-    <div className="contact-form">
-      <form ref={form} onSubmit={handleSubmit}>
+    
+      <form className="contact-form" ref={form} onSubmit={handleSubmit}>
         <label className="contact-label">Ditt Namn:</label>
         <br />
         <input
@@ -100,7 +100,7 @@ function ContactForm({sendMessage}) {
         </span>{" "}
         {/* if emailSent = true the submit-messsage will be set to class visible */}
       </form>
-    </div>
+    
   );
 }
 

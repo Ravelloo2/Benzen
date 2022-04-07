@@ -1,5 +1,6 @@
 /* PETRAS */
 import React, { useState } from "react";
+import { FaTrashAlt, FaTimes, FaSortDown } from 'react-icons/fa';
 
 const CourseList = ({ course, editHandler, deleteCourse }) => {
   const {
@@ -27,7 +28,7 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
               className="open-course-info course-btns"
               onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? ( `Stäng` ) : (`Info`) }
+              {isOpen ? ( <FaTimes/> ) : (<FaSortDown/>) }
             </button>
           </div>
           {isOpen && (
@@ -70,7 +71,7 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
                   name={_id}
                   onClick={deleteCourse}
                 >
-                  Ta bort
+                  <FaTrashAlt/>
                 </button>
               </div>
             </div>
