@@ -48,6 +48,7 @@ const AddPersonal = () => {
     return (
         <div className='add-personal-container'>
             <div className='form-container'>
+            <h2>Lägg till ny personal</h2>
                 <div className='personal-form'>
                     <label className='fName'>Förnamn:</label><br />
                     <input

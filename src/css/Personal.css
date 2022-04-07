@@ -3,10 +3,14 @@ h2 {
     color: #666666;
 }
 
-/* .personal-body{
-    background-color: #303179;
-    margin: none;
-} */
+.personal-body{
+    font-family: "Raleway", sans-serif;
+  width: 100%;
+  min-height: 60vh;
+  padding: 2%;
+  background-color: var(--backgroundColor-primary);
+  box-shadow: rgb(0 0 0 / 22%) 0px 1px 15px;
+} 
 
 .personals {
     margin: 1em;
@@ -21,7 +25,6 @@ h2 {
 }
 
 .form-container {
-    margin: 1em;
     color: #666666;
     margin: 2em auto;
     width: 80%;
@@ -30,6 +33,18 @@ h2 {
     border-radius: 25px;
     padding: 10px;
     font-family: 'Raleway', sans-serif;
+    margin: 2em auto;
+    width: 40%;
+    height: 100%;
+}
+
+.add-personal-container {
+    font-family: "Raleway", sans-serif;
+  width: 100%;
+  min-height: 60vh;
+  padding: 2%;
+  background-color: var(--backgroundColor-primary);
+  box-shadow: rgb(0 0 0 / 22%) 0px 1px 15px;
 }
 
 .personal-form {
@@ -82,15 +97,6 @@ h2 {
     background-color: #ffffff;
     width: 30%;
 
-}
-
-.add-personal-container {
-    margin: 2em auto;
-    width: 40%;
-    min-height: 45vh;
-    background-color: #ffffff;
-    border-radius: 25px;
-    padding: 15px;
 }
 
 .update-form{
