@@ -4,6 +4,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import UpdateCourse from "./UpdateCourse";
 import CourseList from "./CourseList";
+import {FaSortAlphaDown, FaPlus } from 'react-icons/fa';
+
 
 export function DisplayCourses() {
   axios.defaults.baseURL = "http://localhost:3001/courses";
@@ -49,14 +51,23 @@ export function DisplayCourses() {
     });
   };
 
+ const sortCourses = () => {
+  axios
+  .get("/showCourses")
+  .then((res) => {
+    setCourseInfo(res.data.sort((a, b) => a.name.localeCompare(b.name) ));
+  }
+  )};
+
+
   return (
     <section className="course-container">
       <div className="course-header">
         <h2>Våra tillgängliga kurser</h2>
-        <button  className="course-btns"   id="sort-courses">Sortera A-Ö</button>
+        <button  className="course-btns"  id="sort-courses" onClick={sortCourses}><FaSortAlphaDown/></button>
           <Link to="/skapa-kurs">
         <button type="button" className="add-new-course-btn course-btns">
-            Lägg till ny kurs
+            <FaPlus/>
         </button>
           </Link>
       </div>
@@ -75,13 +86,13 @@ export function DisplayCourses() {
 
       
       {collapse ? (
-        <section className="update-wrapper">
+       
           <UpdateCourse
             _id={id}
             closeHandler={closeHandler}
             updateHandler={updateHandler}
           />
-        </section>
+       
       ) : (
         ""
       )}

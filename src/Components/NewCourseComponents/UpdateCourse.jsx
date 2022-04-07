@@ -1,6 +1,7 @@
 /*PETRAS*/
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {  FaTimes } from 'react-icons/fa';
 
 function UpdateCourse({ _id, closeHandler, updateHandler }) {
   axios.defaults.baseURL = "http://localhost:3001";
@@ -50,18 +51,20 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
   };
 
   return (
-    <section className="update-course">
-      <button onClick={closeHandler} className="close" aria-label="Close">
-        x
-      </button>
+    <section className="update-wrapper">
+     
       <form
-        className="update-form"
+        className="update-course-form"
         onSubmit={(e) => {
           submitHandler(e);
           updateHandler();
           closeHandler();
         }}
       >
+       <button onClick={closeHandler} id="close" aria-label="Close">
+      <FaTimes/>
+      </button>
+      <br/>
         <label htmlFor="name" className="course-label">
           Nytt kursnamn:
         </label>
@@ -70,6 +73,7 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
           name="name"
           className="course-input"
           onChange={handleChange}
+          placeholder={courseInfo.name}
         />
         <label htmlFor="description" className="course-label">
           Ny kursbeskrivning:
@@ -128,7 +132,7 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
             return <option key={teacher._id}>{teachers.fName}</option>;
           })}
         </select>
-        <button type="submit" className="update-btn">
+        <button type="submit" className="update-course-btn course-btns ">
           Updatera Kurs
         </button>
       </form>
