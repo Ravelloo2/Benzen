@@ -26,6 +26,7 @@ function UpdateEducation({_id, closeHandler}) {
     const res = await axios.get("/AllCourses");
     setKurser(res.data);
   }, []);
+
   const handleSubmit = (e) => {
     console.log(EducationsInfo)
     e.preventDefault();
@@ -42,7 +43,7 @@ function UpdateEducation({_id, closeHandler}) {
           description: "",
           
         });
-        console.log(EducationsInfo);
+        console.log(res.data);
       })
       .catch((err) => {
         console.error(err);
@@ -53,7 +54,7 @@ function UpdateEducation({_id, closeHandler}) {
   };
   return (
     <>
-            <form onSubmit={() => {handleSubmit();closeHandler()}}>
+            <form onSubmit={(e) => {handleSubmit(e);closeHandler()}}>
               <div className="update-utbildning-form-div">
                 <div className="update-utbildning-header-div">
                 <h3 style={{color: 'white'}}>Uppdatera Utbildning</h3>
@@ -63,7 +64,7 @@ function UpdateEducation({_id, closeHandler}) {
                 <select value={EducationsInfo.educationLeader} name="educationLeader"  onChange={onAnyChange}>
                     <option  hidden>Välj Utbildningsledare..</option>
                     <option  disabled>Välj Utbildningsledare..</option>
-                {utbildningsledare.map(x => {return (<option key={x._id}>{x.fName} {x.lName} </option>)})}
+                {utbildningsledare.map((x) => {return <option key={x._id}>{x.fName} {x.lName} </option>})}
                 </select>
                 <select name="length" value={EducationsInfo.length}
                 onChange={onAnyChange}>
@@ -86,7 +87,8 @@ function UpdateEducation({_id, closeHandler}) {
             <select name="courses" onChange={onAnyChange} value={EducationsInfo.courses}>
               <option hidden>Välj Kurs..</option>
               <option disabled>Välj Kurs..</option>
-            {kurser.map(x => {return (<option key={x._id}>{x.name}</option>)})}</select>
+            {kurser.map((x) => {return <option key={x._id}>{x.name}</option>;})}</select>
+
             <input name="description" onChange={onAnyChange} value={EducationsInfo.description} type="text" placeholder='Beskrivning'/>
             <input type="submit" value="Uppdatera Utbildning" />
             </div>
