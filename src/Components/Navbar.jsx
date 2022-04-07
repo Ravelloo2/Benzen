@@ -12,6 +12,7 @@ function Navbar() {
     <Link className='navBar-content' to="/kontakta" >Kontakta</Link> |
     <Link className='navbar-content' to='login' >Logga in</Link> 
     </div>
+    {/* CAMERON */}
     <div className="dropdown">
     <button className="dropbtn">Meny</button>
     <div class="dropdown-content">
