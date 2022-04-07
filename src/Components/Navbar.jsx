@@ -7,6 +7,7 @@ function Navbar() {
 
   return (
     <nav className='navBar'> 
+    <div className='visible-links'></div>
     <Link className='navBar-content' to="/utbildningar" >Utbildningar</Link> | 
     <Link className='navBar-content' to="/Kurser" >Kurser</Link> |
     <Link className='navBar-content' to="/personal" >Personal</Link> |

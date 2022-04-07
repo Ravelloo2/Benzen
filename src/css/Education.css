@@ -1,3 +1,6 @@
+/* Jontes */
+
+
 /* Generell css + section 1*/
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -5,60 +8,75 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; 
 }
 .utbildningar-first-wrapper {
-    width: 100%;
+    max-width: 100%;
     margin: 0;
     padding: 1em;
     background-color: var(--backgroundColor-primary);
 }
-.utbildningar-first {
-    width: 90%;
-    margin: 0 auto;
+.utbildningar-header {
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 20px;
-    min-height: 80vh;
+    justify-content: space-between;
+    align-items: center;
 }
-
+.utbildningar-first {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(24,1fr);
+    margin-top: 20px;
+}
+.utbildningar-first .utbildningar {
+    grid-column: 2 / 12;
+}
+.utbildningar-first .kurser {
+    grid-column:  13 / 24;
+}
 .utbildningar-first-wrapper h1 {
     color:var(--color-secondary);
 }
 .utbildningar-secondary {
     color: black;
 } 
-.left-side {
-    width: 40%;
-    margin: 0 auto;
-}
 
-/* .first-container{
+.utbildningar .leader-and-length,.utbildningar .place-and-points {
+    width: 80%;
     display: grid;
-    grid-template-columns: 150px 150px;
-    grid-template-rows: 50px 50px 50px;
+    grid-template-columns: repeat(12,1fr);
+    justify-content: space-between;
+    align-items: center;
 }
 
-.leader-grid{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 3;
+.utbildningar .leader-and-length .leader-grid,.utbildningar .place-and-points .place-grid{
+    grid-column: 1 / 6;
+    margin: 5px 0;
+}
+.utbildningar .leader-and-length .length-grid,.utbildningar .place-and-points .points-grid {
+    grid-column: 7 / 13;
+    margin: 5px 0;
 }
 
-.length-grid{
-    grid-column-start: 2;
-    grid-row-start: 2;
+.utbildningar label  {
+    font-weight: bold;
 }
 
-.place-grid{
-    grid-column-start: 2;
-    grid-row-start: 2;
-} */
-
-
-
-
-.right-side {
-    width: 40%;
-    margin: 0 auto;
+.utbildningar .read-more-and-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
+.utbildningar .read-more-and-buttons .buttons-div button{
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+}
+
+.utbildningar .read-more-and-buttons .buttons-div button:hover {
+    color: var(--color-secondary);
+}
+
+
+
 .skapaUtbildning-button {
     width: 90%;
     margin: 0 auto 50px auto;
@@ -81,19 +99,61 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .Education-content {
     padding: 0;
-    /* display: flex;
-    justify-content: space-evenly;
-    align-items: center; */
 }
-
-.first-container,.second-container {
+.create-utbildning-background {
+    background-color: var(--backgroundColor-primary);
+    padding: 5em;
+}
+.create-utbildning-form-div {
+    margin: 0 auto;
+    width: 50%;
+    padding: 1em;
+    background-color: var(--color-secondary);
+    border-radius: 30px;
+}
+.create-utbildning-header-div {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    align-items: center;
 }
-.first-container label,.second-container label,.third-container label {
-    font-weight: bold;
+.create-utbildning-back-button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size:25px;
 }
+
+.create-utbildning-form-div input,.create-utbildning-form-div select,.update-utbildning-form-div input,.update-utbildning-form-div select,.utbildningar textarea {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin: 3px 0;
+    border: 1px solid black
+
+}
+.update-utbildning-form-div {
+    width: 100%;
+}
+
+.update-utbildning-header-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.update-utbildning-header-div .update-close-button{
+    font-size: 35px;
+    display: flex;
+    justify-content: right;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+ .header-h1 {
+    color: white;
+}
+
 
 .Education-button {
     display: flex;
@@ -106,11 +166,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .Education-name:hover {
     transition: ease-in 50ms;
-    color: black;
+    color: var(--color-secondary);
 }
 .Education-Leader {
     font-size: 16px;
-    font-weight: bold;
 }
 .Education-content {
     padding: 5px;
@@ -153,10 +212,10 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
-.create-utbildning-form-div input,.create-utbildning-form-div select {
-    padding: 0.5em;
-    border-radius: 10px;
-    margin: 1px 0;
 
-}
 
+@media (max-width:1400px){
+    .utbildningar-first,.utbildningar .read-more-and-buttons,.utbildningar .utbildningar-header,.kurser .utbildningar-header {
+      display: block;
+    }
+  }

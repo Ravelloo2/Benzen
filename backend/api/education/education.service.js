@@ -1,5 +1,6 @@
+/* Jontes */
 const CourseController = require('../courses/courses.service');
-// const PersonlController = require('../courses/courses.service');
+const PersonalController = require('../personal/personal.service');
 const Education = require("./education.model");
 
 
@@ -7,15 +8,7 @@ const Education = require("./education.model");
 
 module.exports = class EducationService {
   static async createEducation(body) {
-    if (
-      body.name &&
-      body.educationLeader &&
-      body.length &&
-      body.place &&
-      body.points &&
-      body.courses &&
-      body.description
-    ) {
+    if (body.name &&body.educationLeader && body.length && body.place && body.points && body.courses && body.description) {
       const data = body;
       const education = new Education({
         name: data.name,
@@ -37,13 +30,11 @@ module.exports = class EducationService {
       console.log(courses)
       return courses
     }
-    // static async getEducationTeacher() {
-    //   let educationTeacher = await PersonalController.
-    //   const educationTeacherResponse = await educationTeacher.json()
-    //   let theEducationTeacher = educationTeacherResponse.body.educationTeacher
-    //   console.log(theEducationTeacher)
-    //   return theEducationTeacher
-    // }
+    static async getPersonal() {
+      let personal = await PersonalController.showPersonal()
+      console.log(personal)
+      return personal
+    }
     static showEducations() {
       return Education.find();
   }
@@ -51,30 +42,20 @@ module.exports = class EducationService {
     return Education.findOne({_id: id});
   }
     static async updateEducation(id, body){
-      const updatedEducation = await Education.findOne({_id: id})
-      if(updatedEducation) {
-          if (body.name != null){
-              updatedEducation.name = body.name
-          } 
-          if (body.educationLeader!= null){
-              updatedEducation.educationLeader = body.educationLeader
-          } 
-          if (body.courses!= null) {
-              updatedEducation.courses = body.courses
-          }
-          if (body.description!= null){
-              updatedEducation.description = body.description
-          }
-          await updatedEducation.save();
-      }
-      return updatedEducation;
-    } 
+      try {
+        return await Education.updateOne({_id: id}, {...body});
+    } catch (error) {
+        console.log(error);
+    }
+  }
+     
+
     static async deleteOneEducation(id) {
       try {
           await Education.findByIdAndDelete(id)
           return {status: 200}
       } catch (error) {
-          return {error: "course could not be found"}
+          return {error: "education could not be found"}
       }
     }
     };  

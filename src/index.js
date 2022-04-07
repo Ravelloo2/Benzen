@@ -6,6 +6,7 @@ import Ansoka from "./routes/Ansoka";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Utbildningar from "./routes/Utbildningar";
 import Kurser from "./routes/Courses";
+import SkapaKurs from "./Components/NewCourseComponents/CreateCourse";
 import Personal from "./routes/Personal";
 import AddPersonal from "./Components/personal/create-personal";
 import UpdatePersonal from "./Components/personal/update-personal";

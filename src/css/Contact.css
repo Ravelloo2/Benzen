@@ -1,3 +1,4 @@
+/*Petra gjort*/
 @import "./root.css";
 
 .contact-wrapper {
@@ -10,17 +11,39 @@
 .contact-content {
   width: 80%;
   margin: 2em auto;
+  display: flex;
+  justify-content:space-evenly ;
+}
+.contact-form-container{
+ margin-left: 2em;
+  width: 50%;
+  padding: 1em;
+  border-radius: 15px;
+  color: var(--backgroundColor-primary);
+  background-color: var(--backgroundColor-third);
+}
+.contact-form-container p {
+  width: 100%;
 }
 .contact-form-input {
-  width: 50%;
+  width: 100%;
   padding: 1%;
   border-radius: 5px;
 }
 .contact-label {
-  margin: 0.6em 0;
+  margin-top: 0.9em;
+  margin-bottom: 0.5em;
   font-weight: bold;
 }
-
+#contact-icons{
+  font-size: 1.5em;
+  color:var(--color-primary);
+}
+.city, .email-info, .ringring {
+  font-weight:lighter;
+  font-size: .6em;
+  margin-left: 1ch;
+}
 /* relaterat till då meddelande skickas via form */
 .contact-form span {
   display: none;
@@ -30,14 +53,28 @@
 }
 
 .form-btn-vis {
-  background-color: white;
-  background-repeat: no-repeat;
-  background-position: center;
-  text-align: center;
-  cursor: pointer;
   border-radius: 5px;
+  color: var(--color-primary);
+  font-weight: bold;
+  border: none;
+  background-color: var(--backgroundColor-secondary);
+  text-align: center;
+  padding: 0.5em;
 }
 
 .form-btn-hidden {
   display: none;
+}
+
+
+@media screen and (max-width: 800px) {
+
+.contact-content{
+  flex-direction: column;
+  font-size: 1.2em;;
+}
+.contact-form-container{
+  width: 100%;
+  margin: 2em 0;
+}
 }

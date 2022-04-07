@@ -1,11 +1,11 @@
+// Jontes
 const mongoose = require('mongoose');
-/*mer data */
 const utbildningModel = {
 name: String,
 educationLeader: String,
 length: String,
 place: String,
-points: Number,
+points: String,
 courses: Array,
 description: String,
 };

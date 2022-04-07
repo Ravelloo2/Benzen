@@ -1,13 +1,11 @@
+/* Jontes */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../../css/Education.css'
+import { Link } from 'react-router-dom'
 
 
 
-// hämta personal
-//hämta kurser
-// poäng välj hur många veckor *5 för poäng
-// set description
 const CreateEducation = () => {
   const [utbildningsledare,setUtbildningsledare] = useState([])
   const [kurser,setKurser] = useState([])
@@ -69,25 +67,29 @@ const CreateEducation = () => {
       }
   return (
     <>
-    <div className="utbildningar-first-wrapper">
-        <div className="utbildningar-first">
+    <div className="create-utbildning-background">
+        <div className="">
             <form onSubmit={Submitted} noValidate>
               <div className="create-utbildning-form-div">
-                <h1>Skapa Utbildning</h1>
+                <div className="create-utbildning-header-div">
+                <h1 className='header-h1'>Skapa Utbildning</h1>
+                <Link to="/utbildningar" style={{color:'white'}}><button className="create-utbildning-back-button">X</button></Link>
+                </div>
                 <input type="text" name="name" value={createdUtbildning.name} onChange={onAnyChange} placeholder='Utbildningsnamn'/>
                 <select value={createdUtbildning.educationLeader} name="educationLeader"  onChange={onAnyChange}>
-                    <option selected disabled>Välj Utbildningsledare..</option>
+                    <option  selected disabled>Välj Utbildningsledare..</option>
                 {utbildningsledare.map(x => {return (<option key={x._id}>{x.fName} {x.lName} </option>)})}
                 </select>
                 <select name="length" value={createdUtbildning.length}
                 onChange={onAnyChange}>
-                    <option value='1' disabled>Längd på utbildningen..</option>
-                    <option value='2' >1 År</option>
-                    <option value='3' >2 År</option>
-                    <option value='4' >3 År</option>
-                    <option value='5' >4 År</option>
-                    <option value='6' >5 År</option>
-                    <option value='7' >6 År</option>
+                    <option hidden></option>
+                    <option disabled>Längd på utbildningen..</option>
+                    <option value='1' >1 År</option>
+                    <option value='2' >2 År</option>
+                    <option value='3' >3 År</option>
+                    <option value='4' >4 År</option>
+                    <option value='5' >5 År</option>
+                    <option value='6' >6 År</option>
                 </select>
             <select value={createdUtbildning.place} name="place" onChange={onAnyChange}>
                 <option selected disabled>Välj Plats..</option>
@@ -98,8 +100,8 @@ const CreateEducation = () => {
             <select name="courses" onChange={onAnyChange} value={createdUtbildning.courses}>
               <option selected disabled>Välj Kurs..</option>
             {kurser.map(x => {return (<option key={x._id}>{x.name}</option>)})}</select>
-            <input name="description" onChange={onAnyChange} value={createdUtbildning.description} type="text" placeholder='Beskrivning'/>
-            <input type="submit" />
+            <textarea name="description" onChange={onAnyChange} value={createdUtbildning.description} type="text" placeholder='Beskrivning'/>
+            <input type="submit" value="Skapa Utbildning"/>
             </div>
             </form>
         </div>
