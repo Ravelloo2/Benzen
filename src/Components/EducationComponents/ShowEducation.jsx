@@ -82,7 +82,7 @@ useEffect(()=> console.log(id),[id])
         : (
           <>
         {UpdateCollapse ? 
-        (<UpdateEducation _id={_id} closeHandler={closeHandler} />) : (<></>)}
+        (<UpdateEducation _id={id} closeHandler={closeHandler} />) : (<></>)}
       </>
 )} 
 

@@ -7,6 +7,9 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+
+/* Utbildningar */
 .utbildningar-first-wrapper {
     max-width: 100%;
     margin: 0;
@@ -74,8 +77,13 @@ input[type=number]::-webkit-outer-spin-button {
 .utbildningar .read-more-and-buttons .buttons-div button:hover {
     color: var(--color-secondary);
 }
-
-
+.utbildningar .utbildningar-removeall-button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: white;
+    float: right;
+}
 
 .skapaUtbildning-button {
     width: 90%;
@@ -85,7 +93,15 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 25px;
     
 }
-.Education-name {
+
+/* ShowEducation & ShowCourses */
+.search-bar {
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+}
+
+.Education-name,.Kurser-name {
     width: 100%;
     display: flex;
     justify-content: left;
@@ -93,13 +109,69 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: transparent;
     font-size: 30px;
     color: white;
-    /* text-decoration: underline; */
     cursor: pointer;
     border: none;
 }
 .Education-content {
     padding: 0;
 }
+.Education-button {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+.Education-name:hover {
+    transition: ease-in 50ms;
+    color: var(--color-secondary);
+}
+.Education-Leader {
+    font-size: 16px;
+}
+.Education-content {
+    padding: 5px;
+    color: white;
+}
+.separation-line {
+    height: 2px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: black;
+}
+.Education-Courses {
+    margin-top: 20px;
+}
+.Education-description {
+    margin-top: 5px;
+}
+
+.Kurser-content  {
+    padding: 5px;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+}
+.Kurser-content label {
+    font-weight: bold;
+}
+.Kurser-content .length-and-description {
+    margin: 10px 0;
+    grid-column: 1 / 6;
+}
+.Kurser-content .location-and-teacher {
+    margin: 10px 0;
+    grid-column: 6 / 13;
+}
+.Kurser-content .starting-date {
+    margin: 10px 0;
+    grid-column: 1 / 13;
+}
+
+
+/* createEducation & updateEducation */
 .create-utbildning-background {
     background-color: var(--backgroundColor-primary);
     padding: 5em;
@@ -155,38 +227,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-.Education-button {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    color: white;
-    background-color: transparent;
-    border: none;
-}
 
-.Education-name:hover {
-    transition: ease-in 50ms;
-    color: var(--color-secondary);
-}
-.Education-Leader {
-    font-size: 16px;
-}
-.Education-content {
-    padding: 5px;
-    color: white;
-}
-.separation-line {
-    height: 2px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: black;
-}
-.Education-Courses {
-    margin-top: 20px;
-}
-.Education-description {
-    margin-top: 5px;
-}
 
 
 /* Section 2 */
