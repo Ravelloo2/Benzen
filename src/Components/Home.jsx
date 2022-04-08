@@ -2,7 +2,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import space from "../images/space.jpg"
 
 function Home() {
   const [Educations, setEducations] = useState([])
@@ -54,7 +53,7 @@ function Home() {
       </div>
       <div className="third-content">
         <div className="third-main-content">
-          <h1 style={{textAlign:'center',marginTop:'10px',color:'white'}}>VILL DU JOBBA HOS OSS?</h1>
+          <h1 style={{textAlign:'center',marginTop:'10px'}}>VILL DU JOBBA HOS OSS?</h1>
 
           <div className="hero-page">
             <h1 style={{marginBottom:'8px'}}>Har du det som krävs <br/> för att jobba hos oss?</h1>

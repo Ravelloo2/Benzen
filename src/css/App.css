@@ -4,6 +4,10 @@
   margin: 0;
   padding: 0;
 }
+img {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+  }
 
 .navBar {
   /* border-bottom: 1px solid black; */
@@ -33,11 +37,10 @@
   grid-column: 1 / -1;
   /* grid-row: 1; */
   height: 90vh;
-  background-color: var(--backgroundColor-primary);
 }
 .hero-page {
   margin: 200px 0 0 100px;
-  color: white;
+  color: var(--color-third);
 }
 .hero-button {
   display: inline-flex;
@@ -53,8 +56,11 @@
   grid-template-columns: repeat(24,auto);
   margin: 0;
 }
-.first-content {
-  margin: 0;
+.landingpage .first-content {
+  background-image: url("../images/space.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .secondary-content {
   background-color: #fae5df;
@@ -69,10 +75,13 @@ height: 80vh;
 .main-page-read-more-button {
   display: inline-block;
 }
-/* .left-side-content {
+.landingpage .third-content {
+  background-image: url("../images/olia.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
 }
-.right-side-content {
-} */
 
 .third-content {
   background-color: var(--backgroundColor-primary);
