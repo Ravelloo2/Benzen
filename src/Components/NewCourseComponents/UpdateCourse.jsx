@@ -73,7 +73,7 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
           name="name"
           className="course-input"
           onChange={handleChange}
-          placeholder={courseInfo.name}
+          value={courseInfo.name}
         />
         <label htmlFor="description" className="course-label">
           Ny kursbeskrivning:
@@ -83,12 +83,13 @@ function UpdateCourse({ _id, closeHandler, updateHandler }) {
           name="description"
           className="course-input"
           onChange={handleChange}
+          value={courseInfo.description}
         />
 
         <label htmlFor="length" className="course-label">
           Ny längd på kurs:
         </label>
-        <select type="" name="length" className="course-input" onChange={handleChange}>
+        <select type="" name="length" className="course-input" onChange={handleChange} value={courseInfo.length}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

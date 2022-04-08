@@ -22,13 +22,21 @@ const CreateCourse = () => {
     points:"",
   });
 
+  
   function handleChange(e) {
-    setCourseInfo((data) => ({
-      ...data,
-      [e.target.name]: e.target.value,
-    }));
+    if (e.target.name != "length") {
+      setCourseInfo((data) => ({
+        ...data,
+        [e.target.name]: e.target.value,
+      }));
+    } else {
+      setCourseInfo((data) => ({
+        ...data,
+        [e.target.name]: e.target.value,
+        points: e.target.value * 5,
+      }));
+    }
   }
-
   function handleSubmit(event) {
     event.preventDefault();
     axios

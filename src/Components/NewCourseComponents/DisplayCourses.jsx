@@ -43,12 +43,13 @@ export function DisplayCourses() {
   };
 
 
-  const deleteCourse = (e) => {
+  const deleteCourse = (e) => { 
     axios.delete(`http://localhost:3001/courses/deleteCourse/${e.target.name}`);
 
     setCourseInfo((data) => {
       return data.filter((course) => course._id !== e.target.name);
     });
+   
   };
 
  const sortCourses = () => {

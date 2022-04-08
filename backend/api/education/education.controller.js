@@ -42,14 +42,18 @@ router.get('/AllEducation/:id', async (req, res) => {
 
 router.patch('/updateEducation/:id', async (req,res) => {
     const education = await EducationService.updateEducation(req.params.id, req.body);
-    {education ? (res.status(200).send(education)): (res.status(404).send({ error: "no education found with matching id." }))};
+    if (education) {
+      res.status(200).send(education);
+    } else {
+      res.status(404).send({ error: "no education found with matching id." });
+    }
     });
     
 router.delete('/delete/:id', async (req,res)=> {
     const education = await EducationService.deleteOneEducation(req.params.id);
     !education.error ? res.status(200).send({status: 'succesfully deleted file :) '}) :  res.status(404).send({ error: "Error with deleting file" });});
 
-router.delete('delete/', async (req,res) => {
+router.delete('/delete/', async (req,res) => {
     const deleteAllEducation = await Education.deleteMany()
     !deleteAllEducation.error ? res.status(200).send( {status: 'successfully deleted all :)'}) : res.status(404).send({error: ' Couldnt delete them all :('})});
 

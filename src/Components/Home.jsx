@@ -55,7 +55,7 @@ function Home() {
 
           <div className="hero-page">
             <h1 style={{marginBottom:'8px'}}>Har du det som krävs <br/> för att jobba hos oss?</h1>
-            <Link to="/personal"><button className='hero-button'>BLI EN LÄRARE IDAG!</button></Link>
+            <Link to="/kontakta"><button className='hero-button'>KONTAKTA OSS!</button></Link>
           </div>
         </div>
       </div>
