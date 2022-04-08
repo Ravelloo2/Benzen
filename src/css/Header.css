@@ -38,6 +38,14 @@ h2 a:focus, .navBar a:focus{
     color: var(--color-primary);
 }
 
+.logout-btn {
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #ed7966;
+}
+
+
 /* .main-nav {
     width: 75%;
 } */

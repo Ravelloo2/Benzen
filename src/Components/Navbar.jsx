@@ -23,7 +23,7 @@ function Navbar() {
         </Link>
       )}
     {auth.user && (
-      <button className='navbar-content' onClick={handleLogout}>Logga ut</button>
+      <button className='logout-btn' onClick={handleLogout}>Logga ut</button>
     )}
   </nav>
  
