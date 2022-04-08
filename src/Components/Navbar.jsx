@@ -21,7 +21,7 @@ function Navbar() {
 
   return (
     <nav className="navBar">
-      <div className="visible-links"></div>
+      <div className="visible-links">
       <Link className="navBar-content" to="/utbildningar">
         Utbildningar
       </Link>{" "}
@@ -66,8 +66,26 @@ function Navbar() {
           )}
         </div>
       )}
+      </div>
+          {/* CAMERON */}
+    <div className="dropdown">
+    <button className="dropbtn">Meny</button>
+    <div className="dropdown-content">
+    <Link className='dropdown-content' to="/utbildningar" >Utbildningar</Link> <br/>
+    <Link className='dropdown-content' to="/Kurser" >Kurser</Link><br/>
+    <Link className='dropdown-content' to="/personal" >Personal</Link> <br/>
+    <Link className='dropdown-content' to="/ansoka" >Ansöka</Link> <br/>
+    <Link className='dropdown-content' to="/kontakta" >Kontakta</Link> <br/>
+    <Link className='dropdown-content' to='login' >Logga in</Link>
+    </div>
+    </div>
+
     </nav>
   );
+
+  
 }
+
+
 
 export default Navbar;
