@@ -1,22 +1,24 @@
 /* Jontes */
 import React from 'react'
 import '../css/Footer.css'
-import { FaGithub,FaLinkedin,FaInstagram,FaAddressBook,FaPhone,FaMailBulk } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className="footer-container">
-      <div className="social-media">
-        <a href=""><div className="content"><FaGithub/></div></a>
-        <a href=""><div className="content"><FaLinkedin/></div></a>
-        <a href=""><div className="content"><FaInstagram/></div></a>
-     </div>
-      <div className="contact">
-        <a href=""><div className="content"><FaAddressBook/></div></a>
-        <a href=""><div className="content"><FaPhone/></div></a>
-        <a href=""><div className="content"><FaMailBulk/></div></a>
+    <>
+    <div className="footer">
+      <div className="footer-container">
+      <div className="footer-links">
+      <Link className="links" to="/utbildningar">UTBILDNINGAR</Link>
+      <Link className="links" to="/kurser">KURSER</Link>
+      <Link className="links" to="/personal">PERSONAL</Link>
+      <Link className="links" to="/ansoka">ANSÖKA</Link>
+      <Link className="links" to="/kontakta">KONTAKTA</Link>
+      <Link className="links" to="/kontakta">JOBB</Link>
+      </div>
       </div>
     </div>
+    </>
   )
 }
 

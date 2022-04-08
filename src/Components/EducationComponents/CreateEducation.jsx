@@ -93,7 +93,8 @@ const CreateEducation = () => {
                 </select>
             <select value={createdUtbildning.place} name="place" onChange={onAnyChange}>
                 <option selected disabled>Välj Plats..</option>
-                <option>Klassrum</option>
+                <option>Stockholm</option>
+                <option>Göteborg</option>
                 <option>Distans</option>
             </select>
             <input type="number" name="points" id="" placeholder="Poäng" onChange={onAnyChange} />

@@ -80,7 +80,8 @@ function UpdateEducation({_id, closeHandler}) {
             <select value={EducationsInfo.place} name="place" onChange={onAnyChange}>
                 <option hidden>Välj Plats..</option>
                 <option disabled>Välj Plats..</option>
-                <option>Klassrum</option>
+                <option>Stockholm</option>
+                <option>Göteborg</option>
                 <option>Distans</option>
             </select>
             <input type="number" name="points" id="" placeholder="Poäng" onChange={onAnyChange} />

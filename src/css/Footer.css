@@ -1,36 +1,24 @@
 /* Jontes */
-.footer-container,.social-media ,.contact {
+.footer {
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
-    opacity: 1;
-}
-
-
-.footer-container {
-    width: 100%;
-     position: relative;
-    bottom: 0; 
-    background-color: white;
     border-top: 1px solid #111;
-    
+    padding: 2em;
+    background-color: var(--backgroundColor-primary);
+}
+.footer-container {
+    width: 90%;
+    margin: 0 auto;
+
 }
 
-.social-media .content,.contact .content {
-    margin: 0 10px;
+
+.footer-links {
+    display: flex;
+    justify-content: space-evenly;
+}
+.footer-links .links {
+    color: var(--color-secondary);
     font-size: 30px;
-    color: #1417afc0;
 }
 
-/* footer {
-    background-color: rgba(0, 0, 139, 0.596);
-    color: #fafafa;
-    position: fixed;
-    bottom:0;
-    width:100%;
-    height: 5rem;
-}
-footer p {
-    font-style: italic;
-    font-weight:bold;
-} */
