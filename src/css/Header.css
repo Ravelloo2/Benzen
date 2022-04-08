@@ -38,11 +38,41 @@ h2 a:focus, .navBar a:focus{
     color: var(--color-primary);
 }
 
+
 .logout-btn {
     background: none;
     border: none;
     font-weight: bold;
     color: #ed7966;
+}
+
+.popup-window {
+    display: grid;
+    grid-template-rows: 100px 50px;
+}
+
+.btns{
+ grid-row: 2;
+}
+
+#yes-btn {
+    width: 50px;
+    height:30px;
+    margin-right: 10px;
+    background-color: #141850ab;
+    color: white;
+}
+
+#no-btn {
+    width: 50px;
+    height:30px;
+    background-color: #ed7866ab;
+    color: white;
+}
+
+.sure {
+    font-size: 18px;
+    color:white
 }
 
 
