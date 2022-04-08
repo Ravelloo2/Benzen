@@ -19,6 +19,8 @@ const Login = () => {
         auth.login(pass)
         navigate(redirectPath, { replace: true })
     }
+
+
   return (
     <div className='login-form'>
         <label> 

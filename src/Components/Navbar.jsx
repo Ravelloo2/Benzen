@@ -5,6 +5,10 @@ import { useAuth } from './auth';
 function Navbar() {
   const auth = useAuth();
 
+  const handleLogout = () => {
+    auth.logout(null)
+}
+
   return (
     <nav className='navBar'> 
     <div className='visible-links'></div>
@@ -18,6 +22,9 @@ function Navbar() {
           Logga in
         </Link>
       )}
+    {auth.user && (
+      <button className='navbar-content' onClick={handleLogout}>Logga ut</button>
+    )}
   </nav>
  
 )
