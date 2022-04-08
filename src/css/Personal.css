@@ -61,7 +61,7 @@ h2 {
     background-color: #141850;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 15px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -100,11 +100,12 @@ h2 {
 }
 
 .update-form{
-    width: fit-content;
+    width: 300px;
     height:60%;
     position: fixed;
     top: 15rem;
-    left: 27rem;
+    left: 35%;
+    background-color: #000000de;
 }
 
 .update-personal-container{
@@ -124,7 +125,7 @@ h2 {
   border-top-right-radius: 50%;
   position: fixed;
   top: 13rem;
-  left: 27rem;
+  left: 35%;
   
 }
 

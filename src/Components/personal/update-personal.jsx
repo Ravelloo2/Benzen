@@ -7,9 +7,11 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
     axios.defaults.baseURL = "http://localhost:3001/personal/";
 
     const [courseName, setcourseName] = useState([]);
+
+    
     const [personalAPI, setPersonalAPI] = useState([]);
 
-    // den här dängan tar all information ifrån samma specifika ID som man klickar på och slänger in värdena in i lådorna när edit modalen kommer upp
+    // den här dängan (samt ovan) tar all information ifrån samma specifika ID som man klickar på och slänger in värdena in i lådorna när edit modalen kommer upp
     useEffect(() => {
         axios.get(`/showOnePersonal/${_id}`)
             .then((res) => {
@@ -21,13 +23,15 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
             });
     }, []);
 
+    // en useState som säger till databasen vilken info som ska vart i input lådorna
     const [personalInfo, setPersonalInfo] = useState({
-        fName: "",
-        lName: "",
-        email: "",
-        bKonto: "",
-        courseName: "",
+        fName: personalAPI.fName,
+        lName: personalAPI.lName,
+        email: personalAPI.email,
+        bKonto: personalAPI.bKonto,
+        courseName: personalAPI.courseName,
     });
+
 
     const handleChange = (e) => {
         setPersonalInfo((data) => ({ ...data, [e.target.name]: e.target.value }));
@@ -40,10 +44,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
         setcourseName(res.data);
     }, []);
 
-    useEffect(async () => {
-        console.log(courseName);
-    }, [courseName]);
-
+    // skickar patch responsen i personalInfo till databasen
     const submitHandler = (e) => {
         e.preventDefault(personalInfo);
 
@@ -62,6 +63,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
             })
 
     };
+    console.log('!!!!', personalInfo)
     return (
         <form
             className="update-form"
