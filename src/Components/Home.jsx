@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import space from "../images/space.jpg"
 
 function Home() {
   const [Educations, setEducations] = useState([])
@@ -14,6 +15,8 @@ function Home() {
     const res = await axios.get("http://localhost:3001/education/AllCourses");
     setCourses(res.data)
   }, [])
+
+ 
 
 
   return (
