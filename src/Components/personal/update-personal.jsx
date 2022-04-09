@@ -23,7 +23,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
             });
     }, []);
 
-    // en useState som säger till databasen vilken info som ska vart i input lådorna
+    // en useState som länkar ihop schemat med inputen i lådorna till rätt namn
     const [personalInfo, setPersonalInfo] = useState({
         fName: personalAPI.fName,
         lName: personalAPI.lName,
@@ -38,7 +38,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
         setPersonalAPI(e.target.value)
     };
 
-    // den här plockar namnet på kursen finns i petras kurser
+    // den här plockar namnet på kursen finns i Petras kurser
     useEffect(async () => {
         const res = await axios.get("http://localhost:3001/courses/showCourses");
         setcourseName(res.data);
@@ -63,7 +63,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
             })
 
     };
-    console.log('!!!!', personalInfo)
+
     return (
         <form
             className="update-form"
@@ -129,5 +129,7 @@ function UpdatePersonal({ _id, closeHandler, updateHandler }) {
         </form>
     )
 }
+
+// Jag hade kunnat få multi select på kurser att funka men tiden tog slut! Lär försöka med det på samma repo även när uppgiften är rättad.
 
 export default UpdatePersonal;
