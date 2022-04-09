@@ -16,7 +16,7 @@ const AddPersonal = () => {
     const [selectedValue, setSelectedValue] = useState("");
 
 
-
+    // en funktion som sätter in värdena i korrekt del av schemat i mitt API
     const CreatePersonal = async () => {
         await axios.post("/personal", {
             fName: personalfName,
@@ -32,6 +32,7 @@ const AddPersonal = () => {
 
     }
 
+    // gör så att jag får in Petras kurser, åter igen, hade kunnat göra multiselect men tiden tog slut!
     useEffect(async () => {
         const res = await axios.get("/courses/showCourses");
         setcourseName(res.data);
