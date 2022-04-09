@@ -15,7 +15,8 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
   } = course;
   
 
-
+  // State för att hantera öppning och stängning av den collapse som visar kursinfo
+  
   const [isOpen, setIsOpen] = useState(false);
 
   return (

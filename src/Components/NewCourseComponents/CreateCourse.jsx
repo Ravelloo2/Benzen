@@ -8,7 +8,7 @@ const CreateCourse = () => {
   
   axios.defaults.baseURL = "http://localhost:3001";
 
-  const [submitMessage, setSubmitMessage] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState(false); //då en kurs blir tillagd visas ett meddelande för agtt bekräfta detta
   const [teacher, setTeacher] = useState([]);
 
   const [courseInfo, setCourseInfo] = useState({
@@ -21,7 +21,8 @@ const CreateCourse = () => {
     points: "",
   });
 
-  
+  // Hanterar all input då kursen skapas. 
+  //i else räknar vi ut antalet points för en kurs, baserat på antalet veckor vi angett under length
   function handleChange(e) {
     if (e.target.name != "length") {
       setCourseInfo((data) => ({
@@ -60,6 +61,8 @@ const CreateCourse = () => {
       });
   }
 
+
+  //Hämtar all personal från Camerons sida vilka sedan mapas ut i en select i formet
   useEffect(async () => {
     const res = await axios.get("/personal/allPersonal");
     setTeacher(res.data);

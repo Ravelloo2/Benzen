@@ -15,6 +15,8 @@ export function DisplayCourses() {
   const [update, setUpdate] = useState(false);
   const [collapse, setCollapse] = useState(false);
 
+
+  // hämtar alla kurser från vår databas, från den angivna base url:en ovan
   useEffect(() => {
     axios
       .get("/showCourses")
@@ -28,6 +30,7 @@ export function DisplayCourses() {
   }, [update]);
 
 
+  // kopplad till vår uppdatera knapp i update-modal. sätter våra nya värden vid submit.
   const editHandler = (e) => {
     setId(e.target.name);
     setCollapse(true);
@@ -36,6 +39,7 @@ export function DisplayCourses() {
   const updateHandler = () => {
     setUpdate(!update);
   };
+
 
   const closeHandler = () => {
     setId("");
@@ -52,6 +56,7 @@ export function DisplayCourses() {
    
   };
 
+  // Här har vi funktionen för att sortera våra kurser från a-ö. Används genom att trycka på sorteringsknappen som finns över alla kurser 
  const sortCourses = () => {
   axios
   .get("/showCourses")
@@ -73,8 +78,9 @@ export function DisplayCourses() {
         </button>
           </Link>
       </div>
+      
       <section className="course-info">
-        <ul className="course-list">
+        <ul className="course-list"> 
           {courseInfo.map((course) => (
             <CourseList
               key={course._id}
