@@ -41,7 +41,6 @@
   margin: 0 auto;
   width: 70%;
   padding: 2%;
-  background-color: var(--color-primary);
 }
 
 /* COURSE "CARDS" */
@@ -100,7 +99,7 @@
   width: 70%;
   margin: 0 auto;
   padding: 1%;
-  border-radius: 25px;
+  border-radius: 15px;
   background-color: var(--backgroundColor-third);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -127,7 +126,7 @@
 }
 .submit-message {
   text-align: center;
-  color: var(--color-primary);
+  color: var(--backgroundColor-primary);
 }
 
 /* Relaterat till Modal/ Update */
