@@ -3,6 +3,8 @@ import React, {useState } from 'react'
 import '../../css/Education.css'
 
 const ShowCourses = ({displayCourses}) => {
+
+  // skickar med datan från Utbildningar komponenten och här tar jag ut värdena
   const {
     name,
     length,
@@ -12,6 +14,7 @@ const ShowCourses = ({displayCourses}) => {
     startDate,
   } = displayCourses
     const [CourseCollapse, setCourseCollapse] = useState(false)
+    // En simpel collapse så när du trycker på en kurs så öppnas collapsen och du ser innehållet
   return (
     <>
     <button className="Kurser-name" onClick={() => setCourseCollapse(!CourseCollapse)}>{name}</button>

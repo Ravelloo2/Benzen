@@ -7,9 +7,11 @@ import ShowCourses from '../Components/EducationComponents/ShowCourses';
 import { Link } from 'react-router-dom';
 
 function Utbildningar() {
-  
+  // Sätter default url för education så jag kan enkelt hämta mina endpoints
   axios.defaults.baseURL = "http://localhost:3001/education";
             
+
+  // Deklarerar en del usestates för att kunna map igenom datan som jag hämtar från api och smidigt kunna hantera datan.
   const [Educations, setEducations] = useState([])
   const [Courses, setCourses] = useState([])
   const [update, setUpdate] = useState(false)
@@ -17,15 +19,21 @@ function Utbildningar() {
   const [searchKurser, setSearchKurser] = useState('')
  
 
+  // hämtar utbildningar och lyssnar på när update variabeln uppdateras för att kunna uppdatera sidan när jag tar bort utbildningar
   useEffect(async () => {
     const res = await axios.get("/AllEducation");
     setEducations(res.data)
   }, [update])
+
+
+  // hämtar kurser från min endpoint i backend som hämtar det från Petra.
   useEffect(async () => {
     const res = await axios.get("/AllCourses");
     setCourses(res.data)
   }, [])
 
+
+    // funktion för att filtrera alla utbildningar när man söker i search bar, du kan söka på massa olika information inom utbildningar, aka keywords
   const filteredEducation = x => { 
     let educationName = x.name, educationLeader = x.educationLeader,educationLength = x.length, educationPlace = x.place, educationPoints = x.points, educationDescription = x.description
       if( educationName.toLowerCase().includes(searchEducation.toLowerCase()) 
@@ -40,6 +48,8 @@ function Utbildningar() {
       else if(educationName == "")
         {return x}
     }
+
+    // funktion för att filtrera alla kurser när man söker i search bar, du kan söka på massa olika information inom utbildningar, aka keywords
   const filteredKurser = y => { 
     let name = y.name,description = y.description, location = y.location, teacherId = y.teacherId
       if( name.toLowerCase().includes(searchKurser.toLowerCase()) 
@@ -52,6 +62,8 @@ function Utbildningar() {
         {return y}
     }
 
+
+    // delete request föra att deleta en specifik utbildning
   const deleteEducation = (e) => {
   axios.delete(`http://localhost:3001/education/delete/${e.target.name}`);
   setEducations((data) => {
@@ -59,6 +71,8 @@ function Utbildningar() {
   });
   setUpdate(true)
 }
+
+// delete request för att deleta alla utbildningar
   const deleteAllEducation = (e) => {
   axios.delete("http://localhost:3001/education/delete");
   setEducations((data) => {
@@ -71,7 +85,6 @@ function Utbildningar() {
   return (
     <>
     <div>
-      {/* Search bar?? */}
     <div className='utbildningar-first-wrapper'>
       <div className="utbildningar-first">
         <div className="utbildningar">
@@ -79,11 +92,15 @@ function Utbildningar() {
           <h1>UTBILDNINGAR</h1>
           <div className="create-and-filter">
           <Link style={{color: 'white'}} to="/skapaUtbildning">Skapa Utbildning</Link>
+
+          {/* Search bar som  */}
           <input type="text"  className='search-bar' onChange={(e) => setSearchEducation(e.target.value)} placeholder="Filtrera utbildningar..."/>
           </div>
           </div>
       <div className="separation-line"></div>
       <div className="Education-grid">
+
+        {/* använder min filter funktion som jag gjorde längre upp för att kolla ifall värdet stämmer in på någon av utbildningar och då visar den de utbildningar sen använder jag map metod för att gå igenom alla utbildningar som jag hämtade från min egna endpoint och i showEducation komponenten så renderar jag ut dom */}
       {Educations.filter(x=> filteredEducation(x)).map(x => {
         return (
           <div key={x._id}>
@@ -102,11 +119,13 @@ function Utbildningar() {
         <h1>FRIA KURSER</h1>
         <div className="create-and-filter">
         <Link style={{color: 'white'}} to="/Kurser">Hantera Kurser</Link>
+
         <input type="text"  className='search-bar' onChange={(e) => setSearchKurser(e.target.value)} placeholder="Filtrera kurser..."/>
         </div>
         </div>
       <div className="separation-line"></div>
       <div className="Education-grid">
+                {/* använder min filter funktion som jag gjorde längre upp för att kolla ifall värdet stämmer in på någon av kurserna och då visar den de utbildningar sen använder jag map metod för att gå igenom alla utbildningar som jag hämtade från min egna endpoint och i showCourses komponenten så renderar jag ut dom */}
         {Courses.filter(y => filteredKurser(y)).map(y => {
           return (
             <div key={y._id}>
@@ -122,6 +141,8 @@ function Utbildningar() {
   </div>
   </div>
   
+
+  {/* Random filler content om Benzen education :3 */}
   <div className="utbildningar-secondary">
   <div className="utbildningar-secondary-content">
       <h1 style={{color:'black'}}>KONTAKTA STUDIE & YRKESVÄGLEDARE</h1>

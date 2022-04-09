@@ -10,7 +10,6 @@ img {
   }
 
 .navBar {
-  /* border-bottom: 1px solid black; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -28,14 +27,12 @@ img {
 .landingpage{
   display: grid;
   grid-template-columns: repeat(24,auto);
-  /* grid-template-rows: repeat(1, auto); */
   background-color:#ffffff;
   width: 100%;
   margin: 0 auto;
 }
 .first-main-content {
   grid-column: 1 / -1;
-  /* grid-row: 1; */
   height: 90vh;
 }
 .hero-page {

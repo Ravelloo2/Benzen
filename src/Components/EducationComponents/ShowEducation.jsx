@@ -7,7 +7,6 @@ import UpdateEducation from './UpdateEducation';
 const ShowEducation = ({Educations,deleteEducation}) => {
 const [EducationsCollapse, setEducationsCollapse] = useState(false)
 const [UpdateCollapse, setUpdateCollapse] = useState(false)
-
 const [id, setId] = useState("");
 const {
   _id,
@@ -20,20 +19,19 @@ const {
   description,
 } = Educations  
 
-const editHandler = (e) => {
+// hanterar uppdatera knappen och den sparar id i en usestate samt öppnar upp uppdatera sektionen och stänger utbildningsektionen
+const updateFunction = (e) => {
   setId(e.target.name);
   setUpdateCollapse(true);
   setEducationsCollapse(false)
 };
 
-
-const closeHandler = () => {
+// hanterar uppdatera knappen och den sätter id som tomt samt stänger upp uppdatera sektionen och öppnar utbildningsektionen
+const closedUpdate = () => {
   setId("");
   setUpdateCollapse(false);
   setEducationsCollapse(true)
 };
-
-useEffect(()=> console.log(id),[id])
 
     return ( 
       <>
@@ -73,7 +71,8 @@ useEffect(()=> console.log(id),[id])
           <div className="read-more-and-buttons">
           <button className='Education-button'><Link to='/kontakta'>Kontakta oss ifall du har frågor...</Link></button>
         <div className="buttons-div">
-        <button name={_id} onClick={editHandler}>Uppdatera</button>
+
+        <button name={_id} onClick={updateFunction}>Uppdatera</button>
           <button name={_id} onClick={deleteEducation}>Ta Bort</button>
           </div>
           </div>
@@ -81,8 +80,9 @@ useEffect(()=> console.log(id),[id])
         </>)
         : (
           <>
+          {/* kallar på closedupdate funktion i ett ternary statement och värdet blir true visas updateEducation komponenten  */}
         {UpdateCollapse ? 
-        (<UpdateEducation _id={id} closeHandler={closeHandler} />) : (<></>)}
+        (<UpdateEducation _id={id} closedUpdate={closedUpdate} />) : (<></>)}
       </>
 )} 
 

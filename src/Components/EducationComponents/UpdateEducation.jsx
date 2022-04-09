@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function UpdateEducation({_id, closeHandler}) {
+function UpdateEducation({_id, closedUpdate}) {
   axios.defaults.baseURL = "http://localhost:3001/education";
   const [utbildningsledare, setUtbildningsledare] = useState([]);
   const [kurser, setKurser] = useState([]);
@@ -18,6 +18,9 @@ function UpdateEducation({_id, closeHandler}) {
   useEffect(async() => {
     console.log(EducationsInfo)
   },[EducationsInfo])
+
+
+  // hämtar datan
   useEffect(async () => {
     const res = await axios.get("/allPersonal");
     setUtbildningsledare(res.data);
@@ -27,6 +30,7 @@ function UpdateEducation({_id, closeHandler}) {
     setKurser(res.data);
   }, []);
 
+  // vid submit skickar den en update(patch) request som uppdaterar förra värdet och den skriver över det förra
   const handleSubmit = (e) => {
     console.log(EducationsInfo)
     e.preventDefault();
@@ -54,16 +58,18 @@ function UpdateEducation({_id, closeHandler}) {
   };
   return (
     <>
-            <form onSubmit={(e) => {handleSubmit(e);closeHandler()}}>
+    {/* Vid submit av form så körs handleSubmit & Closedupdate funktionerna */}
+            <form onSubmit={(e) => {handleSubmit(e);closedUpdate()}}>
               <div className="update-utbildning-form-div">
                 <div className="update-utbildning-header-div">
                 <h3 style={{color: 'white'}}>Uppdatera Utbildning</h3>
-                <button onClick={closeHandler} className="update-close-button">X</button>
+                <button onClick={closedUpdate} className="update-close-button">X</button>
                 </div>
                 <input type="text" name="name" value={EducationsInfo.name} onChange={onAnyChange} placeholder='Utbildningsnamn'/>
                 <select value={EducationsInfo.educationLeader} name="educationLeader"  onChange={onAnyChange}>
                     <option  hidden>Välj Utbildningsledare..</option>
                     <option  disabled>Välj Utbildningsledare..</option>
+                    {/* mappar ut utbildningsledare */}
                 {utbildningsledare.map((x) => {return <option key={x._id}>{x.fName} {x.lName} </option>})}
                 </select>
                 <select name="length" value={EducationsInfo.length}
@@ -88,6 +94,7 @@ function UpdateEducation({_id, closeHandler}) {
             <select name="courses" onChange={onAnyChange} value={EducationsInfo.courses}>
               <option hidden>Välj Kurs..</option>
               <option disabled>Välj Kurs..</option>
+              {/* mappar ut kursdata */}
             {kurser.map((x) => {return <option key={x._id}>{x.name}</option>;})}</select>
 
             <input name="description" onChange={onAnyChange} value={EducationsInfo.description} type="text" placeholder='Beskrivning'/>

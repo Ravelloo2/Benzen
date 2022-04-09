@@ -3,6 +3,8 @@ import React from 'react'
 import '../css/Footer.css'
 import { Link } from 'react-router-dom';
 
+
+// Simpel footer som bara länkar till de olika komponenterna
 function Footer() {
   return (
     <>
@@ -23,8 +25,3 @@ function Footer() {
 }
 
 export default Footer
-// <footer>
-// <p>Här i footern får vi komma på något roligt och relevant att ha</p>
-// <p>Och självklart fixa styling sen. 
-// Det här ligger bara för att vi ska se den och komma ihåg att fixa :)</p>
-// </footer>

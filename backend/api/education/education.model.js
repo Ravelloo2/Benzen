@@ -1,4 +1,7 @@
 // Jontes
+
+
+// Mitt schema som lagras i databasen. jag la till extra info för att satsa på högre betyg :)
 const mongoose = require('mongoose');
 const utbildningModel = {
 name: String,

@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 function Home() {
   const [Educations, setEducations] = useState([])
   const [Courses, setCourses] = useState([])
+
+  // hämtar data och sen sparar det i Educations och Courses som jag senare mappar ut i section 2 av main page
   useEffect(async () => {
     const res = await axios.get("http://localhost:3001/education/AllEducation");
     setEducations(res.data)

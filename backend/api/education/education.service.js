@@ -5,8 +5,9 @@ const Education = require("./education.model");
 
 
 
-
 module.exports = class EducationService {
+
+  //Skapa Utbildning
   static async createEducation(body) {
     if (body.name &&body.educationLeader && body.length && body.place && body.points && body.courses && body.description) {
       const data = body;
@@ -25,22 +26,30 @@ module.exports = class EducationService {
       return { error: "Fields can not be left blank." };
     }
   }
+  //Hämta kurser från Petra
     static async getCourses() {
       let courses = await CourseController.showCourses()
       console.log(courses)
       return courses
     }
+    //Hämta Personal från Cameron
     static async getPersonal() {
       let personal = await PersonalController.showPersonal()
       console.log(personal)
       return personal
     }
+
+    //Hämta utbildningar som finns i databasen
     static showEducations() {
       return Education.find();
   }
+
+  //Hämta en utbildning som finns i databasen
   static showEducation(id){
     return Education.findOne({_id: id});
   }
+
+  //uppdatera utbildning som finns i databasen
     static async updateEducation(id, body){
       try {
         return await Education.updateOne({_id: id}, {...body});
@@ -49,7 +58,7 @@ module.exports = class EducationService {
     }
   }
      
-
+   //deleta en utbildning som finns i databasen
     static async deleteOneEducation(id) {
       try {
           await Education.findByIdAndDelete(id)
@@ -59,3 +68,5 @@ module.exports = class EducationService {
       }
     }
     };  
+
+    // Delete alla educations finns direkt i controller
