@@ -1,6 +1,6 @@
 /* PETRAS */
 import React, { useState } from "react";
-import { FaTrashAlt, FaTimes, FaSortDown } from 'react-icons/fa';
+import {  FaTimes, FaSortDown } from 'react-icons/fa';
 
 const CourseList = ({ course, editHandler, deleteCourse }) => {
   const {
@@ -71,7 +71,7 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
                   name={_id}
                   onClick={deleteCourse}
                 >
-                  Delete
+                  Ta bort
                 </button>
               </div>
             </div>
