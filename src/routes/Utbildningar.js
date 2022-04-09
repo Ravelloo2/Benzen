@@ -16,7 +16,7 @@ function Utbildningar() {
   const [searchEducation, setSearchEducation] = useState('')
   const [searchKurser, setSearchKurser] = useState('')
  
-// skriv om till funktioner med useeffect och sen kalla dom i slutet
+
   useEffect(async () => {
     const res = await axios.get("/AllEducation");
     setEducations(res.data)
@@ -129,20 +129,20 @@ function Utbildningar() {
       <div className="utbildningar-secondary-content-content">
       <h3>Osäker på vad du ska välja? <br/> Kontakta oss för att hitta det som passar just dig!</h3>
       <Link to="/kontakta"><h3 style={{display:'inline-flex'}}>Läs Mer...</h3></Link></div>
-      <div style={{width:'80%',margin:'0 0 50px 0'}} className="separation-line"></div>
+      
 
       <h1 style={{color:'black'}}>UTBILDNINGSKRAV</h1>
       <div style={{width:'80%',margin:'0'}} className="separation-line"></div>
       <div className="utbildningar-secondary-content-content">
       <h3>Osäker på om du har rätt behörighet? <br/> Kontakta oss så hjälper vi dig!</h3>
       <Link to="/kontakta"><h3 style={{display:'inline-flex'}}>Läs Mer...</h3></Link></div>
-      <div style={{width:'80%',margin:'0 0 50px 0'}} className="separation-line"></div>
+      
       <h1 style={{color:'black'}}>F.A.Q</h1>
       <div style={{width:'80%',margin:'0'}} className="separation-line"></div>
       <div className="utbildningar-secondary-content-content">
       <h2 style={{color:'black',margin:'0 0 15px 0'}}>Plats?</h2>
       <h4>Stockholm & Göteborg & Distans</h4>
-      <div style={{width:'80%',margin:'0'}} className="separation-line"></div>
+      
       <h2 style={{color:'black',margin:'15px 0 15px 0'}}>Krav?</h2>
       <h4>Alla utbildningar har olika krav <br/> Vi samarbetar med olika komvux för att hjälpa studenter att komma in</h4>
       <div style={{width:'80%',margin:'0'}} className="separation-line"></div>

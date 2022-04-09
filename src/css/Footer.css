@@ -22,3 +22,25 @@
     font-size: 30px;
 }
 
+@media (max-width:1300px){
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(3,auto);
+    }
+    .footer-links .links {
+        font-size: 23px;
+    }
+    
+  }
+@media (max-width:1000px){
+    .footer-links .links {
+        font-size: 20px;
+    }
+    
+  }
+@media (max-width:700px){
+    .footer-links .links {
+        font-size: 15px;
+    }
+    
+  }
