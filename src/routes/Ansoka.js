@@ -1,10 +1,10 @@
 import React from "react";
-import  CreateApplication  from '../Components/CreateApplication'
+import Applications from "../Components/application/Applications";
 
 function Ansoka() {
   return (
   <>
-    <CreateApplication />
+    <Applications />
   </>
   )
 

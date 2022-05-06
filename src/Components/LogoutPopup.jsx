@@ -1,3 +1,5 @@
+// ELIAZ KOD
+
 import React from "react";
 import '../css/Logout.css'
 

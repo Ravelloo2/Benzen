@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "./auth";
 import LogoutPopup from "./LogoutPopup";
 
+// ELIAZ KOD
 function Navbar() {
   const [isOpen, setisOpen] = useState(false);
 

@@ -19,6 +19,8 @@ import Login from "./Components/Login";
 import CreateEducation from "./Components/EducationComponents/CreateEducation";
 import { AuthProvider } from "./Components/auth";
 import RequireAuth from "./Components/RequireAuth";
+import CreateApplications from "./Components/application/CreateApplications";
+import UpdateApplication from "./Components/application/UpdateApplication"
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -35,6 +37,8 @@ ReactDOM.render(
           <Route path="/AddPersonal" element={<AddPersonal />} />
           <Route path="/UppdateraPersonal" element={<UpdatePersonal />} />
           <Route path="/ansoka" element={<Ansoka />} />
+          <Route path="/CreateApplication" element={<CreateApplications />} />
+          <Route path="/updateApplication" element={<UpdateApplication />} />
           <Route path="/kontakta" element={<Kontakta />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
