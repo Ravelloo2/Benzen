@@ -43,8 +43,8 @@ ReactDOM.render(
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
     </AuthProvider>
+        <Footer />
       </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

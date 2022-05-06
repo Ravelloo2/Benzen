@@ -1,6 +1,6 @@
 /* PETRAS */
 import React, { useState } from "react";
-import { FaTrashAlt, FaTimes, FaSortDown } from 'react-icons/fa';
+import {  FaTimes, FaSortDown } from 'react-icons/fa';
 
 const CourseList = ({ course, editHandler, deleteCourse }) => {
   const {
@@ -15,7 +15,8 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
   } = course;
   
 
-
+  // State för att hantera öppning och stängning av den collapse som visar kursinfo
+  
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -71,7 +72,7 @@ const CourseList = ({ course, editHandler, deleteCourse }) => {
                   name={_id}
                   onClick={deleteCourse}
                 >
-                  Delete
+                  Ta bort
                 </button>
               </div>
             </div>

@@ -4,7 +4,8 @@ const router = express.Router();
 const Education = require('./education.model');
 const EducationService = require('./education.service');
 
-
+// Alla mina routes, inklusive routes där jag hämtar data från personal och kurser för att göra min egna endpoints
+// Använder mig av ternary statements vilket gör koden mer clean & enklare att förstå
 router.post('/createBackendEducation', async (req,res) => {
     const createEducation = new Education({
         name: 'Webbsäkerhet',
@@ -42,11 +43,7 @@ router.get('/AllEducation/:id', async (req, res) => {
 
 router.patch('/updateEducation/:id', async (req,res) => {
     const education = await EducationService.updateEducation(req.params.id, req.body);
-    if (education) {
-      res.status(200).send(education);
-    } else {
-      res.status(404).send({ error: "no education found with matching id." });
-    }
+    education ? res.status(200).send(education) : res.status(404).send({ error: "no education found with matching id." })
     });
     
 router.delete('/delete/:id', async (req,res)=> {

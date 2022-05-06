@@ -5,7 +5,7 @@
     top: 0;
     z-index: 1000;
     /* margin-bottom: 10px; */
-    border-bottom: 1px solid #111;
+    border-bottom: 2px solid var(--color-secondary);
     height: 10em;
 }
 .visible-links{

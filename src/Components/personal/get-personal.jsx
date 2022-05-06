@@ -13,8 +13,10 @@ function GetPersonal() {
     const [id, setId] = useState("");
     const [personalInfo, setPersonalInfo] = useState([]);
     const [update, setUpdate] = useState(false);
+    // modal är fönstret som kommer upp på redigerings förfrågan
     const [modal, setModal] = useState(false);
 
+    // plockar all info ifrån "personal" ifrån databasen
     useEffect(() => {
         axios
             .get("/allPersonal")
@@ -27,20 +29,24 @@ function GetPersonal() {
             });
     }, [update]);
 
+    // edit knappen i modalen som uppdaterar värdena
     const editHandler = (e) => {
         setId(e.target.name);
         setModal(true);
     };
 
+    // det som updaterar modalen efter att värdet har lagts in, dock så loggas man ut på refresh än så länge
     const updateHandler = (e) => {
         setUpdate(!update);
     };
 
+    // stänga knappen för modalen
     const closeHandler = () => {
         setId("");
         setModal(false);
     };
 
+    // tar bort ett helt id ifrån databasen
     const deletePersonal = (e) => {
         axios.delete(`http://localhost:3001/personal/deletePersonal/${e.target.name}`);
 

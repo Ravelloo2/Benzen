@@ -9,7 +9,9 @@ import { Link } from 'react-router-dom'
 const CreateEducation = () => {
   const [utbildningsledare,setUtbildningsledare] = useState([])
   const [kurser,setKurser] = useState([])
+  // Usestates för att få ut data från api
   
+
   const [createdUtbildning, setCreatedUtbildning] = useState([{
     name: "",
     educationLeader:"",
@@ -20,6 +22,8 @@ const CreateEducation = () => {
     description:"",
   }]);
   axios.defaults.baseURL = "http://localhost:3000/";
+
+  // hämtar kurser från min endpoint i backend som hämtar ifrån Petras
  useEffect(async () => {
     await axios.get("education/AllCourses")
     .then((res) => {
@@ -27,17 +31,21 @@ const CreateEducation = () => {
       setKurser(res.data)})
   }, [])
 
+  // hämtar personal från min endpoint i backend som hämtar ifrån Cameron
+
     useEffect(async () => {
-        await axios.get("personal/AllPersonal")
+        await axios.get("education/AllPersonal")
         .then((res) => {
           console.log(utbildningsledare)
           setUtbildningsledare(res.data)})
       }, [])
-
+ // Console loggar allt när du skriver in i form
       useEffect(async() => {
         console.log(createdUtbildning)
     },[createdUtbildning])
     
+
+    // Vid minsta förändring i inputs & selects så uppdateras värdet på createdUtbildning som sen hamnar i post request
       const onAnyChange = e => {
         setCreatedUtbildning((data) => ({
           ...data,
@@ -45,6 +53,8 @@ const CreateEducation = () => {
         }));  
       }
 
+
+      // Vid submit görs en post request som skickar med datan inuti createdUtbildning och sen sätter värdena till ""
       const Submitted = e => {
           e.preventDefault()
           axios
@@ -69,6 +79,8 @@ const CreateEducation = () => {
     <>
     <div className="create-utbildning-background">
         <div className="">
+
+          {/* När knappen längs ner klickas så körs onSubmit igång och post request sker */}
             <form onSubmit={Submitted} noValidate>
               <div className="create-utbildning-form-div">
                 <div className="create-utbildning-header-div">
@@ -76,6 +88,7 @@ const CreateEducation = () => {
                 <Link to="/utbildningar" style={{color:'white'}}><button className="create-utbildning-back-button">X</button></Link>
                 </div>
                 <input type="text" name="name" value={createdUtbildning.name} onChange={onAnyChange} placeholder='Utbildningsnamn'/>
+                {/* Mappar ut utbildningsledare */}
                 <select value={createdUtbildning.educationLeader} name="educationLeader"  onChange={onAnyChange}>
                     <option  selected disabled>Välj Utbildningsledare..</option>
                 {utbildningsledare.map(x => {return (<option key={x._id}>{x.fName} {x.lName} </option>)})}
@@ -93,10 +106,12 @@ const CreateEducation = () => {
                 </select>
             <select value={createdUtbildning.place} name="place" onChange={onAnyChange}>
                 <option selected disabled>Välj Plats..</option>
-                <option>Klassrum</option>
+                <option>Stockholm</option>
+                <option>Göteborg</option>
                 <option>Distans</option>
             </select>
             <input type="number" name="points" id="" placeholder="Poäng" onChange={onAnyChange} />
+            {/* Mappar ut kurser */}
             <select name="courses" onChange={onAnyChange} value={createdUtbildning.courses}>
               <option selected disabled>Välj Kurs..</option>
             {kurser.map(x => {return (<option key={x._id}>{x.name}</option>)})}</select>

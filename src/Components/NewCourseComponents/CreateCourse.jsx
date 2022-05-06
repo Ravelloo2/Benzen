@@ -8,9 +8,8 @@ const CreateCourse = () => {
   
   axios.defaults.baseURL = "http://localhost:3001";
 
-  const [submitMessage, setSubmitMessage] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState(false); //då en kurs blir tillagd visas ett meddelande för agtt bekräfta detta
   const [teacher, setTeacher] = useState([]);
-
 
   const [courseInfo, setCourseInfo] = useState({
     name: "",
@@ -19,10 +18,11 @@ const CreateCourse = () => {
     location: "distans",
     startDate: "",
     teacherId: "",
-    points:"",
+    points: "",
   });
 
-  
+  // Hanterar all input då kursen skapas. 
+  //i else räknar vi ut antalet points för en kurs, baserat på antalet veckor vi angett under length
   function handleChange(e) {
     if (e.target.name != "length") {
       setCourseInfo((data) => ({
@@ -39,6 +39,7 @@ const CreateCourse = () => {
   }
   function handleSubmit(event) {
     event.preventDefault();
+
     axios
       .post("/courses/createCourse", courseInfo)
       .then((res) => {
@@ -49,7 +50,7 @@ const CreateCourse = () => {
           location: "",
           startDate: "",
           teacherId: "",
-          points:"",
+          points: "",
         });
         console.log(res.data);
         setSubmitMessage(true);
@@ -60,6 +61,8 @@ const CreateCourse = () => {
       });
   }
 
+
+  //Hämtar all personal från Camerons sida vilka sedan mapas ut i en select i formet
   useEffect(async () => {
     const res = await axios.get("/personal/allPersonal");
     setTeacher(res.data);
@@ -71,24 +74,23 @@ const CreateCourse = () => {
 
   return (
     <section className="course-container">
-    <section className="course-specs">
-      <div className="course-header">
-        <h2>Lägg till ny kurs</h2>
-        <Link to="/Kurser">
-          <button type="button" className="go-back-btn course-btns">
-            Tillbaka
-          </button>
-        </Link>
-      </div>
-      {submitMessage ? (
-        <div className="submit-message">
-          <h4>Kursen har blivit tillagd.</h4>
-          <p>
-            <Link to="/Kurser">Tillbaka till Kursöversikt</Link>
-          </p>
+      <section className="course-specs">
+        <div className="course-header">
+          <h2>Lägg till ny kurs</h2>
+          <Link to="/Kurser">
+            <button type="button" className="go-back-btn course-btns">
+              Tillbaka
+            </button>
+          </Link>
         </div>
-      ) : (
-        
+        {submitMessage ? (
+          <div className="submit-message">
+            <h4>Kursen har blivit tillagd.</h4>
+            <p>
+              <Link to="/Kurser">Tillbaka till Kursöversikt</Link>
+            </p>
+          </div>
+        ) : (
           <form onSubmit={handleSubmit} className="add-course-form" noValidate>
             <label className="course-label" htmlFor="name">
               Kursnamn:
@@ -137,7 +139,7 @@ const CreateCourse = () => {
             </select>
 
             <label htmlFor="points" className="course-label">
-              Poäng = 5 per vecka 
+              Poäng = 5 per vecka
             </label>
             <p
             id="kurs"
@@ -146,15 +148,13 @@ const CreateCourse = () => {
               className="points"
               value={courseInfo.points}
               onChange={handleChange}
-            >
-         
-            </p>
+            ></p>
 
             <label htmlFor="startDate" className="course-label">
               Kursstart:
             </label>
             <input
-            id="kurs"
+              id="kurs"
               type="date"
               min="2022-04-10"
               name="startDate"
@@ -178,7 +178,7 @@ const CreateCourse = () => {
               <option>Göteborg</option>
               <option>Distans</option>
             </select>
-        
+
             <label className="course-label" htmlFor="teacher">
               Kursens lärare
             </label>
@@ -190,17 +190,17 @@ const CreateCourse = () => {
               value={courseInfo.teacherId}
               onChange={handleChange}
             >
-              {teacher.map(teachers => {
-                return (<option key={teacher._id}>{teachers.fName}</option>
-              )})}
+              {teacher.map((teachers) => {
+                return <option key={teacher._id}>{teachers.fName}</option>;
+              })}
             </select>
 
             <button type="submit" className="add-course-btn course-btns">
               Skapa Kurs
             </button>
           </form>
-      )}
-        </section>
+        )}
+      </section>
     </section>
   );
 };

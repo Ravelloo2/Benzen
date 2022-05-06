@@ -1,28 +1,27 @@
 /* Jontes */
 import React from 'react'
 import '../css/Footer.css'
-import { FaGithub,FaLinkedin,FaInstagram,FaAddressBook,FaPhone,FaMailBulk } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
+
+// Simpel footer som bara länkar till de olika komponenterna
 function Footer() {
   return (
-    <div className="footer-container">
-      <div className="social-media">
-        <a href=""><div className="content"><FaGithub/></div></a>
-        <a href=""><div className="content"><FaLinkedin/></div></a>
-        <a href=""><div className="content"><FaInstagram/></div></a>
-     </div>
-      <div className="contact">
-        <a href=""><div className="content"><FaAddressBook/></div></a>
-        <a href=""><div className="content"><FaPhone/></div></a>
-        <a href=""><div className="content"><FaMailBulk/></div></a>
+    <>
+    <div className="footer">
+      <div className="footer-container">
+      <div className="footer-links">
+      <Link className="links" to="/utbildningar">UTBILDNINGAR</Link>
+      <Link className="links" to="/kurser">KURSER</Link>
+      <Link className="links" to="/personal">PERSONAL</Link>
+      <Link className="links" to="/ansoka">ANSÖKA</Link>
+      <Link className="links" to="/kontakta">KONTAKTA</Link>
+      <Link className="links" to="/kontakta">JOBB</Link>
+      </div>
       </div>
     </div>
+    </>
   )
 }
 
 export default Footer
-// <footer>
-// <p>Här i footern får vi komma på något roligt och relevant att ha</p>
-// <p>Och självklart fixa styling sen. 
-// Det här ligger bara för att vi ska se den och komma ihåg att fixa :)</p>
-// </footer>
