@@ -2,66 +2,73 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
-function UpdateApplication({ _id, closeHandler}) {
+function UpdateApplication({ _id, closeHandler }) {
 
     axios.defaults.baseURL = "http://localhost:3001/ansoka/";
-
     const [Educations, setEducations] = useState([]);
-
-    
-    const [ApplicationAPI, setApplicationAPI] = useState([]);
-
-    useEffect(() => {
-        axios.get(`/showOneApplication/${_id}`)
-            .then((res) => {
-                console.log(res.data);
-                setApplicationAPI(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
-
     const [applicationInfo, setApplicationInfo] = useState({
-        fName: ApplicationAPI.fName,
-        lName: ApplicationAPI.lName,
-        email: ApplicationAPI.email,
-        utbildning: ApplicationAPI.utbildning,
+        fName: "",
+        lName: "",
+        email: "",
+        utbildning: "",
     });
 
-
-    const handleSubmit = (e) => {
-      console.log(applicationInfo)
-      e.preventDefault();
-      axios
-        .patch(`/updateApplication/${_id}`, applicationInfo)
-        .then((res) => {
-          setApplicationInfo({
-            name: "",
-            educationLeader: "",
-            length: "",
-            place: "",
-            points: "",
-            courses: [],
-            description: "",
-            
-          });
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    };
-    const onAnyChange = (e) => {
-      setApplicationInfo((data) => ({ ...data, [e.target.name]: e.target.value }));
-    };
-
     useEffect(async () => {
-      const res = await axios.get("/AllEducation");
-      setEducations(res.data);
+        let res = await axios.get(`/showOneApplication/${_id}`)
+        console.log(res.data)
+        setApplicationInfo({
+            fName: res.data.Fname,
+            lName: res.data.Lname,
+            email: res.data.Email,
+            utbildning: res.data.Utbildningar,
+        })
+        // axios.get(/showOneApplication/${_id})
+        //     .then((res) => {
+        //         console.log(res.data);
+        //         setApplicationInfo({
+        //             fName: res.data.Fname,
+        //             lName: res.data.Lname,
+        //             email: res.data.Email,
+        //             utbildning: res.data.Utbildningar,
+        //         });
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
+    }, []);
+    useEffect(async () => {
+        const res = await axios.get("/AllEducation");
+        setEducations(res.data);
     }, []);
 
-    console.log('!!!!' , applicationInfo)
+    const onAnyChange = (e) => {
+        setApplicationInfo((data) => ({ ...data, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = (e) => {
+        console.log("this", applicationInfo)
+        e.preventDefault();
+        axios
+            .patch(`/updateApplication/${_id}`, applicationInfo)
+            .then((res) => {
+                setApplicationInfo({
+                    fName: "",
+                    lName: "",
+                    email: "",
+                    utbildning: "",
+
+                });
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    };
+
+
+
+
+
 
     return (
         <form
@@ -81,7 +88,7 @@ function UpdateApplication({ _id, closeHandler}) {
                     name="fName"
                     className="input"
                     onChange={onAnyChange}
-                    value={ApplicationAPI.fName}
+                    value={applicationInfo.fName}
                 >
                 </input>
 
@@ -91,7 +98,7 @@ function UpdateApplication({ _id, closeHandler}) {
                     name="lName"
                     className="input"
                     onChange={onAnyChange}
-                    value={ApplicationAPI.lName}
+                    value={applicationInfo.lName}
                 />
 
                 <label htmlFor='email' className='label'>Ny mailadress:</label>
@@ -100,15 +107,16 @@ function UpdateApplication({ _id, closeHandler}) {
                     name="email"
                     className="input"
                     onChange={onAnyChange}
-                    value={ApplicationAPI.email}
+                    value={applicationInfo.email}
                 />
                 <select
                     name="utbildning"
                     type="select"
                     onChange={onAnyChange}
+                    value={applicationInfo.utbildning}
                 >
                     <option value='' disabled>Välj Utbildning:</option>
-                    {Educations.map( x => {return (<option key={x._id}>{x.name}</option> )})} </select>
+                    {Educations.map(x => { return (<option key={x._id}>{x.name}</option>) })} </select>
                 <button type="submit" className="updatePersonalBtn">Klar</button>
             </div>
         </form>
